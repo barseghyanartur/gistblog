@@ -1,5 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Dev Notes - Tech</title><link href="/gist-blog/" rel="alternate"/><link href="/gist-blog/feeds/tech.atom.xml" rel="self"/><id>/gist-blog/</id><updated>2026-04-03T01:08:00+00:00</updated><entry><title>CudaText installation and config for SublimeText users</title><link href="/gist-blog/posts/2026/04/cudatext-installation-and-config-for-sublimetext-users/" rel="alternate"/><published>2026-04-03T01:08:00+00:00</published><updated>2026-04-02T23:19:41.357971+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/cudatext-installation-and-config-for-sublimetext-users/</id><summary type="html">&lt;p&gt;&lt;a class="reference external" href="https://github.com/Alexey-T/CudaText"&gt;https://github.com/Alexey-T/CudaText&lt;/a&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Dev Notes - Tech</title><link href="/gist-blog/" rel="alternate"/><link href="/gist-blog/feeds/tech.atom.xml" rel="self"/><id>/gist-blog/</id><updated>2026-04-03T14:00:00+00:00</updated><entry><title>Log4Brains images support</title><link href="/gist-blog/posts/2026/04/log4brains-images-support/" rel="alternate"/><published>2026-04-03T14:00:00+00:00</published><updated>2026-04-02T23:30:22.675441+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/log4brains-images-support/</id><summary type="html">&lt;p&gt;&lt;a class="reference external" href="https://github.com/thomvaill/log4brains"&gt;https://github.com/thomvaill/log4brains&lt;/a&gt;&lt;/p&gt;
+&lt;div class="section" id="directory-structure"&gt;
+&lt;h2&gt;Directory structure&lt;/h2&gt;
+&lt;pre class="literal-block"&gt;
+docs
+├── adr
+│   ├── 20240416-architecture-v2.md
+│   ├── 20240916-llm-choice.md
+│   ├── 20240916-rag-framework-choice.md
+│   ├── index.md
+│   └── template.md
+└── l4b-static
+    └── images
+        ├── favicon-16x16.png
+        └── favicon-32x32.png
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="makefile"&gt;
+&lt;h2&gt;Makefile&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Filename: Makefile&lt;/em&gt;&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+add-adr:
+    docker run --rm -ti -v $$(pwd):/workdir -p 4004:4004 thomvaill/log4brains adr new $(ARGS)
+
+preview:
+    docker run --rm -ti -v …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;a class="reference external" href="https://github.com/thomvaill/log4brains"&gt;https://github.com/thomvaill/log4brains&lt;/a&gt;&lt;/p&gt;
+&lt;div class="section" id="directory-structure"&gt;
+&lt;h2&gt;Directory structure&lt;/h2&gt;
+&lt;pre class="literal-block"&gt;
+docs
+├── adr
+│   ├── 20240416-architecture-v2.md
+│   ├── 20240916-llm-choice.md
+│   ├── 20240916-rag-framework-choice.md
+│   ├── index.md
+│   └── template.md
+└── l4b-static
+    └── images
+        ├── favicon-16x16.png
+        └── favicon-32x32.png
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="makefile"&gt;
+&lt;h2&gt;Makefile&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Filename: Makefile&lt;/em&gt;&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+add-adr:
+    docker run --rm -ti -v $$(pwd):/workdir -p 4004:4004 thomvaill/log4brains adr new $(ARGS)
+
+preview:
+    docker run --rm -ti -v $$(pwd):/workdir -p 4004:4004 thomvaill/log4brains preview $(ARGS)
+
+build:
+    docker run --rm -ti -v $$(pwd):/workdir -p 4004:4004 thomvaill/log4brains build $(ARGS)
+    cp -R docs/l4b-static/* .log4brains/out/l4b-static/
+
+# Serve the built docs on port 5002
+serve:
+    cd .log4brains/out &amp;amp;&amp;amp; python3 -m http.server 5002
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="github-action"&gt;
+&lt;h2&gt;GitHub Action&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Filename: .github/workflows/publish-log4brains.yml&lt;/em&gt;&lt;/p&gt;
+&lt;pre class="code yaml literal-block"&gt;
+&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l-Scalar-Plain"&gt;Publish Log4brains&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="nt"&gt;on&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="nt"&gt;push&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;branches&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l-Scalar-Plain"&gt;main&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="nt"&gt;workflow_dispatch&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p-Indicator"&gt;{}&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="nt"&gt;jobs&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="nt"&gt;pre-commit&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;runs-on&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l-Scalar-Plain"&gt;ubuntu-latest&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;if&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l-Scalar-Plain"&gt;${{ !github.event.pull_request.draft }}&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;steps&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;uses&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l-Scalar-Plain"&gt;actions/checkout&amp;#64;v4&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;uses&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l-Scalar-Plain"&gt;actions/setup-python&amp;#64;v4&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;with&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+          &lt;/span&gt;&lt;span class="nt"&gt;python-version&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;'3.10'&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;uses&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l-Scalar-Plain"&gt;pre-commit/action&amp;#64;v3.0.0&lt;/span&gt;&lt;span class="w"&gt;
+
+  &lt;/span&gt;&lt;span class="nt"&gt;build-and-publish&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;runs-on&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l-Scalar-Plain"&gt;ubuntu-latest&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;steps&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l-Scalar-Plain"&gt;Checkout&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;uses&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l-Scalar-Plain"&gt;actions/checkout&amp;#64;v4&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;with&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+          &lt;/span&gt;&lt;span class="nt"&gt;persist-credentials&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l-Scalar-Plain"&gt;false&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;# required by JamesIves/github-pages-deploy-action&lt;/span&gt;&lt;span class="w"&gt;
+          &lt;/span&gt;&lt;span class="nt"&gt;fetch-depth&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l-Scalar-Plain"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;# required by Log4brains to work correctly (needs the whole Git history)&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l-Scalar-Plain"&gt;Install Node&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;uses&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l-Scalar-Plain"&gt;actions/setup-node&amp;#64;v3&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;with&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+          &lt;/span&gt;&lt;span class="nt"&gt;node-version&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;quot;16&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+      &lt;/span&gt;&lt;span class="p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l-Scalar-Plain"&gt;Install and Build Log4brains&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;run&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p-Indicator"&gt;|&lt;/span&gt;&lt;span class="w"&gt;
+          &lt;/span&gt;&lt;span class="no"&gt;npm install -g log4brains&lt;/span&gt;&lt;span class="w"&gt;
+          &lt;/span&gt;&lt;span class="no"&gt;log4brains build&lt;/span&gt;&lt;span class="w"&gt;
+          &lt;/span&gt;&lt;span class="no"&gt;cp -R docs/l4b-static/* .log4brains/out/l4b-static/&lt;/span&gt;&lt;span class="w"&gt;
+
+      &lt;/span&gt;&lt;span class="p-Indicator"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l-Scalar-Plain"&gt;Deploy to GitHub Pages&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;uses&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l-Scalar-Plain"&gt;peaceiris/actions-gh-pages&amp;#64;v3&lt;/span&gt;&lt;span class="w"&gt;
+        &lt;/span&gt;&lt;span class="nt"&gt;with&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+          &lt;/span&gt;&lt;span class="nt"&gt;github_token&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l-Scalar-Plain"&gt;${{ secrets.GITHUB_TOKEN }}&lt;/span&gt;&lt;span class="w"&gt;
+          &lt;/span&gt;&lt;span class="nt"&gt;publish_dir&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l-Scalar-Plain"&gt;.log4brains/out&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="usage-example"&gt;
+&lt;h2&gt;Usage example&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Filename: docs/adr/index.md&lt;/em&gt;&lt;/p&gt;
+&lt;pre class="code markdown literal-block"&gt;
+&lt;span class="gh"&gt;# Architecture knowledge base&lt;/span&gt;
+&lt;span class="w"&gt;
+&lt;/span&gt;Welcome 👋 to the architecture knowledge base of Project ![&lt;span class="nt"&gt;Project&lt;/span&gt;](&lt;span class="na"&gt;/l4b-static/images/favicon-16x16.png&lt;/span&gt;).&lt;span class="w"&gt;
+&lt;/span&gt;You will find here all the Architecture Decision Records (ADR) of the project.
+&lt;/pre&gt;
+&lt;/div&gt;
+</content><category term="Tech"/><category term="ADRs"/><category term="log4brains"/></entry><entry><title>CudaText installation and config for SublimeText users</title><link href="/gist-blog/posts/2026/04/cudatext-installation-and-config-for-sublimetext-users/" rel="alternate"/><published>2026-04-03T01:08:00+00:00</published><updated>2026-04-02T23:30:22.949755+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/cudatext-installation-and-config-for-sublimetext-users/</id><summary type="html">&lt;p&gt;&lt;a class="reference external" href="https://github.com/Alexey-T/CudaText"&gt;https://github.com/Alexey-T/CudaText&lt;/a&gt;&lt;/p&gt;
 &lt;div class="section" id="macos-releases"&gt;
 &lt;h2&gt;macOS releases&lt;/h2&gt;
 &lt;p&gt;&lt;em&gt;Go for aarch64 releases&lt;/em&gt;&lt;/p&gt;
@@ -89,7 +207,7 @@ alias cudatext=&amp;quot;/Applications/CudaText.app/Contents/MacOS/cudatext&amp;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-</content><category term="Tech"/><category term="IDE"/><category term="text-editor"/><category term="CudaText"/></entry><entry><title>Useful plugins for VSCode</title><link href="/gist-blog/posts/2026/04/useful-plugins-for-vscode/" rel="alternate"/><published>2026-04-03T01:02:00+00:00</published><updated>2026-04-02T23:19:41.028972+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/useful-plugins-for-vscode/</id><summary type="html">&lt;!-- References: --&gt;
+</content><category term="Tech"/><category term="IDE"/><category term="text-editor"/><category term="CudaText"/></entry><entry><title>Useful plugins for VSCode</title><link href="/gist-blog/posts/2026/04/useful-plugins-for-vscode/" rel="alternate"/><published>2026-04-03T01:02:00+00:00</published><updated>2026-04-02T23:30:22.864023+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/useful-plugins-for-vscode/</id><summary type="html">&lt;!-- References: --&gt;
 &lt;ol class="arabic simple"&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=Tyriar.sort-lines"&gt;Sort lines&lt;/a&gt;: Sort lines of text for VS Code&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=nicohlr.pycharm"&gt;PyCharm Theme&lt;/a&gt;: PyCharm Theme for VS Code&lt;/li&gt;
@@ -106,7 +224,7 @@ alias cudatext=&amp;quot;/Applications/CudaText.app/Contents/MacOS/cudatext&amp;
 &lt;li&gt;&lt;a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=tamasfe.even-better-toml"&gt;Even better TOML&lt;/a&gt;: A TOML language support for VS Code&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=trond-snekvik.simple-rst"&gt;reStructuredText Syntax highlighting&lt;/a&gt;: Syntax highlighting and non-intrusive section navigation for reStructuredText.&lt;/li&gt;
 &lt;/ol&gt;
-</content><category term="Tech"/><category term="python"/><category term="vs-code"/><category term="vs-code-plugins"/></entry><entry><title>open-webui setup on macOS</title><link href="/gist-blog/posts/2026/04/open-webui-setup-on-macos/" rel="alternate"/><published>2026-04-03T00:21:00+00:00</published><updated>2026-04-02T23:19:40.841973+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/open-webui-setup-on-macos/</id><summary type="html">&lt;p&gt;Here’s how to set up Open WebUI as a launchd service on macOS.&lt;/p&gt;
+</content><category term="Tech"/><category term="python"/><category term="vs-code"/><category term="vs-code-plugins"/></entry><entry><title>open-webui setup on macOS</title><link href="/gist-blog/posts/2026/04/open-webui-setup-on-macos/" rel="alternate"/><published>2026-04-03T00:21:00+00:00</published><updated>2026-04-02T23:30:22.771082+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/open-webui-setup-on-macos/</id><summary type="html">&lt;p&gt;Here’s how to set up Open WebUI as a launchd service on macOS.&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
 &lt;div class="section" id="prerequisites"&gt;
 &lt;h2&gt;Prerequisites&lt;/h2&gt;
@@ -255,4 +373,12 @@ Progressive Web Apps. Click the &lt;tt class="docutils literal"&gt;Install&lt;/t
 to run Open WebUI as a standalone application.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
-</content><category term="Tech"/><category term="python"/><category term="open-webui"/><category term="macos"/></entry></feed>
+</content><category term="Tech"/><category term="python"/><category term="open-webui"/><category term="macos"/></entry><entry><title>Hide *.py,cover files from IDE</title><link href="/gist-blog/posts/2026/04/hide-pycover-files-from-ide/" rel="alternate"/><published>2026-04-02T14:00:00+00:00</published><updated>2026-04-02T23:30:23.029606+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-02:/gist-blog/posts/2026/04/hide-pycover-files-from-ide/</id><content type="html">&lt;div class="section" id="vscode"&gt;
+&lt;h2&gt;VSCode&lt;/h2&gt;
+&lt;p&gt;Settings -&amp;gt; Text Editor -&amp;gt; Files -&amp;gt; Add Pattern: Add &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;**/*.py,cover&lt;/span&gt;&lt;/tt&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="pycharm"&gt;
+&lt;h2&gt;PyCharm&lt;/h2&gt;
+&lt;p&gt;Editor -&amp;gt; File Types -&amp;gt; Ignored Files and Folders : Add &lt;tt class="docutils literal"&gt;*.py,cover&lt;/tt&gt;&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Tech"/><category term="python"/><category term="vs-code"/><category term="pycharm"/></entry></feed>

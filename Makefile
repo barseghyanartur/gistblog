@@ -40,7 +40,7 @@ fetch:
 
 build: fetch
 	@echo "Building site with Pelican..."
-	uv run $(PELICAN) -s $(CONFFILE)
+	uv run env SITEURL='' $(PELICAN) -s $(CONFFILE)
 
 clean:
 	rm -rf output/
@@ -49,7 +49,7 @@ clean:
 serve: build
 	@echo "🚀 Serving built site at http://localhost:8000"
 	@echo "Press Ctrl+C to stop"
-	uv run python -m http.server 8000 --directory output
+	uv run env SITEURL='' python -m http.server 8000 --directory output
 
 dev: fetch
 	@echo "🚀 Starting DEV mode with live reload"
@@ -57,4 +57,4 @@ dev: fetch
 	@echo "→ Server running at http://localhost:8000"
 	@echo ""
 	@echo "Tip: In another terminal run 'make fetch' to pull new Gists while dev server is running."
-	uv run $(PELICAN) -s $(CONFFILE) --autoreload --listen
+	uv run env SITEURL='' $(PELICAN) -s $(CONFFILE) --autoreload --listen

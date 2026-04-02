@@ -1,6 +1,8 @@
+import os
+
 AUTHOR = "Artur Barseghyan"
 SITENAME = "Dev Notes"
-SITEURL = "/gist-blog"
+SITEURL = os.environ.get("SITEURL", "/gist-blog")
 
 PATH = "content"
 # THEME = "simple"
@@ -19,8 +21,8 @@ PAGE_SAVE_AS = "pages/{slug}/index.html"
 STATIC_PATHS = ["static"]
 
 MENUITEMS = (
-    ("Home", "/gist-blog/"),
-    ("Search", "/gist-blog/pages/search/"),
+    ("Home", "/"),
+    # ("Search", "/pages/search/"),
 )
 
 SUMMARY_MAX_LENGTH = 50

@@ -14,5 +14,13 @@
     "category": "Uncategorized",
     "tags": [],
     "content": "Useful plugins for VSCode ========================= :date: 2026-04-03 01:02 :category: Tech :tags: python, vs-code, vs-code-plugins  .. References:  .. _Sort lines: https://marketplace.visualstudio.com/items?itemName=Tyriar.sort-lines .. _PyCharm Theme: https://marketplace.visualstudio.com/items?itemName=nicohlr.pycharm .. _MarkdownLint: https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint .. _Makefile Tools: https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools .. _Pylance: https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance .. _Even better TOML: https://marketplace.visualstudio.com/items?itemName=tamasfe.even-better-toml .. _reStructuredText Syntax highlighting: https://marketplace.visualstudio.com/items?itemNa..."
+  },
+  {
+    "title": "CudaText installation and config for SublimeText users",
+    "url": "posts/2026/04/cudatext-installation-and-config-for-sublimetext-users/",
+    "date": "2026-04-03",
+    "category": "Uncategorized",
+    "tags": [],
+    "content": "CudaText installation and config for SublimeText users ====================================================== :date: 2026-04-03 01:08 :category: Tech :tags: IDE, text-editor, CudaText  https://github.com/Alexey-T/CudaText  macOS releases -------------- *Go for aarch64 releases*  https://github.com/Alexey-T/CudaText/discussions/5590#discussioncomment-15352982  Tweaks ------ Post-installation ~~~~~~~~~~~~~~~~~ .. code-block:: sh      xattr -cr /Applications/CudaText.app  .zshrc ~~~~~~ .. code-block:: text      # ----------------------------------------------------------------------------     # CudaText     # ----------------------------------------------------------------------------     alias cudatext=\"/Applications/CudaText.app/Contents/MacOS/cudatext\"  Plugins list ------------ https://gi..."
   }
 ]

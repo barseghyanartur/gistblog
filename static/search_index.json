@@ -1,0 +1,10 @@
+[
+  {
+    "title": "open-webui setup on macOS",
+    "url": "posts/2026/04/open-webui-setup-on-macos/",
+    "date": "2026-04-03",
+    "category": "Uncategorized",
+    "tags": [],
+    "content": "open-webui setup on macOS ========================= :date: 2026-04-03 00:21 :category: Tech :tags: python, open-webui, macos      Here’s how to set up Open WebUI as a launchd service on macOS.  ----  Prerequisites -------------  First, install Open WebUI via uv if you haven’t already:  .. code:: bash     uv tool install open-webui  ----  1. Create the plist file ------------------------  .. code:: sh     cat > ~/Library/LaunchAgents/com.user.openwebui.plist << EOF    <?xml version=\"1.0\" encoding=\"UTF-8\"?>    <!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">    <plist version=\"1.0\"><dict>      <key>Label</key><string>com.user.openwebui</string>      <key>ProgramArguments</key><array>        <string>$HOME/.local/share/uv/tools/open-webui/b..."
+  }
+]

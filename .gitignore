@@ -1,0 +1,7 @@
+content/
+!content/pages/
+!content/pages/**
+output/
+__pycache__/
+*.pyc
+*.pyo

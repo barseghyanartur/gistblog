@@ -437,3 +437,27 @@ li:first-child .hentry, #content > .hentry {border: 0; margin: 0;}
 
 #add-comment input[type='submit'] {float: right; margin: 0 .5em;}
 #add-comment * {margin-bottom: .5em;}
+
+/* Custom minimal metadata for list views */
+.post-meta {
+    font-size: 0.75rem;
+    color: #888;
+    margin: 0.5rem 0;
+    text-align: left;
+}
+.post-meta a {
+    color: #666;
+    text-decoration: none;
+}
+.post-meta a:hover {
+    text-decoration: underline;
+}
+footer.post-info.minimal {
+    margin: 0.5rem 0;
+    padding: 0;
+    background: none;
+    border: none;
+    font-size: 0.75rem;
+    color: #888;
+    float: none;
+}

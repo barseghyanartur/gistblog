@@ -29,13 +29,11 @@ MENUITEMS = (
 
 SUMMARY_MAX_LENGTH = 50
 
-USERNAME = "barseghyanartur"  # ← MUST match the USERNAME in fetch_gists.py
+USERNAME = "barseghyanartur"  # <- MUST match the USERNAME in fetch_gists.py
 
 
 def process_article_metadata(generator):
     """Attach optional :image: preview + :summary: to listings + add Gist link to full posts."""
-    # Access the articles through the generator's context
-    # In article_generator_finalized, generator is the ArticlesGenerator
     articles = generator.context.get("articles", [])
 
     for article in articles:
@@ -60,27 +58,32 @@ def process_article_metadata(generator):
             )
 
         # 4. Use :summary: if provided, otherwise fall back to default + prepend image
-        # get_summary is memoized, so we must NOT call it before setting _summary
-        # Check metadata directly (not via get_summary())
-        if "summary" in article.metadata and article.metadata["summary"].strip():
-            # Custom :summary: field exists
-            article._summary = preview_html + article.metadata["summary"].strip()
+        # get_summary returns functools.partial wrapping a memoized decorator
+        # The memoized cache key is (self, siteurl) since the signature is get_summary(self, siteurl)
+        has_custom_summary = (
+            "summary" in article.metadata and article.metadata["summary"].strip()
+        )
+
+        get_summary_method = article.get_summary
+        memoized_obj = get_summary_method.func.__self__
+        cache_key = (article, article.get_siteurl())
+
+        if has_custom_summary:
+            new_summary = preview_html + article.metadata["summary"].strip()
+            memoized_obj.cache[cache_key] = new_summary
         elif preview_html:
-            # No custom summary but have preview image - need default
-            # First set metadata so get_summary can find it, then set _summary
-            # by calling get_summary which will now read from metadata
-            # But we must avoid caching... let's compute manually
             from pelican.utils import truncate_html_words
 
             content = article.content
             max_len = article.settings.get("SUMMARY_MAX_LENGTH")
             if max_len is not None:
                 suffix = article.settings.get("SUMMARY_END_SUFFIX", "...")
-                article._summary = preview_html + truncate_html_words(
+                new_summary = preview_html + truncate_html_words(
                     content, max_len, suffix
                 )
             else:
-                article._summary = preview_html + content
+                new_summary = preview_html + content
+            memoized_obj.cache[cache_key] = new_summary
 
         # 5. Append Gist link ONLY to the full rendered post (not listings)
         if article.gist_url:

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Dev Notes</title><link href="/gist-blog/" rel="alternate"/><link href="/gist-blog/feeds/all.atom.xml" rel="self"/><id>/gist-blog/</id><updated>2026-04-03T14:00:00+00:00</updated><entry><title>Log4Brains images support</title><link href="/gist-blog/posts/2026/04/log4brains-images-support/" rel="alternate"/><published>2026-04-03T14:00:00+00:00</published><updated>2026-04-02T23:30:22.675441+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/log4brains-images-support/</id><summary type="html">&lt;p&gt;&lt;a class="reference external" href="https://github.com/thomvaill/log4brains"&gt;https://github.com/thomvaill/log4brains&lt;/a&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Dev Notes</title><link href="/gist-blog/" rel="alternate"/><link href="/gist-blog/feeds/all.atom.xml" rel="self"/><id>/gist-blog/</id><updated>2026-04-03T14:00:00+00:00</updated><entry><title>Log4Brains images support</title><link href="/gist-blog/posts/2026/04/log4brains-images-support/" rel="alternate"/><published>2026-04-03T14:00:00+00:00</published><updated>2026-04-03T00:03:13.857470+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/log4brains-images-support/</id><summary type="html">&lt;p&gt;&lt;a class="reference external" href="https://github.com/thomvaill/log4brains"&gt;https://github.com/thomvaill/log4brains&lt;/a&gt;&lt;/p&gt;
 &lt;div class="section" id="directory-structure"&gt;
 &lt;h2&gt;Directory structure&lt;/h2&gt;
 &lt;pre class="literal-block"&gt;
@@ -117,7 +117,7 @@ serve:
 &lt;/span&gt;You will find here all the Architecture Decision Records (ADR) of the project.
 &lt;/pre&gt;
 &lt;/div&gt;
-</content><category term="Tech"/><category term="ADRs"/><category term="log4brains"/></entry><entry><title>CudaText installation and config for SublimeText users</title><link href="/gist-blog/posts/2026/04/cudatext-installation-and-config-for-sublimetext-users/" rel="alternate"/><published>2026-04-03T01:08:00+00:00</published><updated>2026-04-02T23:30:22.949755+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/cudatext-installation-and-config-for-sublimetext-users/</id><summary type="html">&lt;p&gt;&lt;a class="reference external" href="https://github.com/Alexey-T/CudaText"&gt;https://github.com/Alexey-T/CudaText&lt;/a&gt;&lt;/p&gt;
+</content><category term="Tech"/><category term="ADRs"/><category term="log4brains"/></entry><entry><title>CudaText installation and config for SublimeText users</title><link href="/gist-blog/posts/2026/04/cudatext-installation-and-config-for-sublimetext-users/" rel="alternate"/><published>2026-04-03T01:08:00+00:00</published><updated>2026-04-03T00:03:14.453293+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/cudatext-installation-and-config-for-sublimetext-users/</id><summary type="html">&lt;p&gt;&lt;a class="reference external" href="https://github.com/Alexey-T/CudaText"&gt;https://github.com/Alexey-T/CudaText&lt;/a&gt;&lt;/p&gt;
 &lt;div class="section" id="macos-releases"&gt;
 &lt;h2&gt;macOS releases&lt;/h2&gt;
 &lt;p&gt;&lt;em&gt;Go for aarch64 releases&lt;/em&gt;&lt;/p&gt;
@@ -207,7 +207,7 @@ alias cudatext=&amp;quot;/Applications/CudaText.app/Contents/MacOS/cudatext&amp;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-</content><category term="Tech"/><category term="IDE"/><category term="text-editor"/><category term="CudaText"/></entry><entry><title>Useful plugins for VSCode</title><link href="/gist-blog/posts/2026/04/useful-plugins-for-vscode/" rel="alternate"/><published>2026-04-03T01:02:00+00:00</published><updated>2026-04-02T23:30:22.864023+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/useful-plugins-for-vscode/</id><summary type="html">&lt;!-- References: --&gt;
+</content><category term="Tech"/><category term="IDE"/><category term="text-editor"/><category term="CudaText"/></entry><entry><title>Useful plugins for VSCode</title><link href="/gist-blog/posts/2026/04/useful-plugins-for-vscode/" rel="alternate"/><published>2026-04-03T01:02:00+00:00</published><updated>2026-04-03T00:03:14.171489+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/useful-plugins-for-vscode/</id><summary type="html">&lt;!-- References: --&gt;
 &lt;ol class="arabic simple"&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=Tyriar.sort-lines"&gt;Sort lines&lt;/a&gt;: Sort lines of text for VS Code&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=nicohlr.pycharm"&gt;PyCharm Theme&lt;/a&gt;: PyCharm Theme for VS Code&lt;/li&gt;
@@ -224,7 +224,7 @@ alias cudatext=&amp;quot;/Applications/CudaText.app/Contents/MacOS/cudatext&amp;
 &lt;li&gt;&lt;a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=tamasfe.even-better-toml"&gt;Even better TOML&lt;/a&gt;: A TOML language support for VS Code&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=trond-snekvik.simple-rst"&gt;reStructuredText Syntax highlighting&lt;/a&gt;: Syntax highlighting and non-intrusive section navigation for reStructuredText.&lt;/li&gt;
 &lt;/ol&gt;
-</content><category term="Tech"/><category term="python"/><category term="vs-code"/><category term="vs-code-plugins"/></entry><entry><title>open-webui setup on macOS</title><link href="/gist-blog/posts/2026/04/open-webui-setup-on-macos/" rel="alternate"/><published>2026-04-03T00:21:00+00:00</published><updated>2026-04-02T23:30:22.771082+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/open-webui-setup-on-macos/</id><summary type="html">&lt;p&gt;Here’s how to set up Open WebUI as a launchd service on macOS.&lt;/p&gt;
+</content><category term="Tech"/><category term="python"/><category term="vs-code"/><category term="vs-code-plugins"/></entry><entry><title>open-webui setup on macOS</title><link href="/gist-blog/posts/2026/04/open-webui-setup-on-macos/" rel="alternate"/><published>2026-04-03T00:21:00+00:00</published><updated>2026-04-03T00:03:14.021084+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/open-webui-setup-on-macos/</id><summary type="html">&lt;p&gt;Here’s how to set up Open WebUI as a launchd service on macOS.&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
 &lt;div class="section" id="prerequisites"&gt;
 &lt;h2&gt;Prerequisites&lt;/h2&gt;
@@ -373,7 +373,101 @@ Progressive Web Apps. Click the &lt;tt class="docutils literal"&gt;Install&lt;/t
 to run Open WebUI as a standalone application.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
-</content><category term="Tech"/><category term="python"/><category term="open-webui"/><category term="macos"/></entry><entry><title>Hide *.py,cover files from IDE</title><link href="/gist-blog/posts/2026/04/hide-pycover-files-from-ide/" rel="alternate"/><published>2026-04-02T14:00:00+00:00</published><updated>2026-04-02T23:30:23.029606+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-02:/gist-blog/posts/2026/04/hide-pycover-files-from-ide/</id><content type="html">&lt;div class="section" id="vscode"&gt;
+</content><category term="Tech"/><category term="python"/><category term="open-webui"/><category term="macos"/></entry><entry><title>Make scrollbars always visible in Vivaldi browser using Stylus</title><link href="/gist-blog/posts/2026/04/make-scrollbars-always-visible-in-vivaldi-browser-using-stylus/" rel="alternate"/><published>2026-04-03T00:03:15.230158+00:00</published><updated>2026-04-03T00:03:15.230158+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/make-scrollbars-always-visible-in-vivaldi-browser-using-stylus/</id><summary type="html">&lt;blockquote&gt;
+&lt;table class="docutils field-list" frame="void" rules="none"&gt;
+&lt;col class="field-name" /&gt;
+&lt;col class="field-body" /&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr class="field"&gt;&lt;th class="field-name"&gt;date:&lt;/th&gt;&lt;td class="field-body"&gt;2026-04-03 01:42&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="field"&gt;&lt;th class="field-name"&gt;category:&lt;/th&gt;&lt;td class="field-body"&gt;Tech&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="field"&gt;&lt;th class="field-name"&gt;tags:&lt;/th&gt;&lt;td class="field-body"&gt;vivaldi, browsers, tweaks&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/blockquote&gt;
+&lt;!-- References --&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;Install &lt;a class="reference external" href="https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne"&gt;Stylus&lt;/a&gt; Extension:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Go to the Chrome Web Store and search for &lt;a class="reference external" href="https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne"&gt;Stylus&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Install the &lt;a class="reference external" href="https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne"&gt;Stylus&lt;/a&gt; extension.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Create a New Style in &lt;a class="reference external" href="https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne"&gt;Stylus&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;Click on the &lt;a class="reference external" href="https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne"&gt;Stylus&lt;/a&gt; icon in your browser toolbar.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Click on Manage &amp;gt; Write new style.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Add the …&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;blockquote&gt;
+&lt;table class="docutils field-list" frame="void" rules="none"&gt;
+&lt;col class="field-name" /&gt;
+&lt;col class="field-body" /&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr class="field"&gt;&lt;th class="field-name"&gt;date:&lt;/th&gt;&lt;td class="field-body"&gt;2026-04-03 01:42&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="field"&gt;&lt;th class="field-name"&gt;category:&lt;/th&gt;&lt;td class="field-body"&gt;Tech&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="field"&gt;&lt;th class="field-name"&gt;tags:&lt;/th&gt;&lt;td class="field-body"&gt;vivaldi, browsers, tweaks&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/blockquote&gt;
+&lt;!-- References --&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;Install &lt;a class="reference external" href="https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne"&gt;Stylus&lt;/a&gt; Extension:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Go to the Chrome Web Store and search for &lt;a class="reference external" href="https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne"&gt;Stylus&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Install the &lt;a class="reference external" href="https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne"&gt;Stylus&lt;/a&gt; extension.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Create a New Style in &lt;a class="reference external" href="https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne"&gt;Stylus&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;Click on the &lt;a class="reference external" href="https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne"&gt;Stylus&lt;/a&gt; icon in your browser toolbar.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Click on Manage &amp;gt; Write new style.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Add the following CSS code to make scrollbars always visible:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c"&gt;/* Always show vertical scrollbar */&lt;/span&gt;
+&lt;span class="nt"&gt;html&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;overflow-y&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;scroll&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="cp"&gt;!important&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="c"&gt;/* Always show horizontal scrollbar */&lt;/span&gt;
+&lt;span class="nt"&gt;html&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;overflow-x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;scroll&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="cp"&gt;!important&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="c"&gt;/* Force scrollbar visibility for all elements */&lt;/span&gt;
+&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt;&lt;span class="nd"&gt;-webkit-scrollbar&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c"&gt;/* Set the width for vertical scrollbars */&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;height&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;/* Set the height for horizontal scrollbars */&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kp"&gt;-webkit-&lt;/span&gt;&lt;span class="k"&gt;appearance&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;none&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt;&lt;span class="nd"&gt;-webkit-scrollbar-thumb&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;background-color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;rgba&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;/* Customize the color of the scrollbar thumb */&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;border-radius&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;/* Customize the radius */&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;border&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;solid&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;rgba&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;/* Adjust border if needed */&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt;&lt;span class="nd"&gt;-webkit-scrollbar-track&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;background-color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;rgba&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;0.1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;/* Customize the background of the scrollbar track */&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Save and Apply the Style:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Give your style a name, for example, &lt;cite&gt;Always Show Scrollbars&lt;/cite&gt;.&lt;/li&gt;
+&lt;li&gt;Save and enable the style.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</content><category term="misc"/></entry><entry><title>Hide *.py,cover files from IDE</title><link href="/gist-blog/posts/2026/04/hide-pycover-files-from-ide/" rel="alternate"/><published>2026-04-02T14:00:00+00:00</published><updated>2026-04-03T00:03:14.702150+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-02:/gist-blog/posts/2026/04/hide-pycover-files-from-ide/</id><content type="html">&lt;div class="section" id="vscode"&gt;
 &lt;h2&gt;VSCode&lt;/h2&gt;
 &lt;p&gt;Settings -&amp;gt; Text Editor -&amp;gt; Files -&amp;gt; Add Pattern: Add &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;**/*.py,cover&lt;/span&gt;&lt;/tt&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -381,4 +475,208 @@ to run Open WebUI as a standalone application.&lt;/li&gt;
 &lt;h2&gt;PyCharm&lt;/h2&gt;
 &lt;p&gt;Editor -&amp;gt; File Types -&amp;gt; Ignored Files and Folders : Add &lt;tt class="docutils literal"&gt;*.py,cover&lt;/tt&gt;&lt;/p&gt;
 &lt;/div&gt;
-</content><category term="Tech"/><category term="python"/><category term="vs-code"/><category term="pycharm"/></entry></feed>
+</content><category term="Tech"/><category term="python"/><category term="vs-code"/><category term="pycharm"/></entry><entry><title>Why is Vivaldi browser a great companion?</title><link href="/gist-blog/posts/2025/03/why-is-vivaldi-browser-a-great-companion/" rel="alternate"/><published>2025-03-12T14:03:00+00:00</published><updated>2026-04-03T00:03:14.964213+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2025-03-12:/gist-blog/posts/2025/03/why-is-vivaldi-browser-a-great-companion/</id><summary type="html">&lt;!-- References: --&gt;
+&lt;p&gt;TL;DR&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://vivaldi.com/"&gt;Vivaldi&lt;/a&gt; browser has 1 killing feature, that no other browser has
+implemented. It can turn any website into a progressive web app.&lt;/p&gt;
+&lt;p&gt;Ever wanted to have &lt;a class="reference external" href="https://translate.google.com/"&gt;Google Translate&lt;/a&gt; or &lt;a class="reference external" href="https://translate.google.com/"&gt;GMail&lt;/a&gt; as a web app?
+No problem! From this point, you could jump directly to &lt;a class="reference internal" href="#how-to"&gt;How to&lt;/a&gt; section.&lt;/p&gt;
+&lt;div class="section" id="background"&gt;
+&lt;h2&gt;Background …&lt;/h2&gt;&lt;/div&gt;</summary><content type="html">&lt;!-- References: --&gt;
+&lt;p&gt;TL;DR&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://vivaldi.com/"&gt;Vivaldi&lt;/a&gt; browser has 1 killing feature, that no other browser has
+implemented. It can turn any website into a progressive web app.&lt;/p&gt;
+&lt;p&gt;Ever wanted to have &lt;a class="reference external" href="https://translate.google.com/"&gt;Google Translate&lt;/a&gt; or &lt;a class="reference external" href="https://translate.google.com/"&gt;GMail&lt;/a&gt; as a web app?
+No problem! From this point, you could jump directly to &lt;a class="reference internal" href="#how-to"&gt;How to&lt;/a&gt; section.&lt;/p&gt;
+&lt;div class="section" id="background"&gt;
+&lt;h2&gt;Background&lt;/h2&gt;
+&lt;p&gt;I have many browsers installed on the systems I use. I use most of them simultaneously.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://mozilla.org/firefox/"&gt;Firefox&lt;/a&gt; for strictly work related private web sites (such as company portal, knowledge base) only. With a minimal set of trusted plugins.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://brave.com/"&gt;Brave&lt;/a&gt; as a primary browser for personal use and main browser for everything else, which isn't company private. Brave's out of the box security is great.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://microsoft.com/edge/"&gt;Edge&lt;/a&gt; as a secondary browser next to &lt;a class="reference external" href="https://brave.com/"&gt;Brave&lt;/a&gt;. I use it primarily for Microsoft CoPilot and ChatGPT.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://google.com/chrome/"&gt;Google Chrome&lt;/a&gt; for installing progressive web apps (such as &lt;a class="reference external" href="https://whatsapp.com/"&gt;WhatsApp&lt;/a&gt;, &lt;a class="reference external" href="https://meet.google.com/"&gt;Google Meet&lt;/a&gt; or &lt;a class="reference external" href="https://regex101.com/"&gt;RegEx101&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://opera.com/"&gt;Opera&lt;/a&gt; for anonymous browsing. I never log into sites using &lt;a class="reference external" href="https://opera.com/"&gt;Opera&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://chromium.org/"&gt;Chromium&lt;/a&gt; for automated frontend testing. Occasionally.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://vivaldi.com/"&gt;Vivaldi&lt;/a&gt; joined the group recently and immediately climbed to same shelf as
+&lt;a class="reference external" href="https://google.com/chrome/"&gt;Google Chrome&lt;/a&gt;. I primarily use &lt;a class="reference external" href="https://vivaldi.com/"&gt;Vivaldi&lt;/a&gt; for web apps that aren't yet
+progressive (such as &lt;a class="reference external" href="https://jsonformatter.org/"&gt;JSONFormatter&lt;/a&gt;, &lt;a class="reference external" href="https://jsondiff.com/"&gt;JSONDiff&lt;/a&gt; or &lt;a class="reference external" href="https://translate.google.com/"&gt;Google Translate&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="why-is-vivaldi-great"&gt;
+&lt;h2&gt;Why is Vivaldi great?&lt;/h2&gt;
+&lt;div class="section" id="my-use-case"&gt;
+&lt;h3&gt;My use case&lt;/h3&gt;
+&lt;p&gt;I use many browsers. In these browsers I have many tabs. I like it that way.
+There are many things I want to come back to later on. Some things I check
+occasionally. I don't like to use favourites.&lt;/p&gt;
+&lt;p&gt;I use &lt;a class="reference external" href="https://jsonformatter.org/"&gt;JSONFormatter&lt;/a&gt; a lot. &lt;a class="reference external" href="https://jsondiff.com/"&gt;JSONDiff&lt;/a&gt; too. &lt;a class="reference external" href="https://translate.google.com/"&gt;Google Translate&lt;/a&gt; helps me from time to time.
+I simply want to switch to them quickly. I don't want to have it in a browser.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="how-to"&gt;
+&lt;h2&gt;How to&lt;/h2&gt;
+&lt;p&gt;It's ridiculously simple — no extensions, no extra setup, and it works for &lt;em&gt;any&lt;/em&gt; website, even the ones that aren't proper PWAs yet.&lt;/p&gt;
+&lt;p&gt;Here's exactly what I do:&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;Open Vivaldi and navigate to the site you want (e.g. &lt;a class="reference external" href="https://jsonformatter.org/"&gt;JSONFormatter&lt;/a&gt;, &lt;a class="reference external" href="https://jsondiff.com/"&gt;JSONDiff&lt;/a&gt;, &lt;a class="reference external" href="https://translate.google.com/"&gt;Google Translate&lt;/a&gt;, whatever).&lt;/li&gt;
+&lt;li&gt;Right-click the tab on the tab bar.&lt;/li&gt;
+&lt;li&gt;From the context menu choose &lt;strong&gt;Install [website name]&lt;/strong&gt; (if the site supports full PWA) or &lt;strong&gt;Create a shortcut&lt;/strong&gt; (for everything else — this is the killer part).&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Install&lt;/strong&gt; in the tiny confirmation popup.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Done.&lt;/p&gt;
+&lt;p&gt;The site now lives as its own standalone window, just like &lt;a class="reference external" href="https://whatsapp.com/"&gt;WhatsApp&lt;/a&gt; or &lt;a class="reference external" href="https://meet.google.com/"&gt;Google Meet&lt;/a&gt; do in Chrome. No browser chrome, no stray tabs, no digging through bookmarks or favourites. You can pin it to your taskbar/start menu/dock, launch it with one click, and it feels exactly like a real app.&lt;/p&gt;
+&lt;p&gt;That's it. That single right-click is why Vivaldi instantly earned the same spot in my workflow as Chrome. Every utility site I use regularly now has its own clean little window, and I can keep my main browsers for actual browsing instead of permanent tab graveyards.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Tech"/><category term="vivaldi"/><category term="browsers"/><category term="progressive-web-apps"/></entry><entry><title>How to debug Python applications</title><link href="/gist-blog/posts/2022/06/how-to-debug-python-applications/" rel="alternate"/><published>2022-06-21T11:00:00+00:00</published><updated>2026-04-03T00:03:13.572229+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2022-06-21:/gist-blog/posts/2022/06/how-to-debug-python-applications/</id><summary type="html">&lt;a class="reference external image-reference" href="https://postimg.cc/XZVZ1TM8"&gt;
+&lt;img alt="How to debug Python applications" src="https://i.postimg.cc/rp4SskQv/rp-L4mz-N2-ZJ0-Pnopju2da-1-kguub.jpg" /&gt;
+&lt;/a&gt;
+&lt;div class="section" id="introduction"&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;In software development, testing is an essential part of ensuring that
+code works as intended. One critical aspect of testing is debugging,
+which involves finding and fixing errors or bugs in a program. In this
+article, we’ll explore how to debug Python applications and highlight
+some of the …&lt;/p&gt;&lt;/div&gt;</summary><content type="html">&lt;a class="reference external image-reference" href="https://postimg.cc/XZVZ1TM8"&gt;
+&lt;img alt="How to debug Python applications" src="https://i.postimg.cc/rp4SskQv/rp-L4mz-N2-ZJ0-Pnopju2da-1-kguub.jpg" /&gt;
+&lt;/a&gt;
+&lt;div class="section" id="introduction"&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;In software development, testing is an essential part of ensuring that
+code works as intended. One critical aspect of testing is debugging,
+which involves finding and fixing errors or bugs in a program. In this
+article, we’ll explore how to debug Python applications and highlight
+some of the most commonly used methods for debugging Python code.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="debugging-options"&gt;
+&lt;h2&gt;Debugging options&lt;/h2&gt;
+&lt;p&gt;When it comes to debugging Python, there are multiple options available,
+and you should consider which one suits your needs best. Two popular
+options are IDE debugging tools and package debugging tools.&lt;/p&gt;
+&lt;div class="section" id="ide-debugging-tools"&gt;
+&lt;h3&gt;IDE Debugging Tools&lt;/h3&gt;
+&lt;p&gt;IDEs like PyCharm and VSCode offer debugging tools that allow you to set
+breakpoints in your code and run it in debug mode. This allows you to
+step through your code line by line, inspect variables, and evaluate
+expressions. Here are some resources for learning how to use the
+debugging tools in PyCharm and VSCode:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://www.jetbrains.com/help/pycharm/debugging-your-first-python-application.html"&gt;Debugging Python in
+PyCharm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://code.visualstudio.com/docs/python/debugging"&gt;Debugging Python in
+VSCode&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="package-debugging-tools"&gt;
+&lt;h3&gt;Package Debugging Tools&lt;/h3&gt;
+&lt;p&gt;Links:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://docs.python.org/3/library/pdb.html"&gt;pdb&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://pypi.org/project/ipdb/"&gt;ipdb&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/tutorial.html"&gt;IPython&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Python also offers built-in debugging tools, such as the &lt;tt class="docutils literal"&gt;pdb&lt;/tt&gt; module,
+which allow you to set breakpoints and step through your code in a
+console-based debugger. Additionally, there are alternative packages
+like &lt;tt class="docutils literal"&gt;ipdb&lt;/tt&gt;, which is based on the &lt;tt class="docutils literal"&gt;IPython&lt;/tt&gt; tool and provides a
+more powerful debugger. Here is an example of how to use the &lt;tt class="docutils literal"&gt;pdb&lt;/tt&gt;
+module in your code:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;my_module.py&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class="code python literal-block"&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;something&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;val&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="n"&gt;val&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot; world&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pdb&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;pdb&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_trace&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;  &lt;span class="c1"&gt;# set a breakpoint&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="c1"&gt;# If you want a more powerful debugger, use `ipdb`.&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="c1"&gt;# Note, that this requires installation of `ipdb`&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="c1"&gt;#     $ pip install ipdb&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="c1"&gt;# Then, comment out the `mport pdb; ...` and&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="c1"&gt;# uncomment the following line:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;    &lt;span class="c1"&gt;# import ipdb; ipdb.set_trace()&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="n"&gt;my_str&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;something&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;my_str&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;In the example code above, we set a breakpoint in the &lt;tt class="docutils literal"&gt;something()&lt;/tt&gt;
+function using the &lt;tt class="docutils literal"&gt;pdb.set_trace()&lt;/tt&gt; function. When the code reaches
+this point, it will pause execution and drop into the debugger, allowing
+you to inspect variables and step through the code.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Run it&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class="code sh literal-block"&gt;
+python&lt;span class="w"&gt; &lt;/span&gt;my_module.py
+&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;What would you see&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class="code sh literal-block"&gt;
+$&lt;span class="w"&gt; &lt;/span&gt;python&lt;span class="w"&gt; &lt;/span&gt;my_module.py&lt;span class="w"&gt;
+&lt;/span&gt;--Return--&lt;span class="w"&gt;
+&lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;/home/artur.local/repos/tryouts/debug/my_module.py&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;something&lt;span class="o"&gt;()&lt;/span&gt;-&amp;gt;None&lt;span class="w"&gt;
+&lt;/span&gt;-&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;import&lt;span class="w"&gt; &lt;/span&gt;pdb&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;pdb.set_trace&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# set a breakpoint
+&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Pdb&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;locals&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="s1"&gt;'val'&lt;/span&gt;:&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'Hello world'&lt;/span&gt;,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'pdb'&lt;/span&gt;:&lt;span class="w"&gt; &lt;/span&gt;&amp;lt;module&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'pdb'&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;from&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'/usr/lib64/python3.11/pdb.py'&lt;/span&gt;&amp;gt;,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;'__return__'&lt;/span&gt;:&lt;span class="w"&gt; &lt;/span&gt;None&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Pdb&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;val&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="s1"&gt;'Hello world'&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;Pdb&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;Study &lt;tt class="docutils literal"&gt;pdb&lt;/tt&gt; documentation for more.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Good to know&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;It works similarly with your web views (like, FastAPI/Flask/Django).&lt;/p&gt;
+&lt;pre class="code python literal-block"&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;your_view&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;   &lt;span class="c1"&gt;# ...&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;   &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pdb&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;pdb&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_trace&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="best-practices-for-debugging-python"&gt;
+&lt;h2&gt;Best Practices for Debugging Python&lt;/h2&gt;
+&lt;p&gt;While debugging is an essential part of the development process, there
+are some best practices to keep in mind to ensure that your code remains
+clean and maintainable.&lt;/p&gt;
+&lt;div class="section" id="dont-commit-your-debug-code"&gt;
+&lt;h3&gt;Don’t commit your debug code!&lt;/h3&gt;
+&lt;p&gt;Links:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://pre-commit.com/"&gt;precommit&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/charliermarsh/ruff"&gt;ruff&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;One critical practice is to avoid committing your debug code to your
+code repository. Debug code can clutter your codebase and make it more
+challenging to maintain. To avoid committing debug code, use a tool like
+&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;pre-commit&lt;/span&gt;&lt;/tt&gt; and linters like &lt;tt class="docutils literal"&gt;ruff&lt;/tt&gt; to catch and prevent it from
+being committed.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="debugging-in-docker"&gt;
+&lt;h3&gt;Debugging in Docker&lt;/h3&gt;
+&lt;p&gt;If you use Docker for development, you need to configure your
+&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;docker-compose.yml&lt;/span&gt;&lt;/tt&gt; to allow debugging. You can do this by setting
+the &lt;tt class="docutils literal"&gt;stdin_open&lt;/tt&gt; and &lt;tt class="docutils literal"&gt;tty&lt;/tt&gt; options for your service:&lt;/p&gt;
+&lt;pre class="code yaml literal-block"&gt;
+&lt;span class="nt"&gt;version&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;'3'&lt;/span&gt;&lt;span class="w"&gt;
+
+&lt;/span&gt;&lt;span class="nt"&gt;services&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+  &lt;/span&gt;&lt;span class="nt"&gt;api&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="c1"&gt;# Other configuration&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;stdin_open&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l-Scalar-Plain"&gt;true&lt;/span&gt;&lt;span class="w"&gt;
+    &lt;/span&gt;&lt;span class="nt"&gt;tty&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l-Scalar-Plain"&gt;true&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;After configuring your Docker environment, assuming that you have it
+running already, you can find the container ID (&lt;tt class="docutils literal"&gt;CONTAINER ID&lt;/tt&gt;) for
+your service (in the example above - &lt;tt class="docutils literal"&gt;api&lt;/tt&gt; service) using
+&lt;tt class="docutils literal"&gt;docker ps&lt;/tt&gt; and attach to it with the &lt;tt class="docutils literal"&gt;docker attach&lt;/tt&gt;
+(&lt;tt class="docutils literal"&gt;docker attach {CONTAINER ID}&lt;/tt&gt;) command to start debugging. Note,
+that you will need to run the &lt;tt class="docutils literal"&gt;docker attach&lt;/tt&gt; command in a separate
+shell/terminal tab and that’s where the debug prompt will appear.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="conclusion"&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Debugging Python is an essential skill for any developer, and it’s
+crucial to understand the available options and best practices. In this
+article, we explored two popular options for debugging Python: IDE
+debugging tools and package debugging tools. We also highlighted some
+best practices for debugging in Python, including avoiding committing
+debug code and configuring Docker for debugging. With this knowledge,
+you’ll be better equipped to debug Python applications and write clean,
+maintainable code.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Tech"/><category term="python"/><category term="debugging"/></entry></feed>

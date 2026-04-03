@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Dev Notes</title><link href="/gist-blog/" rel="alternate"/><link href="/gist-blog/feeds/all-en.atom.xml" rel="self"/><id>/gist-blog/</id><updated>2026-04-03T14:00:00+00:00</updated><entry><title>Log4Brains images support</title><link href="/gist-blog/posts/2026/04/log4brains-images-support/" rel="alternate"/><published>2026-04-03T14:00:00+00:00</published><updated>2026-04-03T00:03:13.857470+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/log4brains-images-support/</id><summary type="html">&lt;p&gt;&lt;a class="reference external" href="https://github.com/thomvaill/log4brains"&gt;https://github.com/thomvaill/log4brains&lt;/a&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Dev Notes</title><link href="/gist-blog/" rel="alternate"/><link href="/gist-blog/feeds/all-en.atom.xml" rel="self"/><id>/gist-blog/</id><updated>2026-04-03T14:00:00+00:00</updated><entry><title>Log4Brains images support</title><link href="/gist-blog/posts/2026/04/log4brains-images-support/" rel="alternate"/><published>2026-04-03T14:00:00+00:00</published><updated>2026-04-03T00:22:05.556404+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/log4brains-images-support/</id><summary type="html">&lt;p&gt;&lt;a class="reference external" href="https://github.com/thomvaill/log4brains"&gt;https://github.com/thomvaill/log4brains&lt;/a&gt;&lt;/p&gt;
 &lt;div class="section" id="directory-structure"&gt;
 &lt;h2&gt;Directory structure&lt;/h2&gt;
 &lt;pre class="literal-block"&gt;
@@ -117,7 +117,7 @@ serve:
 &lt;/span&gt;You will find here all the Architecture Decision Records (ADR) of the project.
 &lt;/pre&gt;
 &lt;/div&gt;
-</content><category term="Tech"/><category term="ADRs"/><category term="log4brains"/></entry><entry><title>CudaText installation and config for SublimeText users</title><link href="/gist-blog/posts/2026/04/cudatext-installation-and-config-for-sublimetext-users/" rel="alternate"/><published>2026-04-03T01:08:00+00:00</published><updated>2026-04-03T00:03:14.453293+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/cudatext-installation-and-config-for-sublimetext-users/</id><summary type="html">&lt;p&gt;&lt;a class="reference external" href="https://github.com/Alexey-T/CudaText"&gt;https://github.com/Alexey-T/CudaText&lt;/a&gt;&lt;/p&gt;
+</content><category term="Tech"/><category term="ADRs"/><category term="log4brains"/></entry><entry><title>CudaText installation and config for SublimeText users</title><link href="/gist-blog/posts/2026/04/cudatext-installation-and-config-for-sublimetext-users/" rel="alternate"/><published>2026-04-03T01:08:00+00:00</published><updated>2026-04-03T00:22:06.276793+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/cudatext-installation-and-config-for-sublimetext-users/</id><summary type="html">&lt;p&gt;&lt;a class="reference external" href="https://github.com/Alexey-T/CudaText"&gt;https://github.com/Alexey-T/CudaText&lt;/a&gt;&lt;/p&gt;
 &lt;div class="section" id="macos-releases"&gt;
 &lt;h2&gt;macOS releases&lt;/h2&gt;
 &lt;p&gt;&lt;em&gt;Go for aarch64 releases&lt;/em&gt;&lt;/p&gt;
@@ -207,7 +207,7 @@ alias cudatext=&amp;quot;/Applications/CudaText.app/Contents/MacOS/cudatext&amp;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-</content><category term="Tech"/><category term="IDE"/><category term="text-editor"/><category term="CudaText"/></entry><entry><title>Useful plugins for VSCode</title><link href="/gist-blog/posts/2026/04/useful-plugins-for-vscode/" rel="alternate"/><published>2026-04-03T01:02:00+00:00</published><updated>2026-04-03T00:03:14.171489+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/useful-plugins-for-vscode/</id><summary type="html">&lt;!-- References: --&gt;
+</content><category term="Tech"/><category term="IDE"/><category term="text-editor"/><category term="CudaText"/></entry><entry><title>Useful plugins for VSCode</title><link href="/gist-blog/posts/2026/04/useful-plugins-for-vscode/" rel="alternate"/><published>2026-04-03T01:02:00+00:00</published><updated>2026-04-03T00:22:06.209644+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/useful-plugins-for-vscode/</id><summary type="html">&lt;!-- References: --&gt;
 &lt;ol class="arabic simple"&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=Tyriar.sort-lines"&gt;Sort lines&lt;/a&gt;: Sort lines of text for VS Code&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=nicohlr.pycharm"&gt;PyCharm Theme&lt;/a&gt;: PyCharm Theme for VS Code&lt;/li&gt;
@@ -224,7 +224,101 @@ alias cudatext=&amp;quot;/Applications/CudaText.app/Contents/MacOS/cudatext&amp;
 &lt;li&gt;&lt;a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=tamasfe.even-better-toml"&gt;Even better TOML&lt;/a&gt;: A TOML language support for VS Code&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=trond-snekvik.simple-rst"&gt;reStructuredText Syntax highlighting&lt;/a&gt;: Syntax highlighting and non-intrusive section navigation for reStructuredText.&lt;/li&gt;
 &lt;/ol&gt;
-</content><category term="Tech"/><category term="python"/><category term="vs-code"/><category term="vs-code-plugins"/></entry><entry><title>open-webui setup on macOS</title><link href="/gist-blog/posts/2026/04/open-webui-setup-on-macos/" rel="alternate"/><published>2026-04-03T00:21:00+00:00</published><updated>2026-04-03T00:03:14.021084+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/open-webui-setup-on-macos/</id><summary type="html">&lt;p&gt;Here’s how to set up Open WebUI as a launchd service on macOS.&lt;/p&gt;
+</content><category term="Tech"/><category term="python"/><category term="vs-code"/><category term="vs-code-plugins"/></entry><entry><title>Make scrollbars always visible in Vivaldi browser using Stylus</title><link href="/gist-blog/posts/2026/04/make-scrollbars-always-visible-in-vivaldi-browser-using-stylus/" rel="alternate"/><published>2026-04-03T00:22:07.408368+00:00</published><updated>2026-04-03T00:22:07.408368+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/make-scrollbars-always-visible-in-vivaldi-browser-using-stylus/</id><summary type="html">&lt;blockquote&gt;
+&lt;table class="docutils field-list" frame="void" rules="none"&gt;
+&lt;col class="field-name" /&gt;
+&lt;col class="field-body" /&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr class="field"&gt;&lt;th class="field-name"&gt;date:&lt;/th&gt;&lt;td class="field-body"&gt;2026-04-03 01:42&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="field"&gt;&lt;th class="field-name"&gt;category:&lt;/th&gt;&lt;td class="field-body"&gt;Tech&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="field"&gt;&lt;th class="field-name"&gt;tags:&lt;/th&gt;&lt;td class="field-body"&gt;vivaldi, browsers, tweaks&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/blockquote&gt;
+&lt;!-- References --&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;Install &lt;a class="reference external" href="https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne"&gt;Stylus&lt;/a&gt; Extension:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Go to the Chrome Web Store and search for &lt;a class="reference external" href="https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne"&gt;Stylus&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Install the &lt;a class="reference external" href="https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne"&gt;Stylus&lt;/a&gt; extension.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Create a New Style in &lt;a class="reference external" href="https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne"&gt;Stylus&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;Click on the &lt;a class="reference external" href="https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne"&gt;Stylus&lt;/a&gt; icon in your browser toolbar.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Click on Manage &amp;gt; Write new style.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Add the …&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;blockquote&gt;
+&lt;table class="docutils field-list" frame="void" rules="none"&gt;
+&lt;col class="field-name" /&gt;
+&lt;col class="field-body" /&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr class="field"&gt;&lt;th class="field-name"&gt;date:&lt;/th&gt;&lt;td class="field-body"&gt;2026-04-03 01:42&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="field"&gt;&lt;th class="field-name"&gt;category:&lt;/th&gt;&lt;td class="field-body"&gt;Tech&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="field"&gt;&lt;th class="field-name"&gt;tags:&lt;/th&gt;&lt;td class="field-body"&gt;vivaldi, browsers, tweaks&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/blockquote&gt;
+&lt;!-- References --&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;Install &lt;a class="reference external" href="https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne"&gt;Stylus&lt;/a&gt; Extension:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Go to the Chrome Web Store and search for &lt;a class="reference external" href="https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne"&gt;Stylus&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Install the &lt;a class="reference external" href="https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne"&gt;Stylus&lt;/a&gt; extension.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Create a New Style in &lt;a class="reference external" href="https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne"&gt;Stylus&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;Click on the &lt;a class="reference external" href="https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne"&gt;Stylus&lt;/a&gt; icon in your browser toolbar.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Click on Manage &amp;gt; Write new style.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Add the following CSS code to make scrollbars always visible:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c"&gt;/* Always show vertical scrollbar */&lt;/span&gt;
+&lt;span class="nt"&gt;html&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;overflow-y&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;scroll&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="cp"&gt;!important&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="c"&gt;/* Always show horizontal scrollbar */&lt;/span&gt;
+&lt;span class="nt"&gt;html&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;overflow-x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;scroll&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="cp"&gt;!important&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="c"&gt;/* Force scrollbar visibility for all elements */&lt;/span&gt;
+&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt;&lt;span class="nd"&gt;-webkit-scrollbar&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c"&gt;/* Set the width for vertical scrollbars */&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;height&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;/* Set the height for horizontal scrollbars */&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kp"&gt;-webkit-&lt;/span&gt;&lt;span class="k"&gt;appearance&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;none&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt;&lt;span class="nd"&gt;-webkit-scrollbar-thumb&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;background-color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;rgba&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;/* Customize the color of the scrollbar thumb */&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;border-radius&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;/* Customize the radius */&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;border&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;solid&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;rgba&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;/* Adjust border if needed */&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt;&lt;span class="nd"&gt;-webkit-scrollbar-track&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;background-color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;rgba&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;0.1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;/* Customize the background of the scrollbar track */&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Save and Apply the Style:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Give your style a name, for example, &lt;cite&gt;Always Show Scrollbars&lt;/cite&gt;.&lt;/li&gt;
+&lt;li&gt;Save and enable the style.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</content><category term="misc"/></entry><entry><title>open-webui setup on macOS</title><link href="/gist-blog/posts/2026/04/open-webui-setup-on-macos/" rel="alternate"/><published>2026-04-03T00:21:00+00:00</published><updated>2026-04-03T00:22:06.125871+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/open-webui-setup-on-macos/</id><summary type="html">&lt;p&gt;Here’s how to set up Open WebUI as a launchd service on macOS.&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
 &lt;div class="section" id="prerequisites"&gt;
 &lt;h2&gt;Prerequisites&lt;/h2&gt;
@@ -373,101 +467,7 @@ Progressive Web Apps. Click the &lt;tt class="docutils literal"&gt;Install&lt;/t
 to run Open WebUI as a standalone application.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
-</content><category term="Tech"/><category term="python"/><category term="open-webui"/><category term="macos"/></entry><entry><title>Make scrollbars always visible in Vivaldi browser using Stylus</title><link href="/gist-blog/posts/2026/04/make-scrollbars-always-visible-in-vivaldi-browser-using-stylus/" rel="alternate"/><published>2026-04-03T00:03:15.230158+00:00</published><updated>2026-04-03T00:03:15.230158+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/make-scrollbars-always-visible-in-vivaldi-browser-using-stylus/</id><summary type="html">&lt;blockquote&gt;
-&lt;table class="docutils field-list" frame="void" rules="none"&gt;
-&lt;col class="field-name" /&gt;
-&lt;col class="field-body" /&gt;
-&lt;tbody valign="top"&gt;
-&lt;tr class="field"&gt;&lt;th class="field-name"&gt;date:&lt;/th&gt;&lt;td class="field-body"&gt;2026-04-03 01:42&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class="field"&gt;&lt;th class="field-name"&gt;category:&lt;/th&gt;&lt;td class="field-body"&gt;Tech&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class="field"&gt;&lt;th class="field-name"&gt;tags:&lt;/th&gt;&lt;td class="field-body"&gt;vivaldi, browsers, tweaks&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/blockquote&gt;
-&lt;!-- References --&gt;
-&lt;ol class="arabic"&gt;
-&lt;li&gt;&lt;p class="first"&gt;Install &lt;a class="reference external" href="https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne"&gt;Stylus&lt;/a&gt; Extension:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;Go to the Chrome Web Store and search for &lt;a class="reference external" href="https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne"&gt;Stylus&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Install the &lt;a class="reference external" href="https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne"&gt;Stylus&lt;/a&gt; extension.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;Create a New Style in &lt;a class="reference external" href="https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne"&gt;Stylus&lt;/a&gt;:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p class="first"&gt;Click on the &lt;a class="reference external" href="https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne"&gt;Stylus&lt;/a&gt; icon in your browser toolbar.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;Click on Manage &amp;gt; Write new style.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;Add the …&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;blockquote&gt;
-&lt;table class="docutils field-list" frame="void" rules="none"&gt;
-&lt;col class="field-name" /&gt;
-&lt;col class="field-body" /&gt;
-&lt;tbody valign="top"&gt;
-&lt;tr class="field"&gt;&lt;th class="field-name"&gt;date:&lt;/th&gt;&lt;td class="field-body"&gt;2026-04-03 01:42&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class="field"&gt;&lt;th class="field-name"&gt;category:&lt;/th&gt;&lt;td class="field-body"&gt;Tech&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class="field"&gt;&lt;th class="field-name"&gt;tags:&lt;/th&gt;&lt;td class="field-body"&gt;vivaldi, browsers, tweaks&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/blockquote&gt;
-&lt;!-- References --&gt;
-&lt;ol class="arabic"&gt;
-&lt;li&gt;&lt;p class="first"&gt;Install &lt;a class="reference external" href="https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne"&gt;Stylus&lt;/a&gt; Extension:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;Go to the Chrome Web Store and search for &lt;a class="reference external" href="https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne"&gt;Stylus&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Install the &lt;a class="reference external" href="https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne"&gt;Stylus&lt;/a&gt; extension.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;Create a New Style in &lt;a class="reference external" href="https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne"&gt;Stylus&lt;/a&gt;:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p class="first"&gt;Click on the &lt;a class="reference external" href="https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne"&gt;Stylus&lt;/a&gt; icon in your browser toolbar.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;Click on Manage &amp;gt; Write new style.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;Add the following CSS code to make scrollbars always visible:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c"&gt;/* Always show vertical scrollbar */&lt;/span&gt;
-&lt;span class="nt"&gt;html&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;overflow-y&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;scroll&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="cp"&gt;!important&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
-
-&lt;span class="c"&gt;/* Always show horizontal scrollbar */&lt;/span&gt;
-&lt;span class="nt"&gt;html&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;overflow-x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;scroll&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="cp"&gt;!important&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
-
-&lt;span class="c"&gt;/* Force scrollbar visibility for all elements */&lt;/span&gt;
-&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt;&lt;span class="nd"&gt;-webkit-scrollbar&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c"&gt;/* Set the width for vertical scrollbars */&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;height&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;/* Set the height for horizontal scrollbars */&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kp"&gt;-webkit-&lt;/span&gt;&lt;span class="k"&gt;appearance&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;none&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
-
-&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt;&lt;span class="nd"&gt;-webkit-scrollbar-thumb&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;background-color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;rgba&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;/* Customize the color of the scrollbar thumb */&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;border-radius&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;/* Customize the radius */&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;border&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;solid&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;rgba&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;/* Adjust border if needed */&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
-
-&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt;&lt;span class="nd"&gt;-webkit-scrollbar-track&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;background-color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;rgba&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;0.1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;/* Customize the background of the scrollbar track */&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;Save and Apply the Style:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;Give your style a name, for example, &lt;cite&gt;Always Show Scrollbars&lt;/cite&gt;.&lt;/li&gt;
-&lt;li&gt;Save and enable the style.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-</content><category term="misc"/></entry><entry><title>Hide *.py,cover files from IDE</title><link href="/gist-blog/posts/2026/04/hide-pycover-files-from-ide/" rel="alternate"/><published>2026-04-02T14:00:00+00:00</published><updated>2026-04-03T00:03:14.702150+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-02:/gist-blog/posts/2026/04/hide-pycover-files-from-ide/</id><content type="html">&lt;div class="section" id="vscode"&gt;
+</content><category term="Tech"/><category term="python"/><category term="open-webui"/><category term="macos"/></entry><entry><title>Hide *.py,cover files from IDE</title><link href="/gist-blog/posts/2026/04/hide-pycover-files-from-ide/" rel="alternate"/><published>2026-04-02T14:00:00+00:00</published><updated>2026-04-03T00:22:06.354516+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-02:/gist-blog/posts/2026/04/hide-pycover-files-from-ide/</id><content type="html">&lt;div class="section" id="vscode"&gt;
 &lt;h2&gt;VSCode&lt;/h2&gt;
 &lt;p&gt;Settings -&amp;gt; Text Editor -&amp;gt; Files -&amp;gt; Add Pattern: Add &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;**/*.py,cover&lt;/span&gt;&lt;/tt&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -475,7 +475,73 @@ to run Open WebUI as a standalone application.&lt;/li&gt;
 &lt;h2&gt;PyCharm&lt;/h2&gt;
 &lt;p&gt;Editor -&amp;gt; File Types -&amp;gt; Ignored Files and Folders : Add &lt;tt class="docutils literal"&gt;*.py,cover&lt;/tt&gt;&lt;/p&gt;
 &lt;/div&gt;
-</content><category term="Tech"/><category term="python"/><category term="vs-code"/><category term="pycharm"/></entry><entry><title>Why is Vivaldi browser a great companion?</title><link href="/gist-blog/posts/2025/03/why-is-vivaldi-browser-a-great-companion/" rel="alternate"/><published>2025-03-12T14:03:00+00:00</published><updated>2026-04-03T00:03:14.964213+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2025-03-12:/gist-blog/posts/2025/03/why-is-vivaldi-browser-a-great-companion/</id><summary type="html">&lt;!-- References: --&gt;
+</content><category term="Tech"/><category term="python"/><category term="vs-code"/><category term="pycharm"/></entry><entry><title>Safezip - zero-dependency wrapper for secure ZIP extraction</title><link href="/gist-blog/posts/2026/02/safezip-zero-dependency-wrapper-for-secure-zip-extraction/" rel="alternate"/><published>2026-02-25T13:00:00+00:00</published><updated>2026-04-03T00:22:05.433868+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-02-25:/gist-blog/posts/2026/02/safezip-zero-dependency-wrapper-for-secure-zip-extraction/</id><summary type="html">&lt;a class="reference external image-reference" href="https://github.com/barseghyanartur/safezip"&gt;
+&lt;img alt="Safezip" src="https://raw.githubusercontent.com/barseghyanartur/safezip/main/docs/_static/safezip_logo.webp" /&gt;
+&lt;/a&gt;
+&lt;p&gt;I wrote a small, zero-dependency wrapper for secure ZIP extraction.&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://github.com/barseghyanartur/safezip"&gt;https://github.com/barseghyanartur/safezip&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;What My Project Does&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;safezip&lt;/tt&gt; is a zero-dependency wrapper around Python’s &lt;tt class="docutils literal"&gt;zipfile&lt;/tt&gt;
+module that makes secure ZIP extraction the default. It protects
+against:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;ZipSlip protection&lt;/strong&gt;: Blocks relative paths, absolute paths, Windows
+UNC paths, Unicode …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;a class="reference external image-reference" href="https://github.com/barseghyanartur/safezip"&gt;
+&lt;img alt="Safezip" src="https://raw.githubusercontent.com/barseghyanartur/safezip/main/docs/_static/safezip_logo.webp" /&gt;
+&lt;/a&gt;
+&lt;p&gt;I wrote a small, zero-dependency wrapper for secure ZIP extraction.&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://github.com/barseghyanartur/safezip"&gt;https://github.com/barseghyanartur/safezip&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;What My Project Does&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;safezip&lt;/tt&gt; is a zero-dependency wrapper around Python’s &lt;tt class="docutils literal"&gt;zipfile&lt;/tt&gt;
+module that makes secure ZIP extraction the default. It protects
+against:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;ZipSlip protection&lt;/strong&gt;: Blocks relative paths, absolute paths, Windows
+UNC paths, Unicode lookalike attacks, and null bytes in filenames.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ZIP bomb prevention&lt;/strong&gt;: Enforces per-member and cumulative
+decompression ratio limits at stream time — not based on untrusted
+header values.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ZIP64 consistency checks&lt;/strong&gt;: Crafted archives with inconsistent ZIP64
+extra fields are rejected before decompression begins.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Symlink policy&lt;/strong&gt; — configurable: &lt;tt class="docutils literal"&gt;REJECT&lt;/tt&gt; (default), &lt;tt class="docutils literal"&gt;IGNORE&lt;/tt&gt;,
+or &lt;tt class="docutils literal"&gt;RESOLVE_INTERNAL&lt;/tt&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Atomic writes&lt;/strong&gt;: Extracts to a temp file first and only moves it to
+the destination if all checks pass. If something fails, you don’t end
+up with half-extracted junk on your disk.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Environment variable overrides&lt;/strong&gt;: All numeric limits can be set via
+&lt;tt class="docutils literal"&gt;SAFEZIP_*&lt;/tt&gt; environment variables for containerised deployments.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It’s meant to be an almost drop-in replacement. You can just do:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;safezip&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;safe_extract&lt;/span&gt;
+
+&lt;span class="n"&gt;safe_extract&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;path/to/file.zip&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;/var/files/extracted/&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If you need more control, there’s a &lt;tt class="docutils literal"&gt;SafeZipFile&lt;/tt&gt; context manager that
+lets you tweak limits or monitor security events.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;safezip&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;SafeZipFile&lt;/span&gt;
+
+&lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;SafeZipFile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;path/to/file.zip&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;zf&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;zf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;namelist&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+    &lt;span class="n"&gt;zf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;extractall&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/var/files/extracted/&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Target Audience&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;If you’re handling user uploads or processing ZIP files from untrusted
+sources, this might save you some headache. It’s production-oriented but
+currently in beta, so feedback and edge cases are very welcome.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Comparison&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The standard library’s &lt;tt class="docutils literal"&gt;zipfile&lt;/tt&gt; module historically wasn’t safe to
+use on untrusted files. Even the official docs warn against
+&lt;tt class="docutils literal"&gt;extractall()&lt;/tt&gt; because of ZipSlip risks, and it doesn’t do much to
+stop ZIP bombs from eating up your disk or memory. Python 3.12 did
+address some of this — &lt;tt class="docutils literal"&gt;extractall()&lt;/tt&gt; now strips path components that
+would escape the target directory — but it still leaves meaningful gaps:
+no ZIP bomb protection, no stream-time size enforcement, no symlink
+policy, no ZIP64 consistency checks, and no atomic writes. &lt;tt class="docutils literal"&gt;safezip&lt;/tt&gt;
+fills all of those. I got tired of writing the same boilerplate every
+time, so I packaged it up.&lt;/p&gt;
+&lt;p&gt;-—&lt;/p&gt;
+&lt;p&gt;Documentation: &lt;a class="reference external" href="https://safezip.readthedocs.io/en/latest/"&gt;https://safezip.readthedocs.io/en/latest/&lt;/a&gt;&lt;/p&gt;
+</content><category term="Tech"/><category term="python"/><category term="zip"/><category term="security"/></entry><entry><title>Why is Vivaldi browser a great companion?</title><link href="/gist-blog/posts/2025/03/why-is-vivaldi-browser-a-great-companion/" rel="alternate"/><published>2025-03-12T14:03:00+00:00</published><updated>2026-04-03T00:22:06.965421+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2025-03-12:/gist-blog/posts/2025/03/why-is-vivaldi-browser-a-great-companion/</id><summary type="html">&lt;!-- References: --&gt;
 &lt;p&gt;TL;DR&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://vivaldi.com/"&gt;Vivaldi&lt;/a&gt; browser has 1 killing feature, that no other browser has
 implemented. It can turn any website into a progressive web app.&lt;/p&gt;
@@ -528,7 +594,7 @@ I simply want to switch to them quickly. I don't want to have it in a browser.&l
 &lt;p&gt;The site now lives as its own standalone window, just like &lt;a class="reference external" href="https://whatsapp.com/"&gt;WhatsApp&lt;/a&gt; or &lt;a class="reference external" href="https://meet.google.com/"&gt;Google Meet&lt;/a&gt; do in Chrome. No browser chrome, no stray tabs, no digging through bookmarks or favourites. You can pin it to your taskbar/start menu/dock, launch it with one click, and it feels exactly like a real app.&lt;/p&gt;
 &lt;p&gt;That's it. That single right-click is why Vivaldi instantly earned the same spot in my workflow as Chrome. Every utility site I use regularly now has its own clean little window, and I can keep my main browsers for actual browsing instead of permanent tab graveyards.&lt;/p&gt;
 &lt;/div&gt;
-</content><category term="Tech"/><category term="vivaldi"/><category term="browsers"/><category term="progressive-web-apps"/></entry><entry><title>How to debug Python applications</title><link href="/gist-blog/posts/2022/06/how-to-debug-python-applications/" rel="alternate"/><published>2022-06-21T11:00:00+00:00</published><updated>2026-04-03T00:03:13.572229+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2022-06-21:/gist-blog/posts/2022/06/how-to-debug-python-applications/</id><summary type="html">&lt;a class="reference external image-reference" href="https://postimg.cc/XZVZ1TM8"&gt;
+</content><category term="Tech"/><category term="vivaldi"/><category term="browsers"/><category term="progressive-web-apps"/></entry><entry><title>How to debug Python applications</title><link href="/gist-blog/posts/2022/06/how-to-debug-python-applications/" rel="alternate"/><published>2022-06-21T11:00:00+00:00</published><updated>2026-04-03T00:22:05.490437+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2022-06-21:/gist-blog/posts/2022/06/how-to-debug-python-applications/</id><summary type="html">&lt;a class="reference external image-reference" href="https://postimg.cc/XZVZ1TM8"&gt;
 &lt;img alt="How to debug Python applications" src="https://i.postimg.cc/rp4SskQv/rp-L4mz-N2-ZJ0-Pnopju2da-1-kguub.jpg" /&gt;
 &lt;/a&gt;
 &lt;div class="section" id="introduction"&gt;

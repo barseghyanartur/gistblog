@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+                        <meta charset="utf-8" />
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                        <meta name="generator" content="Pelican" />
+                        <title>Dev Notes - zip</title>
+                        <link rel="stylesheet" href="/gist-blog/theme/css/main.css" />
+                                <link href="/gist-blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Dev Notes Atom Feed" />
+        </head>
+
+        <body id="index" class="home">
+                <header id="banner" class="body">
+                        <h1><a href="/gist-blog/">Dev Notes</a></h1>
+                        <nav><ul>
+                                        <li><a href="/">Home</a></li>
+                                                <li><a href="/gist-blog/category/misc.html">misc</a></li>
+                                                <li><a href="/gist-blog/category/tech.html">Tech</a></li>
+                        </ul></nav>
+                </header><!-- /#banner -->
+
+                <aside id="featured" class="body">
+                    <article>
+                        <h1 class="entry-title"><a href="/gist-blog/posts/2026/02/safezip-zero-dependency-wrapper-for-secure-zip-extraction/">Safezip - zero-dependency wrapper for secure ZIP extraction</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2026-02-25T13:00:00+00:00">
+                Published: Wed 25 February 2026
+        </abbr>
+                <br />
+                <abbr class="modified" title="2026-04-03T00:22:05.433868+00:00">
+                        Updated: Fri 03 April 2026
+                </abbr>
+
+                <address class="vcard author">
+                        By                                 <a class="url fn" href="/gist-blog/author/artur-barseghyan.html">Artur Barseghyan</a>
+                </address>
+        <p>In <a href="/gist-blog/category/tech.html">Tech</a>.</p>
+<p>tags: <a href="/gist-blog/tag/python.html">python</a> <a href="/gist-blog/tag/zip.html">zip</a> <a href="/gist-blog/tag/security.html">security</a> </p>        
+</footer><!-- /.post-info --><a class="reference external image-reference" href="https://github.com/barseghyanartur/safezip">
+<img alt="Safezip" src="https://raw.githubusercontent.com/barseghyanartur/safezip/main/docs/_static/safezip_logo.webp" />
+</a>
+<p>I wrote a small, zero-dependency wrapper for secure ZIP extraction.</p>
+<p><a class="reference external" href="https://github.com/barseghyanartur/safezip">https://github.com/barseghyanartur/safezip</a></p>
+<p><strong>What My Project Does</strong></p>
+<p><tt class="docutils literal">safezip</tt> is a zero-dependency wrapper around Python’s <tt class="docutils literal">zipfile</tt>
+module that makes secure ZIP extraction the default. It protects
+against:</p>
+<ul class="simple">
+<li><strong>ZipSlip protection</strong>: Blocks relative paths, absolute paths, Windows
+UNC paths, Unicode lookalike attacks, and null bytes in filenames.</li>
+<li><strong>ZIP bomb prevention</strong>: Enforces per-member and cumulative
+decompression ratio limits at stream time — not based on untrusted
+header values.</li>
+<li><strong>ZIP64 consistency checks</strong>: Crafted archives with inconsistent ZIP64
+extra fields are rejected before decompression begins.</li>
+<li><strong>Symlink policy</strong> — configurable: <tt class="docutils literal">REJECT</tt> (default), <tt class="docutils literal">IGNORE</tt>,
+or <tt class="docutils literal">RESOLVE_INTERNAL</tt>.</li>
+<li><strong>Atomic writes</strong>: Extracts to a temp file first and only moves it to
+the destination if all checks pass. If something fails, you don’t end
+up with half-extracted junk on your disk.</li>
+<li><strong>Environment variable overrides</strong>: All numeric limits can be set via
+<tt class="docutils literal">SAFEZIP_*</tt> environment variables for containerised deployments.</li>
+</ul>
+<p>It’s meant to be an almost drop-in replacement. You can just do:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">safezip</span> <span class="kn">import</span> <span class="n">safe_extract</span>
+
+<span class="n">safe_extract</span><span class="p">(</span><span class="s2">&quot;path/to/file.zip&quot;</span><span class="p">,</span> <span class="s2">&quot;/var/files/extracted/&quot;</span><span class="p">)</span>
+</pre></div>
+<p>If you need more control, there’s a <tt class="docutils literal">SafeZipFile</tt> context manager that
+lets you tweak limits or monitor security events.</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">safezip</span> <span class="kn">import</span> <span class="n">SafeZipFile</span>
+
+<span class="k">with</span> <span class="n">SafeZipFile</span><span class="p">(</span><span class="s2">&quot;path/to/file.zip&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zf</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">zf</span><span class="o">.</span><span class="n">namelist</span><span class="p">())</span>
+    <span class="n">zf</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="s2">&quot;/var/files/extracted/&quot;</span><span class="p">)</span>
+</pre></div>
+<p><strong>Target Audience</strong></p>
+<p>If you’re handling user uploads or processing ZIP files from untrusted
+sources, this might save you some headache. It’s production-oriented but
+currently in beta, so feedback and edge cases are very welcome.</p>
+<p><strong>Comparison</strong></p>
+<p>The standard library’s <tt class="docutils literal">zipfile</tt> module historically wasn’t safe to
+use on untrusted files. Even the official docs warn against
+<tt class="docutils literal">extractall()</tt> because of ZipSlip risks, and it doesn’t do much to
+stop ZIP bombs from eating up your disk or memory. Python 3.12 did
+address some of this — <tt class="docutils literal">extractall()</tt> now strips path components that
+would escape the target directory — but it still leaves meaningful gaps:
+no ZIP bomb protection, no stream-time size enforcement, no symlink
+policy, no ZIP64 consistency checks, and no atomic writes. <tt class="docutils literal">safezip</tt>
+fills all of those. I got tired of writing the same boilerplate every
+time, so I packaged it up.</p>
+<p>-—</p>
+<p>Documentation: <a class="reference external" href="https://safezip.readthedocs.io/en/latest/">https://safezip.readthedocs.io/en/latest/</a></p>
+                    </article>
+                </aside><!-- /#featured -->
+                <section id="extras" class="body">
+                                <div class="social">
+                                        <h2>social</h2>
+                                        <ul>
+                                                        <li><a href="/gist-blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                                        </ul>
+                                </div><!-- /.social -->
+                </section><!-- /#extras -->
+
+                <footer id="contentinfo" class="body">
+                        <address id="about" class="vcard body">
+                                Proudly powered by <a rel="nofollow" href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a rel="nofollow" href="https://www.python.org/">Python</a>.
+                        </address><!-- /#about -->
+
+                        <p>The theme is by <a rel="nofollow" href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+                </footer><!-- /#contentinfo -->
+
+        </body>
+</html>

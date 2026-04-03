@@ -21,134 +21,13 @@
 
                 <aside id="featured" class="body">
                     <article>
-                        <h1 class="entry-title"><a href="/gist-blog/posts/2026/04/log4brains-images-support/">Log4Brains images support</a></h1>
+                        <h1 class="entry-title"><a href="/gist-blog/posts/2026/04/make-scrollbars-always-visible-in-vivaldi-browser-using-stylus/">Make scrollbars always visible in Vivaldi browser using Stylus</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2026-04-03T14:00:00+00:00">
+        <abbr class="published" title="2026-04-03T14:35:29.892828+00:00">
                 Published: Fri 03 April 2026
         </abbr>
                 <br />
-                <abbr class="modified" title="2026-04-03T13:48:01.970362+00:00">
-                        Updated: Fri 03 April 2026
-                </abbr>
-
-                <address class="vcard author">
-                        By                                 <a class="url fn" href="/gist-blog/author/artur-barseghyan.html">Artur Barseghyan</a>
-                </address>
-        <p>In <a href="/gist-blog/category/tech.html">Tech</a>.</p>
-<p>tags: <a href="/gist-blog/tag/adrs.html">ADRs</a> <a href="/gist-blog/tag/log4brains.html">log4brains</a> </p>        
-</footer><!-- /.post-info --><p><a class="reference external" href="https://github.com/thomvaill/log4brains">https://github.com/thomvaill/log4brains</a></p>
-<div class="section" id="directory-structure">
-<h2>Directory structure</h2>
-<pre class="literal-block">
-docs
-├── adr
-│   ├── 20240416-architecture-v2.md
-│   ├── 20240916-llm-choice.md
-│   ├── 20240916-rag-framework-choice.md
-│   ├── index.md
-│   └── template.md
-└── l4b-static
-    └── images
-        ├── favicon-16x16.png
-        └── favicon-32x32.png
-</pre>
-</div>
-<div class="section" id="makefile">
-<h2>Makefile</h2>
-<p><em>Filename: Makefile</em></p>
-<pre class="literal-block">
-add-adr:
-    docker run --rm -ti -v $$(pwd):/workdir -p 4004:4004 thomvaill/log4brains adr new $(ARGS)
-
-preview:
-    docker run --rm -ti -v $$(pwd):/workdir -p 4004:4004 thomvaill/log4brains preview $(ARGS)
-
-build:
-    docker run --rm -ti -v $$(pwd):/workdir -p 4004:4004 thomvaill/log4brains build $(ARGS)
-    cp -R docs/l4b-static/* .log4brains/out/l4b-static/
-
-# Serve the built docs on port 5002
-serve:
-    cd .log4brains/out &amp;&amp; python3 -m http.server 5002
-</pre>
-</div>
-<div class="section" id="github-action">
-<h2>GitHub Action</h2>
-<p><em>Filename: .github/workflows/publish-log4brains.yml</em></p>
-<pre class="code yaml literal-block">
-<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">Publish Log4brains</span><span class="w">
-</span><span class="nt">on</span><span class="p">:</span><span class="w">
-  </span><span class="nt">push</span><span class="p">:</span><span class="w">
-    </span><span class="nt">branches</span><span class="p">:</span><span class="w">
-      </span><span class="p-Indicator">-</span><span class="w"> </span><span class="l-Scalar-Plain">main</span><span class="w">
-  </span><span class="nt">workflow_dispatch</span><span class="p">:</span><span class="w"> </span><span class="p-Indicator">{}</span><span class="w">
-
-</span><span class="nt">jobs</span><span class="p">:</span><span class="w">
-  </span><span class="nt">pre-commit</span><span class="p">:</span><span class="w">
-    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">ubuntu-latest</span><span class="w">
-    </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">${{ !github.event.pull_request.draft }}</span><span class="w">
-    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
-      </span><span class="p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">actions/checkout&#64;v4</span><span class="w">
-      </span><span class="p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">actions/setup-python&#64;v4</span><span class="w">
-        </span><span class="nt">with</span><span class="p">:</span><span class="w">
-          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="s">'3.10'</span><span class="w">
-      </span><span class="p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">pre-commit/action&#64;v3.0.0</span><span class="w">
-
-  </span><span class="nt">build-and-publish</span><span class="p">:</span><span class="w">
-    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">ubuntu-latest</span><span class="w">
-    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
-      </span><span class="p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">Checkout</span><span class="w">
-        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">actions/checkout&#64;v4</span><span class="w">
-        </span><span class="nt">with</span><span class="p">:</span><span class="w">
-          </span><span class="nt">persist-credentials</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">false</span><span class="w"> </span><span class="c1"># required by JamesIves/github-pages-deploy-action</span><span class="w">
-          </span><span class="nt">fetch-depth</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">0</span><span class="w"> </span><span class="c1"># required by Log4brains to work correctly (needs the whole Git history)</span><span class="w">
-      </span><span class="p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">Install Node</span><span class="w">
-        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">actions/setup-node&#64;v3</span><span class="w">
-        </span><span class="nt">with</span><span class="p">:</span><span class="w">
-          </span><span class="nt">node-version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;16&quot;</span><span class="w">
-      </span><span class="p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">Install and Build Log4brains</span><span class="w">
-        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p-Indicator">|</span><span class="w">
-          </span><span class="no">npm install -g log4brains</span><span class="w">
-          </span><span class="no">log4brains build</span><span class="w">
-          </span><span class="no">cp -R docs/l4b-static/* .log4brains/out/l4b-static/</span><span class="w">
-
-      </span><span class="p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">Deploy to GitHub Pages</span><span class="w">
-        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">peaceiris/actions-gh-pages&#64;v3</span><span class="w">
-        </span><span class="nt">with</span><span class="p">:</span><span class="w">
-          </span><span class="nt">github_token</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">${{ secrets.GITHUB_TOKEN }}</span><span class="w">
-          </span><span class="nt">publish_dir</span><span class="p">:</span><span class="w"> </span><span class="l-Scalar-Plain">.log4brains/out</span>
-</pre>
-</div>
-<div class="section" id="usage-example">
-<h2>Usage example</h2>
-<p><em>Filename: docs/adr/index.md</em></p>
-<pre class="code markdown literal-block">
-<span class="gh"># Architecture knowledge base</span>
-<span class="w">
-</span>Welcome 👋 to the architecture knowledge base of Project ![<span class="nt">Project</span>](<span class="na">/l4b-static/images/favicon-16x16.png</span>).<span class="w">
-</span>You will find here all the Architecture Decision Records (ADR) of the project.
-</pre>
-</div>
-                    </article>
-                </aside><!-- /#featured -->
-                    <section id="content" class="body">
-                        <h1>Other articles</h1>
-                        <hr />
-                        <ol id="posts-list" class="hfeed">
-
-                <li><article class="hentry">
-                    <header>
-                        <h1><a href="/gist-blog/posts/2026/04/make-scrollbars-always-visible-in-vivaldi-browser-using-stylus/" rel="bookmark"
-                               title="Permalink to Make scrollbars always visible in Vivaldi browser using Stylus">Make scrollbars always visible in Vivaldi browser using Stylus</a></h1>
-                    </header>
-
-                    <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2026-04-03T13:48:03.080938+00:00">
-                Published: Fri 03 April 2026
-        </abbr>
-                <br />
-                <abbr class="modified" title="2026-04-03T13:48:03.080938+00:00">
+                <abbr class="modified" title="2026-04-03T14:35:29.892828+00:00">
                         Updated: Fri 03 April 2026
                 </abbr>
 
@@ -157,7 +36,7 @@ serve:
                 </address>
         <p>In <a href="/gist-blog/category/misc.html">misc</a>.</p>
         
-</footer><!-- /.post-info -->                        <blockquote>
+</footer><!-- /.post-info --><blockquote>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -185,8 +64,99 @@ serve:
 </li>
 <li><p class="first">Click on Manage &gt; Write new style.</p>
 </li>
-<li><p class="first">Add the …</p></li></ul></li></ol>
-                        <a class="readmore" href="/gist-blog/posts/2026/04/make-scrollbars-always-visible-in-vivaldi-browser-using-stylus/">read more</a>
+<li><p class="first">Add the following CSS code to make scrollbars always visible:</p>
+<div class="highlight"><pre><span></span><span class="c">/* Always show vertical scrollbar */</span>
+<span class="nt">html</span><span class="o">,</span><span class="w"> </span><span class="nt">body</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">overflow-y</span><span class="p">:</span><span class="w"> </span><span class="kc">scroll</span><span class="w"> </span><span class="cp">!important</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/* Always show horizontal scrollbar */</span>
+<span class="nt">html</span><span class="o">,</span><span class="w"> </span><span class="nt">body</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">overflow-x</span><span class="p">:</span><span class="w"> </span><span class="kc">scroll</span><span class="w"> </span><span class="cp">!important</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/* Force scrollbar visibility for all elements */</span>
+<span class="o">*</span><span class="p">::</span><span class="nd">-webkit-scrollbar</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="kt">px</span><span class="p">;</span><span class="w">  </span><span class="c">/* Set the width for vertical scrollbars */</span>
+<span class="w">    </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="kt">px</span><span class="p">;</span><span class="w"> </span><span class="c">/* Set the height for horizontal scrollbars */</span>
+<span class="w">    </span><span class="kp">-webkit-</span><span class="k">appearance</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">*</span><span class="p">::</span><span class="nd">-webkit-scrollbar-thumb</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">);</span><span class="w"> </span><span class="c">/* Customize the color of the scrollbar thumb */</span>
+<span class="w">    </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="p">;</span><span class="w"> </span><span class="c">/* Customize the radius */</span>
+<span class="w">    </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c">/* Adjust border if needed */</span>
+<span class="p">}</span>
+
+<span class="o">*</span><span class="p">::</span><span class="nd">-webkit-scrollbar-track</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.1</span><span class="p">);</span><span class="w"> </span><span class="c">/* Customize the background of the scrollbar track */</span>
+<span class="p">}</span>
+</pre></div>
+</li>
+</ul>
+</li>
+<li><p class="first">Save and Apply the Style:</p>
+<ul class="simple">
+<li>Give your style a name, for example, <cite>Always Show Scrollbars</cite>.</li>
+<li>Save and enable the style.</li>
+</ul>
+</li>
+</ol>
+                    </article>
+                </aside><!-- /#featured -->
+                    <section id="content" class="body">
+                        <h1>Other articles</h1>
+                        <hr />
+                        <ol id="posts-list" class="hfeed">
+
+                <li><article class="hentry">
+                    <header>
+                        <h1><a href="/gist-blog/posts/2026/04/log4brains-images-support/" rel="bookmark"
+                               title="Permalink to Log4Brains images support">Log4Brains images support</a></h1>
+                    </header>
+
+                    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2026-04-03T14:00:00+00:00">
+                Published: Fri 03 April 2026
+        </abbr>
+                <br />
+                <abbr class="modified" title="2026-04-03T14:35:29.310028+00:00">
+                        Updated: Fri 03 April 2026
+                </abbr>
+
+                <address class="vcard author">
+                        By                                 <a class="url fn" href="/gist-blog/author/artur-barseghyan.html">Artur Barseghyan</a>
+                </address>
+        <p>In <a href="/gist-blog/category/tech.html">Tech</a>.</p>
+<p>tags: <a href="/gist-blog/tag/adrs.html">ADRs</a> <a href="/gist-blog/tag/log4brains.html">log4brains</a> </p>        
+</footer><!-- /.post-info -->                        <p><a class="reference external" href="https://github.com/thomvaill/log4brains">https://github.com/thomvaill/log4brains</a></p>
+<div class="section" id="directory-structure">
+<h2>Directory structure</h2>
+<pre class="literal-block">
+docs
+├── adr
+│   ├── 20240416-architecture-v2.md
+│   ├── 20240916-llm-choice.md
+│   ├── 20240916-rag-framework-choice.md
+│   ├── index.md
+│   └── template.md
+└── l4b-static
+    └── images
+        ├── favicon-16x16.png
+        └── favicon-32x32.png
+</pre>
+</div>
+<div class="section" id="makefile">
+<h2>Makefile</h2>
+<p><em>Filename: Makefile</em></p>
+<pre class="literal-block">
+add-adr:
+    docker run --rm -ti -v $$(pwd):/workdir -p 4004:4004 thomvaill/log4brains adr new $(ARGS)
+
+preview:
+    docker run --rm -ti -v …</pre></div>
+                        <a class="readmore" href="/gist-blog/posts/2026/04/log4brains-images-support/">read more</a>
                     </div><!-- /.entry-content -->
                 </article></li>
 
@@ -202,7 +172,7 @@ serve:
                 Published: Fri 03 April 2026
         </abbr>
                 <br />
-                <abbr class="modified" title="2026-04-03T13:48:02.624359+00:00">
+                <abbr class="modified" title="2026-04-03T14:35:29.595144+00:00">
                         Updated: Fri 03 April 2026
                 </abbr>
 
@@ -258,7 +228,7 @@ alias cudatext=&quot;/Applications/CudaText.app/Contents/MacOS/cudatext&quot;
                 Published: Fri 03 April 2026
         </abbr>
                 <br />
-                <abbr class="modified" title="2026-04-03T13:48:02.439274+00:00">
+                <abbr class="modified" title="2026-04-03T14:35:29.503145+00:00">
                         Updated: Fri 03 April 2026
                 </abbr>
 
@@ -291,7 +261,7 @@ alias cudatext=&quot;/Applications/CudaText.app/Contents/MacOS/cudatext&quot;
                 Published: Fri 03 April 2026
         </abbr>
                 <br />
-                <abbr class="modified" title="2026-04-03T13:48:02.148883+00:00">
+                <abbr class="modified" title="2026-04-03T14:35:29.394145+00:00">
                         Updated: Fri 03 April 2026
                 </abbr>
 
@@ -332,7 +302,7 @@ cat<span class="w"> </span>&gt;<span class="w"> </span>~/Library/LaunchAgents/co
                 Published: Thu 02 April 2026
         </abbr>
                 <br />
-                <abbr class="modified" title="2026-04-03T13:48:02.720396+00:00">
+                <abbr class="modified" title="2026-04-03T14:35:29.693383+00:00">
                         Updated: Fri 03 April 2026
                 </abbr>
 
@@ -366,7 +336,7 @@ cat<span class="w"> </span>&gt;<span class="w"> </span>~/Library/LaunchAgents/co
                 Published: Wed 25 February 2026
         </abbr>
                 <br />
-                <abbr class="modified" title="2026-04-03T13:48:01.584734+00:00">
+                <abbr class="modified" title="2026-04-03T14:35:29.170146+00:00">
                         Updated: Fri 03 April 2026
                 </abbr>
 
@@ -403,7 +373,7 @@ UNC paths, Unicode …</li></ul>
                 Published: Wed 12 March 2025
         </abbr>
                 <br />
-                <abbr class="modified" title="2026-04-03T13:48:02.900959+00:00">
+                <abbr class="modified" title="2026-04-03T14:35:29.794405+00:00">
                         Updated: Fri 03 April 2026
                 </abbr>
 
@@ -436,7 +406,7 @@ No problem! From this point, you could jump directly to <a class="reference inte
                 Published: Tue 21 June 2022
         </abbr>
                 <br />
-                <abbr class="modified" title="2026-04-03T13:48:01.770730+00:00">
+                <abbr class="modified" title="2026-04-03T14:35:29.239146+00:00">
                         Updated: Fri 03 April 2026
                 </abbr>
 

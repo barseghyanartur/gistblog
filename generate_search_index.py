@@ -6,82 +6,92 @@ from datetime import datetime
 CONTENT_DIR = "content"
 STATIC_DIR = "static"
 
+RST_BORDER = re.compile(r'^[=\-~^"\'`#+*]{2,}$')
+
 
 def simple_slugify(text):
     text = re.sub(r'[^\w\s-]', '', text).strip().lower()
     return re.sub(r'[\s-]+', '-', text)
 
 
-def parse_rst_file(filepath):
-    """Parse an RST file, returning (title, metadata, body_text)."""
-    with open(filepath, 'r', encoding='utf-8') as f:
-        content = f.read()
+def is_border(line):
+    """True if the line is a pure RST section-title border (===, ---, etc.)."""
+    return bool(RST_BORDER.match(line.strip())) and len(line.strip()) >= 2
 
-    lines = content.splitlines()
-    metadata = {}
+
+def parse_rst_file(filepath):
+    """
+    Return (title, metadata_dict, body_lines) from an RST file.
+
+    Handles both title styles:
+      Style A - overline + title + underline  (lines 0-1-2)
+      Style B - title + underline             (lines 0-1)
+
+    After the title block, a contiguous run of :key: value lines is
+    consumed as metadata; everything after that is the body.
+    """
+    with open(filepath, encoding='utf-8') as fh:
+        lines = fh.read().splitlines()
+
+    # Strip leading blank lines
+    while lines and not lines[0].strip():
+        lines.pop(0)
+
     title = None
-    body_lines = []
     i = 0
 
-    # --- Phase 1: extract title (first non-blank line + optional underline) ---
-    while i < len(lines):
-        stripped = lines[i].strip()
-        if stripped:
-            # Could be the title or a metadata line
-            if stripped.startswith(':') and ':' in stripped[1:]:
-                # metadata before title — unusual but handle gracefully
-                key, value = [p.strip() for p in stripped[1:].split(':', 1)]
-                metadata[key] = value
-                i += 1
-                continue
-            title = stripped
-            i += 1
-            # consume optional RST underline (===, ---, ~~~, etc.)
-            if i < len(lines) and lines[i].strip() and all(
-                c in '=-~^"\'`#+*' for c in lines[i].strip()
-            ):
-                i += 1
-            break
+    if len(lines) >= 3 and is_border(lines[0]) and is_border(lines[2]):
+        # Style A: overline / title / underline
+        title = lines[1].strip()
+        i = 3
+    elif len(lines) >= 2 and not is_border(lines[0]) and is_border(lines[1]):
+        # Style B: title / underline
+        title = lines[0].strip()
+        i = 2
+    else:
+        # Fallback: first non-empty line is the title
+        title = lines[0].strip() if lines else 'Untitled'
+        i = 1
+
+    # Skip any blank lines between title block and metadata
+    while i < len(lines) and not lines[i].strip():
         i += 1
 
-    # --- Phase 2: consume metadata block (lines starting with :key:) ---
+    # Consume metadata block (:key: value)
+    metadata = {}
     while i < len(lines):
-        stripped = lines[i].strip()
-        if stripped.startswith(':') and ':' in stripped[1:]:
-            key, value = [p.strip() for p in stripped[1:].split(':', 1)]
-            metadata[key] = value
+        m = re.match(r'^:(\w[\w-]*):\s*(.*)', lines[i].strip())
+        if m:
+            metadata[m.group(1)] = m.group(2).strip()
             i += 1
         else:
             break
 
-    # --- Phase 3: everything remaining is the body ---
     body_lines = lines[i:]
+    return title or 'Untitled', metadata, body_lines
 
-    return title, metadata, body_lines
 
-
-def clean_rst_text(lines):
-    """Strip RST markup from body lines and return plain text."""
-    text_lines = []
-    for line in lines:
-        stripped = line.strip()
-        # Skip pure RST underline/overline rows
-        if stripped and all(c in '=-~^"\'`#+*' for c in stripped):
+def clean_rst_body(lines):
+    """Return plain text from RST body lines, stripping markup and directives."""
+    out = []
+    for raw in lines:
+        s = raw.strip()
+        if not s:
             continue
-        # Skip RST directives (.. image::, .. code-block::, etc.)
-        if stripped.startswith('.. '):
+        if is_border(s):
             continue
-        # Strip inline RST markup: ``code``, *em*, **strong**, `ref`_
-        cleaned = re.sub(r'\*\*(.+?)\*\*', r'\1', stripped)   # **bold**
-        cleaned = re.sub(r'\*(.+?)\*', r'\1', cleaned)         # *italic*
-        cleaned = re.sub(r'``(.+?)``', r'\1', cleaned)         # ``code``
-        cleaned = re.sub(r'`(.+?)`_?', r'\1', cleaned)         # `ref`_
-        # Strip role syntax :role:`text`
-        cleaned = re.sub(r':\w+:`(.+?)`', r'\1', cleaned)
-        if cleaned:
-            text_lines.append(cleaned)
-
-    return ' '.join(text_lines)
+        if s.startswith('.. '):        # RST directive
+            continue
+        # Remove inline markup
+        s = re.sub(r'\*\*(.+?)\*\*', r'\1', s)   # **bold**
+        s = re.sub(r'\*(.+?)\*',     r'\1', s)   # *italic*
+        s = re.sub(r'``(.+?)``',     r'\1', s)   # ``code``
+        s = re.sub(r':\w+:`(.+?)`',  r'\1', s)   # :role:`text`
+        s = re.sub(r'`(.+?)`_?',     r'\1', s)   # `ref`_
+        s = re.sub(r'^\s*[-*+]\s+',  '',    s)   # bullet markers
+        if s:
+            out.append(s)
+    return ' '.join(out)
 
 
 if not os.path.exists(STATIC_DIR):
@@ -95,7 +105,6 @@ for filename in sorted(os.listdir(CONTENT_DIR)):
     filepath = os.path.join(CONTENT_DIR, filename)
     title, metadata, body_lines = parse_rst_file(filepath)
 
-    title = title or 'Untitled'
     date_str = metadata.get('date', '')
     try:
         date = datetime.fromisoformat(date_str.replace(' ', 'T')) if date_str else datetime.now()
@@ -103,17 +112,16 @@ for filename in sorted(os.listdir(CONTENT_DIR)):
         date = datetime.now()
 
     category = metadata.get('category', 'Uncategorized')
-    tags = [t.strip() for t in metadata.get('tags', '').split(',')] if metadata.get('tags') else []
+    tags_raw = metadata.get('tags', '')
+    tags = [t.strip() for t in tags_raw.split(',')] if tags_raw else []
     summary = metadata.get('summary', '').strip()
 
     slug = simple_slugify(title)
     url = f"posts/{date.strftime('%Y/%m')}/{slug}/"
 
-    # Build a clean searchable body: prefer summary, fall back to cleaned body
-    body_text = clean_rst_text(body_lines)
-    searchable = summary if summary else body_text
-    if len(searchable) > 1000:
-        searchable = searchable[:1000] + '…'
+    body_text = clean_rst_body(body_lines)
+    if len(body_text) > 1000:
+        body_text = body_text[:1000] + '...'
 
     posts.append({
         'title': title,
@@ -122,10 +130,10 @@ for filename in sorted(os.listdir(CONTENT_DIR)):
         'category': category,
         'tags': tags,
         'summary': summary,
-        'content': searchable,
+        'content': body_text,
     })
 
-with open(os.path.join(STATIC_DIR, 'search_index.json'), 'w', encoding='utf-8') as f:
-    json.dump(posts, f, ensure_ascii=False, indent=2)
+with open(os.path.join(STATIC_DIR, 'search_index.json'), 'w', encoding='utf-8') as fh:
+    json.dump(posts, fh, ensure_ascii=False, indent=2)
 
 print(f"Generated search index with {len(posts)} posts")

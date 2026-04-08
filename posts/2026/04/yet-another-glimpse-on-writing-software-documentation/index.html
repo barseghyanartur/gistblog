@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+                        <meta charset="utf-8" />
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                        <meta name="generator" content="Pelican" />
+                        <title>Yet another glimpse on writing software documentation</title>
+                        <link rel="stylesheet" href="/gist-blog/theme/css/main.css" />
+                                <link href="/gist-blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Dev Notes Atom Feed" />
+    <meta name="description" content="date:2023-04-03 01:48 category:Tech tags:python, automation A rule of thumb Always code as if the dev who ends up maintaining your code will be a..." />
+        </head>
+
+        <body id="index" class="home">
+                <header id="banner" class="body">
+                        <h1><a href="/gist-blog/">Dev Notes</a></h1>
+                        <nav><ul>
+                                        <li><a href="/gist-blog">Home</a></li>
+                                                <li class="active"><a href="/gist-blog/category/misc.html">misc</a></li>
+                                                <li><a href="/gist-blog/category/tech.html">Tech</a></li>
+                        </ul></nav>
+                </header><!-- /#banner -->
+  <section id="content" class="body">
+    <article>
+      <header>
+        <h1 class="entry-title">
+          <a href="/gist-blog/posts/2026/04/yet-another-glimpse-on-writing-software-documentation/" rel="bookmark"
+             title="Permalink to Yet another glimpse on writing software documentation">Yet another glimpse on writing software documentation</a></h1>
+      </header>
+
+      <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2026-04-08T09:36:25.087421+00:00">
+                Published: Wed 08 April 2026
+        </abbr>
+                <br />
+                <abbr class="modified" title="2026-04-08T09:36:25.087421+00:00">
+                        Updated: Wed 08 April 2026
+                </abbr>
+
+                <address class="vcard author">
+                        By                                 <a class="url fn" href="/gist-blog/author/artur-barseghyan.html">Artur Barseghyan</a>
+                </address>
+        <p>In <a href="/gist-blog/category/misc.html">misc</a>.</p>
+        
+</footer><!-- /.post-info -->        <!-- After updates, make sure to compile to a PDF using PanDoc (see command below) and re-upload.
+pandoc -V geometry:a4paper -V colorlinks=true -f rst - -toc -o yet_another_glimpse_on_writing_software_documentation.pdf yet_another_glimpse_on_writing_software_documentation.rst -->
+<blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">date:</th><td class="field-body">2023-04-03 01:48</td>
+</tr>
+<tr class="field"><th class="field-name">category:</th><td class="field-body">Tech</td>
+</tr>
+<tr class="field"><th class="field-name">tags:</th><td class="field-body">python, automation</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p><strong>A rule of thumb</strong></p>
+<p>Always code as if the dev who ends up maintaining your code will be a violent psychopath who knows where you live.</p>
+<div class="section" id="introduction">
+<h2>Introduction</h2>
+<p>Documentation of every software project should minimally provide (preferably - quick) answers to the following questions:</p>
+<ul class="simple">
+<li>What it is and what it does (overview)?</li>
+<li>How to install?</li>
+<li>How to configure?</li>
+<li>How to run?</li>
+<li>How to use?</li>
+<li>How to test?</li>
+<li>How to troubleshoot?</li>
+<li>How to contribute?</li>
+</ul>
+<p>Reusable software adds more questions to answer:</p>
+<ul class="simple">
+<li>What are common use cases?</li>
+<li>What are advanced use cases?</li>
+<li>How to customize?</li>
+<li>How to migrate?</li>
+<li>Is documentation versioned?</li>
+</ul>
+<p>Open-source adds even more:</p>
+<ul class="simple">
+<li>How and where to ask questions?</li>
+<li>Security policy?</li>
+<li>Deprecation policy?</li>
+<li>License?</li>
+<li>How to request features?</li>
+<li>How to report bugs?</li>
+</ul>
+</div>
+<div class="section" id="how-to-start">
+<h2>How to start</h2>
+<p>Let's go though a template.</p>
+</div>
+<div class="section" id="overview">
+<h2>Overview</h2>
+<p>Briefly describes the general context of the project and several of its aspects, such as the domain, goals, etc.
+Often includes links to more in-depth view of the project (architecture).</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span># Awesome Z
+
+The awesome project for showing off awesomeness.
+Consists of a frontend (ReactJS), backend (FastAPI) and serverless ML.
+Used primarily to bootstrap software development of Slimmer AI in AWS cloud.
+See the [architecture.md](docs/architecture.md) for architectural details.
+</pre></div>
+</div>
+<div class="section" id="prerequisites">
+<h2>Prerequisites</h2>
+<p>List the system and software prerequisites that are required to use the project.
+Provide clear instructions for how to install any necessary packages or dependencies.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span>## Prerequisites
+
+### System packages
+
+You will need `System.Package.Name.A` and `System.Package.Name.B`:
+
+#### Linux
+
+```sh
+sudo yum install system-package.name.a system-package-name.b
+```
+
+#### Mac
+
+```sh
+brew install system-package.name.a system-package-name.b
+```
+
+#### Windows
+
+```sh
+Install-Package -Name system-package.name.a ...
+Install-Package -Name system-package.name.b ...
+```
+
+### Infrastructure
+
+You will need:
+
+- AWS account with Admin rights for running CDK
+- AWS Access Key and Secret Key
+- AWS S3 cloud bucket
+
+See all the details in [Infrastructure prerequisites](docs/infra_prerequisites.md).
+</pre></div>
+</div>
+<div class="section" id="installation">
+<h2>Installation</h2>
+<p>Provide step-by-step instructions for how to install the project. Include any setup that may be required.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span>## Installation
+
+```sh
+
+git clone ...
+pip install ...
+docker-compose build ...
+```
+</pre></div>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration</h2>
+<p>Provide step-by-step instructions for how to configure the project. Include any configuration that may be required.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span>## Configuration
+
+1. Copy ``.env.example`` to ``.env.local``
+```sh
+cp .env.example .env.local
+```
+2. Fill in your AWS credentials in ``AWS_API_KEY`` and ``AWS_API_SECRET``.
+3. ...
+</pre></div>
+</div>
+<div class="section" id="running">
+<h2>Running</h2>
+<p>Describe how to run the project, including any commands or scripts that may be necessary.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span>## Running
+
+```sh
+docker-compose up ...
+```
+</pre></div>
+</div>
+<div class="section" id="usage">
+<h2>Usage</h2>
+<p>Describe how to use the project. Provide examples and use cases to help users understand how to apply the information.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span>## Usage
+
+### Adding new API module
+
+1. Run ``make add_api_module``
+2. Register new endpoints in ``routes.py``
+3. ...
+
+See [examples/simple_module](examples/simple_api_module) for a simple API example.
+Follow the README inside the ``simple_api_module`` for activation instructions.
+
+### Deployment
+
+1. Run ``make deploy {env}``
+2. Run minimal tests ``make validate {env}``
+3. ...
+
+### Adding ML capabilities
+
+1. Run ``make add_ml_module``
+2. ...
+
+See [examples/simple_module](examples/simple_ml_module) for a simple ML example.
+Follow the README inside the ``simple_ml_module`` for activation instructions.
+
+Study [recipes](docs/recipes.md) for more.
+</pre></div>
+</div>
+<div class="section" id="testing">
+<h2>Testing</h2>
+<p>Short description of how to run the tests.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span>## Testing
+
+```sh
+pytest ...
+docker-compose -f test.yml up ...
+tox ...
+make test ...
+```
+</pre></div>
+</div>
+<div class="section" id="troubleshooting">
+<h2>Troubleshooting</h2>
+<p>What are the common errors so far?</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span>## Troubleshooting
+
+Q. Can&#39;t open directory &quot;/project/media/&quot; for writing.
+A. Ensure that your `project/media` path is writable.
+</pre></div>
+</div>
+<div class="section" id="contributor-guidelines">
+<h2>Contributor Guidelines</h2>
+<p>Provide guidelines for how to contribute to the project, including coding conventions and standards, version control practices, and testing and debugging procedures. This is often a separate document.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span># Contributor guidelines
+
+## Developer prerequisites
+
+### pre-commit
+
+Refer to pre-commit for installation instructions.
+
+TL;DR:
+
+```sh
+pip install pipx --user  # Install pipx
+pipx install pre-commit  # Install pre-commit
+pre-commit install  # Install pre-commit hooks
+```
+
+Installing pre-commit will ensure you adhere to the project code quality standards.
+
+### Code standards
+
+black, isort, ruff and doc8 will be automatically triggered by pre-commit.
+
+### Requirements
+
+Requirements are compiled using pip-tools.
+
+```sh
+make pip-compile
+```
+
+### Virtual environment
+
+You are advised to work in virtual environment.
+
+TL;DR:
+
+```sh
+python -m venv env
+pip install -e .
+pip install -r requirements/dev.txt
+```
+
+### Documentation
+
+Explain, how to write documentation.
+
+- The documentation uses [MkDocs](https://www.mkdocs.org/).
+- All the documentation should be written in Markdown format and reside (except for the ``README.md``) in the ``./docs/`` directory.
+
+### Testing
+
+See [testing](README.md#testing) for more.
+
+### Pull requests
+
+You can contribute to the project by making a pull request.
+
+For example:
+
+- To fix documentation typos.
+- To improve documentation (for instance, to add new recipe or fix an existing recipe that doesn’t seem to work).
+- To introduce a new feature (for instance, add support for a non-supported file type).
+
+**Good to know:**
+
+Test suite makes extensive use of parametrization. Make sure you have added your changes in the right place.
+
+**General list to go through:**
+
+- Does your change require documentation update?
+- Does your change require update to tests?
+- Does your change rely on third-party cloud based service? If so, please make sure it’s added to tests that should be retried a couple of times. Example: ``@pytest.mark.flaky(reruns=5)``.
+
+**When fixing bugs (in addition to the general list):**
+
+- Make sure to add regression tests.
+
+**When adding a new feature (in addition to the general list):**
+
+- Check the licenses of added dependencies carefully and make sure to list them in prerequisites.
+* Make sure to update the documentation (check whether the installation, features, recipes and quick start require changes).
+
+### Questions
+
+Explain, how (and where) questions could be asked.
+
+### Issues
+
+- Explain how to fill a regular bug.
+- Explain how to fill a security bug.
+</pre></div>
+</div>
+<div class="section" id="documentation">
+<h2>Documentation</h2>
+<p>Include links to any relevant documentation or resources, such as API references or user guides.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span>## Documentation
+
+Searchable documentation is hosted on [GitHub](http://github.io/your-company/your-project). Builds are triggered automatically.
+
+- For tips on writing documentation, see the [contributor_guidelines.md](docs/contributor_guidelines.md).
+- Check [recipes](docs/recipes.md) for simple and complex examples.
+</pre></div>
+</div>
+<div class="section" id="recipes">
+<h2>Recipes</h2>
+<p>A common ways of performing tasks that framework/package aims to cover. This is often a separate document.</p>
+<div class="highlight"><pre><span></span>## Recipes
+
+### How to add a new serverless API
+
+Briefly describe the use case. For full code see `sample_app_1 &lt;examples/sample_app_1/&gt;`__.
+
+- Run ``make add_api_module``
+- Do you need database models? If so, define them in ``models.py``
+- Register new endpoints in ``routes.py``
+- ...
+
+#### Database models
+
+**sample_app_1/models.py**
+
+```python
+from sqlmodel import Field, SQLModel
+
+class Profile(SQLModel, table=True):
+    id: int = Field(default=None, primary_key=True)
+    name: str
+    secret_name: str
+    age: int = None
+```
+
+#### API views
+
+```python
+import json
+
+def hello(event, context):
+    # ...
+    return {&quot;statusCode&quot;: 200, &quot;body&quot;: json.dumps({&quot;message&quot;: &quot;hello unknown!&quot;})}
+
+def lambda_handler(event, context):
+    return hello()
+```
+
+#### Routes
+
+**sample_app_1/routes.py**
+
+```python
+from aws_lambda_powertools import ...
+
+app = APIGatewayRestResolver()
+
+def lambda_handler(event: dict, context: LambdaContext) -&gt; dict:
+    return app.resolve(event, context)
+```
+
+#### Connecting the dots
+
+Detailed explanation on how to do connect the loose parts together.
+</pre></div>
+</div>
+<div class="section" id="recommendations">
+<h2>Recommendations</h2>
+<p>Based on best practices for effective technical developer documentation, consider the following:</p>
+<div class="section" id="understand-users-needs">
+<h3>Understand users' needs</h3>
+<p>Tailor documentation to users' level of expertise and provide context and use cases to help users understand how to apply information.</p>
+</div>
+<div class="section" id="break-content-into-chunks">
+<h3>Break content into chunks</h3>
+<p>Break content into small, manageable chunks that are easy to digest.</p>
+</div>
+<div class="section" id="use-multimedia-elements">
+<h3>Use multimedia elements</h3>
+<p>Use multimedia elements to supplement text-based documentation and provide visual aids.</p>
+</div>
+<div class="section" id="consistent-formatting-and-style">
+<h3>Consistent formatting and style</h3>
+<p>Use consistent formatting and style throughout the documentation to make it easy to navigate and understand.</p>
+</div>
+<div class="section" id="encourage-user-feedback-and-involvement">
+<h3>Encourage user feedback and involvement</h3>
+<p>Encourage user feedback and involvement in the documentation process to improve its accuracy and relevance.</p>
+</div>
+<div class="section" id="support">
+<h3>Support</h3>
+<p>Provide information about how to get help or support, including contact information and any relevant troubleshooting or FAQ resources.</p>
+</div>
+</div>
+<p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: right;">Originally published as <a href="https://gist.github.com/barseghyanartur/3ce291525e7ed2fc7b8477b33a68f995" target="_blank" rel="noopener">GitHub Gist #3ce291525e7ed2fc7b8477b33a68f995</a></p>
+      </div><!-- /.entry-content -->
+
+    </article>
+  </section>
+                <section id="extras" class="body">
+                                <div class="social">
+                                        <h2>social</h2>
+                                        <ul>
+                                                        <li><a href="/gist-blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                                        </ul>
+                                </div><!-- /.social -->
+                </section><!-- /#extras -->
+
+                <footer id="contentinfo" class="body">
+                        <address id="about" class="vcard body">
+                                Proudly powered by <a rel="nofollow" href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a rel="nofollow" href="https://www.python.org/">Python</a>.
+                        </address><!-- /#about -->
+
+                        <p>The theme is by <a rel="nofollow" href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+                </footer><!-- /#contentinfo -->
+
+        </body>
+</html>

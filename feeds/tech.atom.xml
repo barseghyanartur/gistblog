@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Dev Notes - Tech</title><link href="/gist-blog/" rel="alternate"/><link href="/gist-blog/feeds/tech.atom.xml" rel="self"/><id>/gist-blog/</id><updated>2026-04-08T11:20:57.370977+00:00</updated><entry><title>licence-normaliser: Taming licence chaos in Python</title><link href="/gist-blog/posts/2026/04/licence-normaliser-taming-licence-chaos-in-python/" rel="alternate"/><published>2026-04-04T14:00:00+00:00</published><updated>2026-04-08T11:20:56.687006+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-04:/gist-blog/posts/2026/04/licence-normaliser-taming-licence-chaos-in-python/</id><summary type="html">&lt;img src="https://raw.githubusercontent.com/barseghyanartur/licence-normaliser/main/docs/_static/licence_normaliser_logo.webp" alt="Preview" class="preview-image" style="max-width:100%; height:auto; border-radius:8px; margin-bottom:1.5rem; display:block;"&gt;&lt;p class="first last"&gt;Tired of wrestling with messy license strings like &amp;quot;MIT License&amp;quot; vs. &amp;quot;The MIT License&amp;quot; or cryptic URLs? licence-normaliser is a lightweight Python tool that tames the chaos. It maps inconsistent metadata into a clean, machine-readable hierarchy (Family → License → Version), turning strings like CC BY-NC-ND 4.0 into a tidy cc-by-nc-nd-4.0 automatically. Whether you're scraping repos or managing compliance, it handles SPDX codes, prose, and even complex Creative Commons variants with ease—giving you a single source of truth for your legal metadata.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Hey, ever tried cleaning up messy license strings — like &lt;tt class="docutils literal"&gt;CC &lt;span class="pre"&gt;BY-NC-ND&lt;/span&gt; 4.0&lt;/tt&gt; or &lt;tt class="docutils literal"&gt;MIT License&lt;/tt&gt; — and getting them into something tidy and machine-readable?
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Dev Notes - Tech</title><link href="/gist-blog/" rel="alternate"/><link href="/gist-blog/feeds/tech.atom.xml" rel="self"/><id>/gist-blog/</id><updated>2026-04-08T11:22:18.132122+00:00</updated><entry><title>licence-normaliser: Taming licence chaos in Python</title><link href="/gist-blog/posts/2026/04/licence-normaliser-taming-licence-chaos-in-python/" rel="alternate"/><published>2026-04-04T14:00:00+00:00</published><updated>2026-04-08T11:22:18.085758+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-04:/gist-blog/posts/2026/04/licence-normaliser-taming-licence-chaos-in-python/</id><summary type="html">&lt;img src="https://raw.githubusercontent.com/barseghyanartur/licence-normaliser/main/docs/_static/licence_normaliser_logo.webp" alt="Preview" class="preview-image" style="max-width:100%; height:auto; border-radius:8px; margin-bottom:1.5rem; display:block;"&gt;&lt;p class="first last"&gt;Tired of wrestling with messy license strings like &amp;quot;MIT License&amp;quot; vs. &amp;quot;The MIT License&amp;quot; or cryptic URLs? licence-normaliser is a lightweight Python tool that tames the chaos. It maps inconsistent metadata into a clean, machine-readable hierarchy (Family → License → Version), turning strings like CC BY-NC-ND 4.0 into a tidy cc-by-nc-nd-4.0 automatically. Whether you're scraping repos or managing compliance, it handles SPDX codes, prose, and even complex Creative Commons variants with ease—giving you a single source of truth for your legal metadata.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Hey, ever tried cleaning up messy license strings — like &lt;tt class="docutils literal"&gt;CC &lt;span class="pre"&gt;BY-NC-ND&lt;/span&gt; 4.0&lt;/tt&gt; or &lt;tt class="docutils literal"&gt;MIT License&lt;/tt&gt; — and getting them into something tidy and machine-readable?
 That's exactly what &lt;strong&gt;licence-normaliser&lt;/strong&gt; does, and honestly, it's a lifesaver for anyone dealing with open-source compliance or metadata.&lt;/p&gt;
 &lt;img alt="licence-normaliser" class="align-center" src="https://raw.githubusercontent.com/barseghyanartur/licence-normaliser/main/docs/_static/licence_normaliser_logo.webp" style="width: 100%;" /&gt;
 &lt;p&gt;Check out the repo here: &lt;a class="reference external" href="https://github.com/barseghyanartur/licence-normaliser"&gt;licence-normaliser&lt;/a&gt;.
@@ -36,7 +36,7 @@ with license detection (think ScanCode integration, repo crawlers, academic tool
 solves a headache. It gets updated via CLI data pulls from SPDX, OSI, Creative Commons...
 no manual hassle.&lt;/p&gt;
 &lt;p&gt;Bottom line: if licenses are your mess, normalise them. This tool just works.&lt;/p&gt;
-&lt;p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: right;"&gt;Originally published as &lt;a href="https://gist.github.com/barseghyanartur/93cafc05616758479eed6377f6593246" target="_blank" rel="noopener"&gt;GitHub Gist #93cafc05616758479eed6377f6593246&lt;/a&gt;&lt;/p&gt;</content><category term="Tech"/><category term="python"/><category term="licence"/></entry><entry><title>Log4Brains images support</title><link href="/gist-blog/posts/2026/04/log4brains-images-support/" rel="alternate"/><published>2026-04-03T14:00:00+00:00</published><updated>2026-04-08T11:20:56.877282+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/log4brains-images-support/</id><summary type="html">&lt;p class="first last"&gt;Tired of broken images in your Architecture Decision Records? This quick fix shows you how to add static image support to Log4brains. By setting up a docs/l4b-static folder and adding a simple copy command to your Build script or GitHub Action, you can finally use local icons and diagrams directly in your ADRs. Perfect for keeping your architecture docs visual and professional without the hosting headaches.&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a class="reference external" href="https://github.com/thomvaill/log4brains"&gt;https://github.com/thomvaill/log4brains&lt;/a&gt;&lt;/p&gt;
+&lt;p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: right;"&gt;Originally published as &lt;a href="https://gist.github.com/barseghyanartur/93cafc05616758479eed6377f6593246" target="_blank" rel="noopener"&gt;GitHub Gist #93cafc05616758479eed6377f6593246&lt;/a&gt;&lt;/p&gt;</content><category term="Tech"/><category term="python"/><category term="licence"/></entry><entry><title>Log4Brains images support</title><link href="/gist-blog/posts/2026/04/log4brains-images-support/" rel="alternate"/><published>2026-04-03T14:00:00+00:00</published><updated>2026-04-08T11:22:18.101999+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/log4brains-images-support/</id><summary type="html">&lt;p class="first last"&gt;Tired of broken images in your Architecture Decision Records? This quick fix shows you how to add static image support to Log4brains. By setting up a docs/l4b-static folder and adding a simple copy command to your Build script or GitHub Action, you can finally use local icons and diagrams directly in your ADRs. Perfect for keeping your architecture docs visual and professional without the hosting headaches.&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a class="reference external" href="https://github.com/thomvaill/log4brains"&gt;https://github.com/thomvaill/log4brains&lt;/a&gt;&lt;/p&gt;
 &lt;div class="section" id="directory-structure"&gt;
 &lt;h2&gt;Directory structure&lt;/h2&gt;
 &lt;pre class="literal-block"&gt;
@@ -129,7 +129,7 @@ serve:
 &lt;/span&gt;You will find here all the Architecture Decision Records (ADR) of the project.
 &lt;/pre&gt;
 &lt;/div&gt;
-&lt;p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: right;"&gt;Originally published as &lt;a href="https://gist.github.com/barseghyanartur/f041a013db9a730d2f2889663d1956f6" target="_blank" rel="noopener"&gt;GitHub Gist #f041a013db9a730d2f2889663d1956f6&lt;/a&gt;&lt;/p&gt;</content><category term="Tech"/><category term="ADRs"/><category term="log4brains"/></entry><entry><title>Make scrollbars always visible in Vivaldi browser using Stylus</title><link href="/gist-blog/posts/2026/04/make-scrollbars-always-visible-in-vivaldi-browser-using-stylus/" rel="alternate"/><published>2026-04-03T01:42:00+00:00</published><updated>2026-04-08T11:20:57.319259+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/make-scrollbars-always-visible-in-vivaldi-browser-using-stylus/</id><summary type="html">&lt;p class="first last"&gt;Tired of scrollbars playing hide-and-seek? This quick guide shows you how to use the Stylus extension to force scrollbars to stay visible in Vivaldi. With a simple CSS snippet, you can reclaim your navigation bars and even give them a custom look so they never disappear on you again.&lt;/p&gt;</summary><content type="html">&lt;!-- References --&gt;
+&lt;p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: right;"&gt;Originally published as &lt;a href="https://gist.github.com/barseghyanartur/f041a013db9a730d2f2889663d1956f6" target="_blank" rel="noopener"&gt;GitHub Gist #f041a013db9a730d2f2889663d1956f6&lt;/a&gt;&lt;/p&gt;</content><category term="Tech"/><category term="ADRs"/><category term="log4brains"/></entry><entry><title>Make scrollbars always visible in Vivaldi browser using Stylus</title><link href="/gist-blog/posts/2026/04/make-scrollbars-always-visible-in-vivaldi-browser-using-stylus/" rel="alternate"/><published>2026-04-03T01:42:00+00:00</published><updated>2026-04-08T11:22:18.132122+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/make-scrollbars-always-visible-in-vivaldi-browser-using-stylus/</id><summary type="html">&lt;p class="first last"&gt;Tired of scrollbars playing hide-and-seek? This quick guide shows you how to use the Stylus extension to force scrollbars to stay visible in Vivaldi. With a simple CSS snippet, you can reclaim your navigation bars and even give them a custom look so they never disappear on you again.&lt;/p&gt;</summary><content type="html">&lt;!-- References --&gt;
 &lt;div class="section" id="steps"&gt;
 &lt;h2&gt;Steps&lt;/h2&gt;
 &lt;ol class="arabic"&gt;
@@ -184,7 +184,7 @@ serve:
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
-&lt;p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: right;"&gt;Originally published as &lt;a href="https://gist.github.com/barseghyanartur/b957e6e87d2f544054f402957d03bf7a" target="_blank" rel="noopener"&gt;GitHub Gist #b957e6e87d2f544054f402957d03bf7a&lt;/a&gt;&lt;/p&gt;</content><category term="Tech"/><category term="vivaldi"/><category term="browsers"/><category term="tweaks"/></entry><entry><title>CudaText installation and config for SublimeText users</title><link href="/gist-blog/posts/2026/04/cudatext-installation-and-config-for-sublimetext-users/" rel="alternate"/><published>2026-04-03T01:08:00+00:00</published><updated>2026-04-08T11:20:57.029121+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/cudatext-installation-and-config-for-sublimetext-users/</id><summary type="html">&lt;p class="first last"&gt;Switching from Sublime Text to CudaText? This guide gets you up and running on macOS with zero friction. It covers everything from bypassing security warnings and setting up a terminal alias to a curated list of essential plugins like Python IntelliSense and Markdown Preview. Plus, there's a ready-to-go user.json config to keep your UI clean and your indentation consistent—perfect for those who want that familiar, lightning-fast editor feel without the bloat.&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a class="reference external" href="https://github.com/Alexey-T/CudaText"&gt;https://github.com/Alexey-T/CudaText&lt;/a&gt;&lt;/p&gt;
+&lt;p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: right;"&gt;Originally published as &lt;a href="https://gist.github.com/barseghyanartur/b957e6e87d2f544054f402957d03bf7a" target="_blank" rel="noopener"&gt;GitHub Gist #b957e6e87d2f544054f402957d03bf7a&lt;/a&gt;&lt;/p&gt;</content><category term="Tech"/><category term="vivaldi"/><category term="browsers"/><category term="tweaks"/></entry><entry><title>CudaText installation and config for SublimeText users</title><link href="/gist-blog/posts/2026/04/cudatext-installation-and-config-for-sublimetext-users/" rel="alternate"/><published>2026-04-03T01:08:00+00:00</published><updated>2026-04-08T11:22:18.113333+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/cudatext-installation-and-config-for-sublimetext-users/</id><summary type="html">&lt;p class="first last"&gt;Switching from Sublime Text to CudaText? This guide gets you up and running on macOS with zero friction. It covers everything from bypassing security warnings and setting up a terminal alias to a curated list of essential plugins like Python IntelliSense and Markdown Preview. Plus, there's a ready-to-go user.json config to keep your UI clean and your indentation consistent—perfect for those who want that familiar, lightning-fast editor feel without the bloat.&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a class="reference external" href="https://github.com/Alexey-T/CudaText"&gt;https://github.com/Alexey-T/CudaText&lt;/a&gt;&lt;/p&gt;
 &lt;div class="section" id="macos-releases"&gt;
 &lt;h2&gt;macOS releases&lt;/h2&gt;
 &lt;p&gt;&lt;em&gt;Go for aarch64 releases&lt;/em&gt;&lt;/p&gt;
@@ -244,7 +244,7 @@ alias cudatext=&amp;quot;/Applications/CudaText.app/Contents/MacOS/cudatext&amp;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: right;"&gt;Originally published as &lt;a href="https://gist.github.com/barseghyanartur/65bd6a58ce5f2fda89594c2f4fac812a" target="_blank" rel="noopener"&gt;GitHub Gist #65bd6a58ce5f2fda89594c2f4fac812a&lt;/a&gt;&lt;/p&gt;</content><category term="Tech"/><category term="IDE"/><category term="text-editor"/><category term="CudaText"/></entry><entry><title>Useful plugins for VSCode</title><link href="/gist-blog/posts/2026/04/useful-plugins-for-vscode/" rel="alternate"/><published>2026-04-03T01:02:00+00:00</published><updated>2026-04-08T11:20:56.989284+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/useful-plugins-for-vscode/</id><summary type="html">&lt;p class="first last"&gt;Supercharge your VS Code setup with this curated list of essential plugins! Whether you're a Python pro needing Pylance and Makefile support, or a documentation stickler looking for Markdown and reStructuredText tools, these extensions bridge the gap between a basic editor and a powerhouse IDE. Plus, grab the PyCharm Theme to get that classic JetBrains look without sacrificing VS Code's lightweight speed.&lt;/p&gt;</summary><content type="html">&lt;!-- References: --&gt;
+&lt;p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: right;"&gt;Originally published as &lt;a href="https://gist.github.com/barseghyanartur/65bd6a58ce5f2fda89594c2f4fac812a" target="_blank" rel="noopener"&gt;GitHub Gist #65bd6a58ce5f2fda89594c2f4fac812a&lt;/a&gt;&lt;/p&gt;</content><category term="Tech"/><category term="IDE"/><category term="text-editor"/><category term="CudaText"/></entry><entry><title>Useful plugins for VSCode</title><link href="/gist-blog/posts/2026/04/useful-plugins-for-vscode/" rel="alternate"/><published>2026-04-03T01:02:00+00:00</published><updated>2026-04-08T11:22:18.109100+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/useful-plugins-for-vscode/</id><summary type="html">&lt;p class="first last"&gt;Supercharge your VS Code setup with this curated list of essential plugins! Whether you're a Python pro needing Pylance and Makefile support, or a documentation stickler looking for Markdown and reStructuredText tools, these extensions bridge the gap between a basic editor and a powerhouse IDE. Plus, grab the PyCharm Theme to get that classic JetBrains look without sacrificing VS Code's lightweight speed.&lt;/p&gt;</summary><content type="html">&lt;!-- References: --&gt;
 &lt;ol class="arabic simple"&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=Tyriar.sort-lines"&gt;Sort lines&lt;/a&gt;: Sort lines of text for VS Code&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=nicohlr.pycharm"&gt;PyCharm Theme&lt;/a&gt;: PyCharm Theme for VS Code&lt;/li&gt;
@@ -254,7 +254,7 @@ alias cudatext=&amp;quot;/Applications/CudaText.app/Contents/MacOS/cudatext&amp;
 &lt;li&gt;&lt;a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=tamasfe.even-better-toml"&gt;Even better TOML&lt;/a&gt;: A TOML language support for VS Code&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=trond-snekvik.simple-rst"&gt;reStructuredText Syntax highlighting&lt;/a&gt;: Syntax highlighting and non-intrusive section navigation for reStructuredText.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: right;"&gt;Originally published as &lt;a href="https://gist.github.com/barseghyanartur/cd525950b1cc849dc79306251db183fe" target="_blank" rel="noopener"&gt;GitHub Gist #cd525950b1cc849dc79306251db183fe&lt;/a&gt;&lt;/p&gt;</content><category term="Tech"/><category term="python"/><category term="vs-code"/><category term="vs-code-plugins"/></entry><entry><title>open-webui setup on macOS</title><link href="/gist-blog/posts/2026/04/open-webui-setup-on-macos/" rel="alternate"/><published>2026-04-03T00:21:00+00:00</published><updated>2026-04-08T11:20:56.922115+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/open-webui-setup-on-macos/</id><summary type="html">&lt;p class="first last"&gt;Want to run Open WebUI as a seamless background service on your Mac? This guide walks you through setting it up with launchd, so it starts automatically every time you log in. Using uv for a clean install and a simple .plist configuration, you'll get persistent hosting, automatic crash recovery, and easy log management. No more manual terminal commands—just a reliable local AI interface ready whenever you need it.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Here’s how to set up Open WebUI as a launchd service on macOS.&lt;/p&gt;
+&lt;p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: right;"&gt;Originally published as &lt;a href="https://gist.github.com/barseghyanartur/cd525950b1cc849dc79306251db183fe" target="_blank" rel="noopener"&gt;GitHub Gist #cd525950b1cc849dc79306251db183fe&lt;/a&gt;&lt;/p&gt;</content><category term="Tech"/><category term="python"/><category term="vs-code"/><category term="vs-code-plugins"/></entry><entry><title>open-webui setup on macOS</title><link href="/gist-blog/posts/2026/04/open-webui-setup-on-macos/" rel="alternate"/><published>2026-04-03T00:21:00+00:00</published><updated>2026-04-08T11:22:18.105470+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-03:/gist-blog/posts/2026/04/open-webui-setup-on-macos/</id><summary type="html">&lt;p class="first last"&gt;Want to run Open WebUI as a seamless background service on your Mac? This guide walks you through setting it up with launchd, so it starts automatically every time you log in. Using uv for a clean install and a simple .plist configuration, you'll get persistent hosting, automatic crash recovery, and easy log management. No more manual terminal commands—just a reliable local AI interface ready whenever you need it.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Here’s how to set up Open WebUI as a launchd service on macOS.&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
 &lt;div class="section" id="prerequisites"&gt;
 &lt;h2&gt;Prerequisites&lt;/h2&gt;
@@ -388,7 +388,7 @@ Progressive Web Apps. Click the &lt;tt class="docutils literal"&gt;Install&lt;/t
 to run Open WebUI as a standalone application.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
-&lt;p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: right;"&gt;Originally published as &lt;a href="https://gist.github.com/barseghyanartur/916b8911e29ba9e5ee9b14916834d031" target="_blank" rel="noopener"&gt;GitHub Gist #916b8911e29ba9e5ee9b14916834d031&lt;/a&gt;&lt;/p&gt;</content><category term="Tech"/><category term="python"/><category term="open-webui"/><category term="macos"/></entry><entry><title>Hide *.py,cover files from IDE</title><link href="/gist-blog/posts/2026/04/hide-pycover-files-from-ide/" rel="alternate"/><published>2026-04-02T14:00:00+00:00</published><updated>2026-04-08T11:20:57.136897+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-02:/gist-blog/posts/2026/04/hide-pycover-files-from-ide/</id><summary type="html">&lt;p class="first last"&gt;Clean up your workspace by hiding those pesky &lt;tt class="docutils literal"&gt;*.py,cover&lt;/tt&gt; files from your IDE. Whether you're using VS Code or PyCharm, this quick setting change keeps your file tree focused on your actual source code by filtering out coverage reports. Just a few clicks in your editor's &amp;quot;Excluded&amp;quot; or &amp;quot;Ignored&amp;quot; file settings, and those clutter-causing files disappear from view while remaining safe on your disk.&lt;/p&gt;</summary><content type="html">&lt;div class="section" id="vscode"&gt;
+&lt;p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: right;"&gt;Originally published as &lt;a href="https://gist.github.com/barseghyanartur/916b8911e29ba9e5ee9b14916834d031" target="_blank" rel="noopener"&gt;GitHub Gist #916b8911e29ba9e5ee9b14916834d031&lt;/a&gt;&lt;/p&gt;</content><category term="Tech"/><category term="python"/><category term="open-webui"/><category term="macos"/></entry><entry><title>Hide *.py,cover files from IDE</title><link href="/gist-blog/posts/2026/04/hide-pycover-files-from-ide/" rel="alternate"/><published>2026-04-02T14:00:00+00:00</published><updated>2026-04-08T11:22:18.117026+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-04-02:/gist-blog/posts/2026/04/hide-pycover-files-from-ide/</id><summary type="html">&lt;p class="first last"&gt;Clean up your workspace by hiding those pesky &lt;tt class="docutils literal"&gt;*.py,cover&lt;/tt&gt; files from your IDE. Whether you're using VS Code or PyCharm, this quick setting change keeps your file tree focused on your actual source code by filtering out coverage reports. Just a few clicks in your editor's &amp;quot;Excluded&amp;quot; or &amp;quot;Ignored&amp;quot; file settings, and those clutter-causing files disappear from view while remaining safe on your disk.&lt;/p&gt;</summary><content type="html">&lt;div class="section" id="vscode"&gt;
 &lt;h2&gt;VSCode&lt;/h2&gt;
 &lt;p&gt;Settings -&amp;gt; Text Editor -&amp;gt; Files -&amp;gt; Add Pattern: Add &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;**/*.py,cover&lt;/span&gt;&lt;/tt&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -396,7 +396,7 @@ to run Open WebUI as a standalone application.&lt;/li&gt;
 &lt;h2&gt;PyCharm&lt;/h2&gt;
 &lt;p&gt;Editor -&amp;gt; File Types -&amp;gt; Ignored Files and Folders : Add &lt;tt class="docutils literal"&gt;*.py,cover&lt;/tt&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: right;"&gt;Originally published as &lt;a href="https://gist.github.com/barseghyanartur/2e36de0a8b64198ed98e748a0a7b7f15" target="_blank" rel="noopener"&gt;GitHub Gist #2e36de0a8b64198ed98e748a0a7b7f15&lt;/a&gt;&lt;/p&gt;</content><category term="Tech"/><category term="python"/><category term="vs-code"/><category term="pycharm"/></entry><entry><title>Safezip - zero-dependency wrapper for secure ZIP extraction</title><link href="/gist-blog/posts/2026/02/safezip-zero-dependency-wrapper-for-secure-zip-extraction/" rel="alternate"/><published>2026-02-25T13:00:00+00:00</published><updated>2026-04-08T11:20:56.735934+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-02-25:/gist-blog/posts/2026/02/safezip-zero-dependency-wrapper-for-secure-zip-extraction/</id><summary type="html">&lt;img src="https://raw.githubusercontent.com/barseghyanartur/safezip/main/docs/_static/safezip_logo.webp" alt="Preview" class="preview-image" style="max-width:100%; height:auto; border-radius:8px; margin-bottom:1.5rem; display:block;"&gt;&lt;p class="first last"&gt;&lt;cite&gt;Safezip&lt;/cite&gt; is a zero-dependency Python wrapper for zipfile that makes secure extraction the default. It provides essential protections against ZipSlip, ZIP bombs, and inconsistent ZIP64 headers—security features missing from the standard library. With support for atomic writes and environment-based configuration, it is an ideal drop-in solution for safely handling untrusted user uploads in production.&lt;/p&gt;</summary><content type="html">&lt;a class="reference external image-reference" href="https://github.com/barseghyanartur/safezip"&gt;
+&lt;p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: right;"&gt;Originally published as &lt;a href="https://gist.github.com/barseghyanartur/2e36de0a8b64198ed98e748a0a7b7f15" target="_blank" rel="noopener"&gt;GitHub Gist #2e36de0a8b64198ed98e748a0a7b7f15&lt;/a&gt;&lt;/p&gt;</content><category term="Tech"/><category term="python"/><category term="vs-code"/><category term="pycharm"/></entry><entry><title>Safezip - zero-dependency wrapper for secure ZIP extraction</title><link href="/gist-blog/posts/2026/02/safezip-zero-dependency-wrapper-for-secure-zip-extraction/" rel="alternate"/><published>2026-02-25T13:00:00+00:00</published><updated>2026-04-08T11:22:18.090121+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2026-02-25:/gist-blog/posts/2026/02/safezip-zero-dependency-wrapper-for-secure-zip-extraction/</id><summary type="html">&lt;img src="https://raw.githubusercontent.com/barseghyanartur/safezip/main/docs/_static/safezip_logo.webp" alt="Preview" class="preview-image" style="max-width:100%; height:auto; border-radius:8px; margin-bottom:1.5rem; display:block;"&gt;&lt;p class="first last"&gt;&lt;cite&gt;Safezip&lt;/cite&gt; is a zero-dependency Python wrapper for zipfile that makes secure extraction the default. It provides essential protections against ZipSlip, ZIP bombs, and inconsistent ZIP64 headers—security features missing from the standard library. With support for atomic writes and environment-based configuration, it is an ideal drop-in solution for safely handling untrusted user uploads in production.&lt;/p&gt;</summary><content type="html">&lt;a class="reference external image-reference" href="https://github.com/barseghyanartur/safezip"&gt;
 &lt;img alt="Safezip" src="https://raw.githubusercontent.com/barseghyanartur/safezip/main/docs/_static/safezip_logo.webp" /&gt;
 &lt;/a&gt;
 &lt;p&gt;I wrote a small, zero-dependency wrapper for secure ZIP extraction.&lt;/p&gt;
@@ -451,7 +451,7 @@ fills all of those. I got tired of writing the same boilerplate every
 time, so I packaged it up.&lt;/p&gt;
 &lt;p&gt;-—&lt;/p&gt;
 &lt;p&gt;Documentation: &lt;a class="reference external" href="https://safezip.readthedocs.io/en/latest/"&gt;https://safezip.readthedocs.io/en/latest/&lt;/a&gt;&lt;/p&gt;
-&lt;p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: right;"&gt;Originally published as &lt;a href="https://gist.github.com/barseghyanartur/160a1cd9c12448447882f12b16e14d35" target="_blank" rel="noopener"&gt;GitHub Gist #160a1cd9c12448447882f12b16e14d35&lt;/a&gt;&lt;/p&gt;</content><category term="Tech"/><category term="python"/><category term="zip"/><category term="security"/></entry><entry><title>PyData Amsterdam 2025 notes</title><link href="/gist-blog/posts/2025/09/pydata-amsterdam-2025-notes/" rel="alternate"/><published>2025-09-26T22:02:00+00:00</published><updated>2026-04-08T11:20:57.177203+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2025-09-26:/gist-blog/posts/2025/09/pydata-amsterdam-2025-notes/</id><summary type="html">&lt;p class="first last"&gt;PyData Amsterdam 2025 highlighted the latest advancements in data engineering and AI, focusing on efficiency, performance, and modern development tools. Key trends included automated prompt optimization, zero-copy data sharing, and the rise of next-generation notebook environments. The event also showcased the growing maturity of the LLM ecosystem through improved RAG architectures and lightweight models for faster development.&lt;/p&gt;</summary><content type="html">&lt;div class="section" id="prompts"&gt;
+&lt;p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: right;"&gt;Originally published as &lt;a href="https://gist.github.com/barseghyanartur/160a1cd9c12448447882f12b16e14d35" target="_blank" rel="noopener"&gt;GitHub Gist #160a1cd9c12448447882f12b16e14d35&lt;/a&gt;&lt;/p&gt;</content><category term="Tech"/><category term="python"/><category term="zip"/><category term="security"/></entry><entry><title>PyData Amsterdam 2025 notes</title><link href="/gist-blog/posts/2025/09/pydata-amsterdam-2025-notes/" rel="alternate"/><published>2025-09-26T22:02:00+00:00</published><updated>2026-04-08T11:22:18.121313+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2025-09-26:/gist-blog/posts/2025/09/pydata-amsterdam-2025-notes/</id><summary type="html">&lt;p class="first last"&gt;PyData Amsterdam 2025 highlighted the latest advancements in data engineering and AI, focusing on efficiency, performance, and modern development tools. Key trends included automated prompt optimization, zero-copy data sharing, and the rise of next-generation notebook environments. The event also showcased the growing maturity of the LLM ecosystem through improved RAG architectures and lightweight models for faster development.&lt;/p&gt;</summary><content type="html">&lt;div class="section" id="prompts"&gt;
 &lt;h2&gt;Prompts&lt;/h2&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;Use DSpy &lt;a class="reference external" href="https://dspy.ai/"&gt;https://dspy.ai/&lt;/a&gt; for automatic prompt optimisation.&lt;/li&gt;
@@ -503,7 +503,7 @@ Supported by LangChain.&lt;/li&gt;
 &lt;li&gt;Docling is generally loved by many for format conversion. Check docling-langchain &lt;a class="reference external" href="https://github.com/docling-project/docling-langchain/"&gt;https://github.com/docling-project/docling-langchain/&lt;/a&gt; for better LangChain integration.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: right;"&gt;Originally published as &lt;a href="https://gist.github.com/barseghyanartur/2d4cdb080895d58846427c5e8eec5331" target="_blank" rel="noopener"&gt;GitHub Gist #2d4cdb080895d58846427c5e8eec5331&lt;/a&gt;&lt;/p&gt;</content><category term="Tech"/><category term="python"/><category term="pydata-amsterdam"/></entry><entry><title>Why is Vivaldi browser a great companion?</title><link href="/gist-blog/posts/2025/03/why-is-vivaldi-browser-a-great-companion/" rel="alternate"/><published>2025-03-12T14:03:00+00:00</published><updated>2026-04-08T11:20:57.264324+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2025-03-12:/gist-blog/posts/2025/03/why-is-vivaldi-browser-a-great-companion/</id><summary type="html">&lt;p class="first last"&gt;While most browsers treat websites as simple tabs, Vivaldi wins by letting you turn any site—even those without official support—into a standalone Progressive Web App (PWA). This guide explores how a single right-click can transform utility sites like Google Translate or JSON tools into clean, independent windows that live on your dock or taskbar, helping you declutter your browser and turn the web into a personalized app library.&lt;/p&gt;</summary><content type="html">&lt;!-- References: --&gt;
+&lt;p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: right;"&gt;Originally published as &lt;a href="https://gist.github.com/barseghyanartur/2d4cdb080895d58846427c5e8eec5331" target="_blank" rel="noopener"&gt;GitHub Gist #2d4cdb080895d58846427c5e8eec5331&lt;/a&gt;&lt;/p&gt;</content><category term="Tech"/><category term="python"/><category term="pydata-amsterdam"/></entry><entry><title>Why is Vivaldi browser a great companion?</title><link href="/gist-blog/posts/2025/03/why-is-vivaldi-browser-a-great-companion/" rel="alternate"/><published>2025-03-12T14:03:00+00:00</published><updated>2026-04-08T11:22:18.128517+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2025-03-12:/gist-blog/posts/2025/03/why-is-vivaldi-browser-a-great-companion/</id><summary type="html">&lt;p class="first last"&gt;While most browsers treat websites as simple tabs, Vivaldi wins by letting you turn any site—even those without official support—into a standalone Progressive Web App (PWA). This guide explores how a single right-click can transform utility sites like Google Translate or JSON tools into clean, independent windows that live on your dock or taskbar, helping you declutter your browser and turn the web into a personalized app library.&lt;/p&gt;</summary><content type="html">&lt;!-- References: --&gt;
 &lt;p&gt;TL;DR&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://vivaldi.com/"&gt;Vivaldi&lt;/a&gt; browser has 1 killing feature, that no other browser has
 implemented. It can turn any website into a progressive web app.&lt;/p&gt;
@@ -549,394 +549,11 @@ I simply want to switch to them quickly. I don't want to have it in a browser.&l
 &lt;p&gt;The site now lives as its own standalone window, just like &lt;a class="reference external" href="https://whatsapp.com/"&gt;WhatsApp&lt;/a&gt; or &lt;a class="reference external" href="https://meet.google.com/"&gt;Google Meet&lt;/a&gt; do in Chrome. No browser chrome, no stray tabs, no digging through bookmarks or favourites. You can pin it to your taskbar/start menu/dock, launch it with one click, and it feels exactly like a real app.&lt;/p&gt;
 &lt;p&gt;That's it. That single right-click is why Vivaldi instantly earned the same spot in my workflow as Chrome. Every utility site I use regularly now has its own clean little window, and I can keep my main browsers for actual browsing instead of permanent tab graveyards.&lt;/p&gt;
 &lt;/div&gt;
-&lt;p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: right;"&gt;Originally published as &lt;a href="https://gist.github.com/barseghyanartur/7fc4de46270ba1ced2f46dc654c21add" target="_blank" rel="noopener"&gt;GitHub Gist #7fc4de46270ba1ced2f46dc654c21add&lt;/a&gt;&lt;/p&gt;</content><category term="Tech"/><category term="vivaldi"/><category term="browsers"/><category term="progressive-web-apps"/></entry><entry><title>How to uninstall Progressive Web App installed with Vivaldi</title><link href="/gist-blog/posts/2024/10/how-to-uninstall-progressive-web-app-installed-with-vivaldi/" rel="alternate"/><published>2024-10-30T19:00:00+00:00</published><updated>2026-04-08T11:20:57.206138+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2024-10-30:/gist-blog/posts/2024/10/how-to-uninstall-progressive-web-app-installed-with-vivaldi/</id><summary type="html">&lt;img src="https://github.com/barseghyanartur/gist-blog-images/blob/main/images/vivaldi.webp?raw=true" alt="Preview" class="preview-image" style="max-width:100%; height:auto; border-radius:8px; margin-bottom:1.5rem; display:block;"&gt;&lt;p class="first last"&gt;How to uninstall Progressive Web App installed with Vivaldi&lt;/p&gt;</summary><content type="html">&lt;ol class="arabic simple"&gt;
+&lt;p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: right;"&gt;Originally published as &lt;a href="https://gist.github.com/barseghyanartur/7fc4de46270ba1ced2f46dc654c21add" target="_blank" rel="noopener"&gt;GitHub Gist #7fc4de46270ba1ced2f46dc654c21add&lt;/a&gt;&lt;/p&gt;</content><category term="Tech"/><category term="vivaldi"/><category term="browsers"/><category term="progressive-web-apps"/></entry><entry><title>How to uninstall Progressive Web App installed with Vivaldi</title><link href="/gist-blog/posts/2024/10/how-to-uninstall-progressive-web-app-installed-with-vivaldi/" rel="alternate"/><published>2024-10-30T19:00:00+00:00</published><updated>2026-04-08T11:22:18.125288+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2024-10-30:/gist-blog/posts/2024/10/how-to-uninstall-progressive-web-app-installed-with-vivaldi/</id><summary type="html">&lt;img src="https://github.com/barseghyanartur/gist-blog-images/blob/main/images/vivaldi.webp?raw=true" alt="Preview" class="preview-image" style="max-width:100%; height:auto; border-radius:8px; margin-bottom:1.5rem; display:block;"&gt;&lt;p class="first last"&gt;How to uninstall Progressive Web App installed with Vivaldi&lt;/p&gt;</summary><content type="html">&lt;ol class="arabic simple"&gt;
 &lt;li&gt;Open the progresssive-web-app/shortcut.&lt;/li&gt;
 &lt;li&gt;Navigate to the top-right menu, expand the menu and click on &amp;quot;Uninstall {app-name}&amp;quot;.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: right;"&gt;Originally published as &lt;a href="https://gist.github.com/barseghyanartur/b48103b4e8091150654373280e09ac90" target="_blank" rel="noopener"&gt;GitHub Gist #b48103b4e8091150654373280e09ac90&lt;/a&gt;&lt;/p&gt;</content><category term="Tech"/><category term="vivaldi"/></entry><entry><title>Yet another glimpse on writing software documentation</title><link href="/gist-blog/posts/2023/04/yet-another-glimpse-on-writing-software-documentation/" rel="alternate"/><published>2023-04-03T01:48:00+00:00</published><updated>2026-04-08T11:20:57.370977+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2023-04-03:/gist-blog/posts/2023/04/yet-another-glimpse-on-writing-software-documentation/</id><summary type="html">&lt;p class="first last"&gt;Good software documentation should answer basic questions like how to install, run, and test a project to help future maintainers. This guide offers a clear template for creating READMEs, including sections for prerequisites, configuration, and step-by-step usage &amp;quot;recipes.&amp;quot; By breaking technical info into small, simple chunks, you make your code easier for others to use and contribute to.&lt;/p&gt;</summary><content type="html">&lt;!-- After updates, make sure to compile to a PDF using PanDoc (see command below) and re-upload.
-pandoc -V geometry:a4paper -V colorlinks=true -f rst - -toc -o yet_another_glimpse_on_writing_software_documentation.pdf yet_another_glimpse_on_writing_software_documentation.rst --&gt;
-&lt;p&gt;&lt;strong&gt;A rule of thumb&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Always code as if the dev who ends up maintaining your code will be a violent psychopath who knows where you live.&lt;/p&gt;
-&lt;div class="section" id="introduction"&gt;
-&lt;h2&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;Documentation of every software project should minimally provide (preferably - quick) answers to the following questions:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;What it is and what it does (overview)?&lt;/li&gt;
-&lt;li&gt;How to install?&lt;/li&gt;
-&lt;li&gt;How to configure?&lt;/li&gt;
-&lt;li&gt;How to run?&lt;/li&gt;
-&lt;li&gt;How to use?&lt;/li&gt;
-&lt;li&gt;How to test?&lt;/li&gt;
-&lt;li&gt;How to troubleshoot?&lt;/li&gt;
-&lt;li&gt;How to contribute?&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Reusable software adds more questions to answer:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;What are common use cases?&lt;/li&gt;
-&lt;li&gt;What are advanced use cases?&lt;/li&gt;
-&lt;li&gt;How to customize?&lt;/li&gt;
-&lt;li&gt;How to migrate?&lt;/li&gt;
-&lt;li&gt;Is documentation versioned?&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Open-source adds even more:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;How and where to ask questions?&lt;/li&gt;
-&lt;li&gt;Security policy?&lt;/li&gt;
-&lt;li&gt;Deprecation policy?&lt;/li&gt;
-&lt;li&gt;License?&lt;/li&gt;
-&lt;li&gt;How to request features?&lt;/li&gt;
-&lt;li&gt;How to report bugs?&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="how-to-start"&gt;
-&lt;h2&gt;How to start&lt;/h2&gt;
-&lt;p&gt;Let's go though a template.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="overview"&gt;
-&lt;h2&gt;Overview&lt;/h2&gt;
-&lt;p&gt;Briefly describes the general context of the project and several of its aspects, such as the domain, goals, etc.
-Often includes links to more in-depth view of the project (architecture).&lt;/p&gt;
-&lt;p&gt;Example:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# Awesome Z
-
-The awesome project for showing off awesomeness.
-Consists of a frontend (ReactJS), backend (FastAPI) and serverless ML.
-Used primarily to bootstrap software development of Slimmer AI in AWS cloud.
-See the [architecture.md](docs/architecture.md) for architectural details.
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="prerequisites"&gt;
-&lt;h2&gt;Prerequisites&lt;/h2&gt;
-&lt;p&gt;List the system and software prerequisites that are required to use the project.
-Provide clear instructions for how to install any necessary packages or dependencies.&lt;/p&gt;
-&lt;p&gt;Example:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;## Prerequisites
-
-### System packages
-
-You will need `System.Package.Name.A` and `System.Package.Name.B`:
-
-#### Linux
-
-```sh
-sudo yum install system-package.name.a system-package-name.b
-```
-
-#### Mac
-
-```sh
-brew install system-package.name.a system-package-name.b
-```
-
-#### Windows
-
-```sh
-Install-Package -Name system-package.name.a ...
-Install-Package -Name system-package.name.b ...
-```
-
-### Infrastructure
-
-You will need:
-
-- AWS account with Admin rights for running CDK
-- AWS Access Key and Secret Key
-- AWS S3 cloud bucket
-
-See all the details in [Infrastructure prerequisites](docs/infra_prerequisites.md).
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="installation"&gt;
-&lt;h2&gt;Installation&lt;/h2&gt;
-&lt;p&gt;Provide step-by-step instructions for how to install the project. Include any setup that may be required.&lt;/p&gt;
-&lt;p&gt;Example:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;## Installation
-
-```sh
-
-git clone ...
-pip install ...
-docker-compose build ...
-```
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="configuration"&gt;
-&lt;h2&gt;Configuration&lt;/h2&gt;
-&lt;p&gt;Provide step-by-step instructions for how to configure the project. Include any configuration that may be required.&lt;/p&gt;
-&lt;p&gt;Example:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;## Configuration
-
-1. Copy ``.env.example`` to ``.env.local``
-```sh
-cp .env.example .env.local
-```
-2. Fill in your AWS credentials in ``AWS_API_KEY`` and ``AWS_API_SECRET``.
-3. ...
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="running"&gt;
-&lt;h2&gt;Running&lt;/h2&gt;
-&lt;p&gt;Describe how to run the project, including any commands or scripts that may be necessary.&lt;/p&gt;
-&lt;p&gt;Example:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;## Running
-
-```sh
-docker-compose up ...
-```
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="usage"&gt;
-&lt;h2&gt;Usage&lt;/h2&gt;
-&lt;p&gt;Describe how to use the project. Provide examples and use cases to help users understand how to apply the information.&lt;/p&gt;
-&lt;p&gt;Example:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;## Usage
-
-### Adding new API module
-
-1. Run ``make add_api_module``
-2. Register new endpoints in ``routes.py``
-3. ...
-
-See [examples/simple_module](examples/simple_api_module) for a simple API example.
-Follow the README inside the ``simple_api_module`` for activation instructions.
-
-### Deployment
-
-1. Run ``make deploy {env}``
-2. Run minimal tests ``make validate {env}``
-3. ...
-
-### Adding ML capabilities
-
-1. Run ``make add_ml_module``
-2. ...
-
-See [examples/simple_module](examples/simple_ml_module) for a simple ML example.
-Follow the README inside the ``simple_ml_module`` for activation instructions.
-
-Study [recipes](docs/recipes.md) for more.
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="testing"&gt;
-&lt;h2&gt;Testing&lt;/h2&gt;
-&lt;p&gt;Short description of how to run the tests.&lt;/p&gt;
-&lt;p&gt;Example:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;## Testing
-
-```sh
-pytest ...
-docker-compose -f test.yml up ...
-tox ...
-make test ...
-```
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="troubleshooting"&gt;
-&lt;h2&gt;Troubleshooting&lt;/h2&gt;
-&lt;p&gt;What are the common errors so far?&lt;/p&gt;
-&lt;p&gt;Example:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;## Troubleshooting
-
-Q. Can&amp;#39;t open directory &amp;quot;/project/media/&amp;quot; for writing.
-A. Ensure that your `project/media` path is writable.
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="contributor-guidelines"&gt;
-&lt;h2&gt;Contributor Guidelines&lt;/h2&gt;
-&lt;p&gt;Provide guidelines for how to contribute to the project, including coding conventions and standards, version control practices, and testing and debugging procedures. This is often a separate document.&lt;/p&gt;
-&lt;p&gt;Example:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# Contributor guidelines
-
-## Developer prerequisites
-
-### pre-commit
-
-Refer to pre-commit for installation instructions.
-
-TL;DR:
-
-```sh
-pip install pipx --user  # Install pipx
-pipx install pre-commit  # Install pre-commit
-pre-commit install  # Install pre-commit hooks
-```
-
-Installing pre-commit will ensure you adhere to the project code quality standards.
-
-### Code standards
-
-black, isort, ruff and doc8 will be automatically triggered by pre-commit.
-
-### Requirements
-
-Requirements are compiled using pip-tools.
-
-```sh
-make pip-compile
-```
-
-### Virtual environment
-
-You are advised to work in virtual environment.
-
-TL;DR:
-
-```sh
-python -m venv env
-pip install -e .
-pip install -r requirements/dev.txt
-```
-
-### Documentation
-
-Explain, how to write documentation.
-
-- The documentation uses [MkDocs](https://www.mkdocs.org/).
-- All the documentation should be written in Markdown format and reside (except for the ``README.md``) in the ``./docs/`` directory.
-
-### Testing
-
-See [testing](README.md#testing) for more.
-
-### Pull requests
-
-You can contribute to the project by making a pull request.
-
-For example:
-
-- To fix documentation typos.
-- To improve documentation (for instance, to add new recipe or fix an existing recipe that doesn’t seem to work).
-- To introduce a new feature (for instance, add support for a non-supported file type).
-
-**Good to know:**
-
-Test suite makes extensive use of parametrization. Make sure you have added your changes in the right place.
-
-**General list to go through:**
-
-- Does your change require documentation update?
-- Does your change require update to tests?
-- Does your change rely on third-party cloud based service? If so, please make sure it’s added to tests that should be retried a couple of times. Example: ``@pytest.mark.flaky(reruns=5)``.
-
-**When fixing bugs (in addition to the general list):**
-
-- Make sure to add regression tests.
-
-**When adding a new feature (in addition to the general list):**
-
-- Check the licenses of added dependencies carefully and make sure to list them in prerequisites.
-* Make sure to update the documentation (check whether the installation, features, recipes and quick start require changes).
-
-### Questions
-
-Explain, how (and where) questions could be asked.
-
-### Issues
-
-- Explain how to fill a regular bug.
-- Explain how to fill a security bug.
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="documentation"&gt;
-&lt;h2&gt;Documentation&lt;/h2&gt;
-&lt;p&gt;Include links to any relevant documentation or resources, such as API references or user guides.&lt;/p&gt;
-&lt;p&gt;Example:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;## Documentation
-
-Searchable documentation is hosted on [GitHub](http://github.io/your-company/your-project). Builds are triggered automatically.
-
-- For tips on writing documentation, see the [contributor_guidelines.md](docs/contributor_guidelines.md).
-- Check [recipes](docs/recipes.md) for simple and complex examples.
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="recipes"&gt;
-&lt;h2&gt;Recipes&lt;/h2&gt;
-&lt;p&gt;A common ways of performing tasks that framework/package aims to cover. This is often a separate document.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;## Recipes
-
-### How to add a new serverless API
-
-Briefly describe the use case. For full code see `sample_app_1 &amp;lt;examples/sample_app_1/&amp;gt;`__.
-
-- Run ``make add_api_module``
-- Do you need database models? If so, define them in ``models.py``
-- Register new endpoints in ``routes.py``
-- ...
-
-#### Database models
-
-**sample_app_1/models.py**
-
-```python
-from sqlmodel import Field, SQLModel
-
-class Profile(SQLModel, table=True):
-    id: int = Field(default=None, primary_key=True)
-    name: str
-    secret_name: str
-    age: int = None
-```
-
-#### API views
-
-```python
-import json
-
-def hello(event, context):
-    # ...
-    return {&amp;quot;statusCode&amp;quot;: 200, &amp;quot;body&amp;quot;: json.dumps({&amp;quot;message&amp;quot;: &amp;quot;hello unknown!&amp;quot;})}
-
-def lambda_handler(event, context):
-    return hello()
-```
-
-#### Routes
-
-**sample_app_1/routes.py**
-
-```python
-from aws_lambda_powertools import ...
-
-app = APIGatewayRestResolver()
-
-def lambda_handler(event: dict, context: LambdaContext) -&amp;gt; dict:
-    return app.resolve(event, context)
-```
-
-#### Connecting the dots
-
-Detailed explanation on how to do connect the loose parts together.
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="recommendations"&gt;
-&lt;h2&gt;Recommendations&lt;/h2&gt;
-&lt;p&gt;Based on best practices for effective technical developer documentation, consider the following:&lt;/p&gt;
-&lt;div class="section" id="understand-users-needs"&gt;
-&lt;h3&gt;Understand users' needs&lt;/h3&gt;
-&lt;p&gt;Tailor documentation to users' level of expertise and provide context and use cases to help users understand how to apply information.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="break-content-into-chunks"&gt;
-&lt;h3&gt;Break content into chunks&lt;/h3&gt;
-&lt;p&gt;Break content into small, manageable chunks that are easy to digest.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="use-multimedia-elements"&gt;
-&lt;h3&gt;Use multimedia elements&lt;/h3&gt;
-&lt;p&gt;Use multimedia elements to supplement text-based documentation and provide visual aids.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="consistent-formatting-and-style"&gt;
-&lt;h3&gt;Consistent formatting and style&lt;/h3&gt;
-&lt;p&gt;Use consistent formatting and style throughout the documentation to make it easy to navigate and understand.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="encourage-user-feedback-and-involvement"&gt;
-&lt;h3&gt;Encourage user feedback and involvement&lt;/h3&gt;
-&lt;p&gt;Encourage user feedback and involvement in the documentation process to improve its accuracy and relevance.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="support"&gt;
-&lt;h3&gt;Support&lt;/h3&gt;
-&lt;p&gt;Provide information about how to get help or support, including contact information and any relevant troubleshooting or FAQ resources.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: right;"&gt;Originally published as &lt;a href="https://gist.github.com/barseghyanartur/3ce291525e7ed2fc7b8477b33a68f995" target="_blank" rel="noopener"&gt;GitHub Gist #3ce291525e7ed2fc7b8477b33a68f995&lt;/a&gt;&lt;/p&gt;</content><category term="Tech"/><category term="python"/><category term="automation"/></entry><entry><title>How to debug Python applications</title><link href="/gist-blog/posts/2022/06/how-to-debug-python-applications/" rel="alternate"/><published>2022-06-21T11:00:00+00:00</published><updated>2026-04-08T11:20:56.821911+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2022-06-21:/gist-blog/posts/2022/06/how-to-debug-python-applications/</id><summary type="html">&lt;img src="https://i.postimg.cc/rp4SskQv/rp-L4mz-N2-ZJ0-Pnopju2da-1-kguub.jpg" alt="Preview" class="preview-image" style="max-width:100%; height:auto; border-radius:8px; margin-bottom:1.5rem; display:block;"&gt;&lt;p class="first last"&gt;In software development, testing is an essential part of ensuring that code works as intended. One critical aspect of testing is debugging, which involves finding and fixing errors or bugs in a program. In this article, we’ll explore how to debug Python applications and highlight some of the most commonly used methods for debugging Python code.&lt;/p&gt;</summary><content type="html">&lt;a class="reference external image-reference" href="https://postimg.cc/XZVZ1TM8"&gt;
+&lt;p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: right;"&gt;Originally published as &lt;a href="https://gist.github.com/barseghyanartur/b48103b4e8091150654373280e09ac90" target="_blank" rel="noopener"&gt;GitHub Gist #b48103b4e8091150654373280e09ac90&lt;/a&gt;&lt;/p&gt;</content><category term="Tech"/><category term="vivaldi"/></entry><entry><title>How to debug Python applications</title><link href="/gist-blog/posts/2022/06/how-to-debug-python-applications/" rel="alternate"/><published>2022-06-21T11:00:00+00:00</published><updated>2026-04-08T11:22:18.098001+00:00</updated><author><name>Artur Barseghyan</name></author><id>tag:None,2022-06-21:/gist-blog/posts/2022/06/how-to-debug-python-applications/</id><summary type="html">&lt;img src="https://i.postimg.cc/rp4SskQv/rp-L4mz-N2-ZJ0-Pnopju2da-1-kguub.jpg" alt="Preview" class="preview-image" style="max-width:100%; height:auto; border-radius:8px; margin-bottom:1.5rem; display:block;"&gt;&lt;p class="first last"&gt;In software development, testing is an essential part of ensuring that code works as intended. One critical aspect of testing is debugging, which involves finding and fixing errors or bugs in a program. In this article, we’ll explore how to debug Python applications and highlight some of the most commonly used methods for debugging Python code.&lt;/p&gt;</summary><content type="html">&lt;a class="reference external image-reference" href="https://postimg.cc/XZVZ1TM8"&gt;
 &lt;img alt="How to debug Python applications" src="https://i.postimg.cc/rp4SskQv/rp-L4mz-N2-ZJ0-Pnopju2da-1-kguub.jpg" /&gt;
 &lt;/a&gt;
 &lt;div class="section" id="introduction"&gt;

@@ -14,433 +14,58 @@
                         <h1><a href="/gist-blog/">Dev Notes</a></h1>
                         <nav><ul>
                                         <li><a href="/gist-blog">Home</a></li>
-                                                <li><a href="/gist-blog/category/misc.html">misc</a></li>
                                                 <li><a href="/gist-blog/category/tech.html">Tech</a></li>
                         </ul></nav>
                 </header><!-- /#banner -->
 
                 <aside id="featured" class="body">
                     <article>
-                        <h1 class="entry-title"><a href="/gist-blog/posts/2026/04/yet-another-glimpse-on-writing-software-documentation/">Yet another glimpse on writing software documentation</a></h1>
+                        <h1 class="entry-title"><a href="/gist-blog/posts/2026/04/licence-normaliser-taming-licence-chaos-in-python/">licence-normaliser: Taming licence chaos in Python</a></h1>
 <footer class="post-info minimal">
-        <span class="post-date">2026-04-08</span>
-<span class="post-category"> | <a href="/gist-blog/category/misc.html">misc</a></span></footer><!-- After updates, make sure to compile to a PDF using PanDoc (see command below) and re-upload.
-pandoc -V geometry:a4paper -V colorlinks=true -f rst - -toc -o yet_another_glimpse_on_writing_software_documentation.pdf yet_another_glimpse_on_writing_software_documentation.rst -->
-<blockquote>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">date:</th><td class="field-body">2023-04-03 01:48</td>
-</tr>
-<tr class="field"><th class="field-name">category:</th><td class="field-body">Tech</td>
-</tr>
-<tr class="field"><th class="field-name">tags:</th><td class="field-body">python, automation</td>
-</tr>
-</tbody>
-</table>
-</blockquote>
-<p><strong>A rule of thumb</strong></p>
-<p>Always code as if the dev who ends up maintaining your code will be a violent psychopath who knows where you live.</p>
-<div class="section" id="introduction">
-<h2>Introduction</h2>
-<p>Documentation of every software project should minimally provide (preferably - quick) answers to the following questions:</p>
-<ul class="simple">
-<li>What it is and what it does (overview)?</li>
-<li>How to install?</li>
-<li>How to configure?</li>
-<li>How to run?</li>
-<li>How to use?</li>
-<li>How to test?</li>
-<li>How to troubleshoot?</li>
-<li>How to contribute?</li>
-</ul>
-<p>Reusable software adds more questions to answer:</p>
-<ul class="simple">
-<li>What are common use cases?</li>
-<li>What are advanced use cases?</li>
-<li>How to customize?</li>
-<li>How to migrate?</li>
-<li>Is documentation versioned?</li>
-</ul>
-<p>Open-source adds even more:</p>
-<ul class="simple">
-<li>How and where to ask questions?</li>
-<li>Security policy?</li>
-<li>Deprecation policy?</li>
-<li>License?</li>
-<li>How to request features?</li>
-<li>How to report bugs?</li>
-</ul>
-</div>
-<div class="section" id="how-to-start">
-<h2>How to start</h2>
-<p>Let's go though a template.</p>
-</div>
-<div class="section" id="overview">
-<h2>Overview</h2>
-<p>Briefly describes the general context of the project and several of its aspects, such as the domain, goals, etc.
-Often includes links to more in-depth view of the project (architecture).</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span># Awesome Z
+        <span class="post-date">2026-04-04</span>
+<span class="post-category"> | <a href="/gist-blog/category/tech.html">Tech</a></span><span class="post-tags"> | <a href="/gist-blog/tag/python.html">python</a>, <a href="/gist-blog/tag/licence.html">licence</a></span></footer><p>Hey, ever tried cleaning up messy license strings — like <tt class="docutils literal">CC <span class="pre">BY-NC-ND</span> 4.0</tt> or <tt class="docutils literal">MIT License</tt> — and getting them into something tidy and machine-readable?
+That's exactly what <strong>licence-normaliser</strong> does, and honestly, it's a lifesaver for anyone dealing with open-source compliance or metadata.</p>
+<img alt="licence-normaliser" class="align-center" src="https://raw.githubusercontent.com/barseghyanartur/licence-normaliser/main/docs/_static/licence_normaliser_logo.webp" style="width: 100%;" />
+<p>Check out the repo here: <a class="reference external" href="https://github.com/barseghyanartur/licence-normaliser">licence-normaliser</a>.
+It's a lightweight Python library that turns chaos into order using a neat three-level system:
+<strong>family</strong> → <strong>licence</strong> → <strong>version</strong>. Think <tt class="docutils literal">cc</tt> → <tt class="docutils literal"><span class="pre">cc-by-nc-nd</span></tt> → <tt class="docutils literal"><span class="pre">cc-by-nc-nd-4.0</span></tt>.</p>
+<p>Here's a quick demo — imagine you're scraping papers or repos and licenses come in every flavor:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">licence_normaliser</span> <span class="kn">import</span> <span class="n">normalise_licence</span>
 
-The awesome project for showing off awesomeness.
-Consists of a frontend (ReactJS), backend (FastAPI) and serverless ML.
-Used primarily to bootstrap software development of Slimmer AI in AWS cloud.
-See the [architecture.md](docs/architecture.md) for architectural details.
+<span class="n">result</span> <span class="o">=</span> <span class="n">normalise_licence</span><span class="p">(</span><span class="s2">&quot;CC BY-NC-ND 4.0&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>           <span class="c1"># → cc-by-nc-nd-4.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">licence</span><span class="p">)</span>       <span class="c1"># → cc-by-nc-nd</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">licence</span><span class="o">.</span><span class="n">family</span><span class="p">)</span>  <span class="c1"># → cc</span>
 </pre></div>
-</div>
-<div class="section" id="prerequisites">
-<h2>Prerequisites</h2>
-<p>List the system and software prerequisites that are required to use the project.
-Provide clear instructions for how to install any necessary packages or dependencies.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span>## Prerequisites
-
-### System packages
-
-You will need `System.Package.Name.A` and `System.Package.Name.B`:
-
-#### Linux
-
-```sh
-sudo yum install system-package.name.a system-package-name.b
-```
-
-#### Mac
-
-```sh
-brew install system-package.name.a system-package-name.b
-```
-
-#### Windows
-
-```sh
-Install-Package -Name system-package.name.a ...
-Install-Package -Name system-package.name.b ...
-```
-
-### Infrastructure
-
-You will need:
-
-- AWS account with Admin rights for running CDK
-- AWS Access Key and Secret Key
-- AWS S3 cloud bucket
-
-See all the details in [Infrastructure prerequisites](docs/infra_prerequisites.md).
+<p>Super clean, right? It handles SPDX codes (<tt class="docutils literal"><span class="pre">Apache-2.0</span></tt>), full URLs, even sloppy prose like
+&quot;creative commons attribution non-commercial no derivatives&quot;. And for Creative Commons fans — yes,
+it knows all the variants, including the weird IGO ones.</p>
+<p>Look at these badges to see what it normalizes:</p>
+<img alt="Creative Commons license badges showing the normalized family and variant icons" class="align-center" src="https://github.com/barseghyanartur/gist-blog-images/blob/main/images/creative-commons-783531_1280.webp?raw=true" style="width: 100%;" />
+<p>Or the compatibility chart if you're remixing stuff:</p>
+<img alt="License compatibility chart with checkmarks and crosses for remixing different licenses" class="align-center" src="https://github.com/barseghyanartur/gist-blog-images/blob/main/images/CC_License_Compatibility_Chart.png?raw=true" style="width: 100%;" />
+<p>What makes it robust? Everything's file-driven — aliases, patterns, URLs live in JSON, so you add new
+synonyms without touching code. Want strictness? Pass <tt class="docutils literal">strict=True</tt> and it'll raise an error if it
+can't match. Debugging? Use <tt class="docutils literal"><span class="pre">--explain</span></tt> or <tt class="docutils literal">trace=True</tt> to see the whole resolution path.</p>
+<p>Install's dead simple:</p>
+<div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>licence-normaliser
 </pre></div>
-</div>
-<div class="section" id="installation">
-<h2>Installation</h2>
-<p>Provide step-by-step instructions for how to install the project. Include any setup that may be required.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span>## Installation
-
-```sh
-
-git clone ...
-pip install ...
-docker-compose build ...
-```
+<p>(or <tt class="docutils literal">uv pip install</tt> if you're fancy).</p>
+<p>CLI's handy too:</p>
+<div class="highlight"><pre><span></span>licence-normaliser<span class="w"> </span>normalise<span class="w"> </span><span class="s2">&quot;MIT&quot;</span><span class="w">          </span><span class="c1"># → mit</span>
+licence-normaliser<span class="w"> </span>batch<span class="w"> </span><span class="s2">&quot;Apache-2.0&quot;</span><span class="w"> </span><span class="s2">&quot;CC BY 4.0&quot;</span>
 </pre></div>
-</div>
-<div class="section" id="configuration">
-<h2>Configuration</h2>
-<p>Provide step-by-step instructions for how to configure the project. Include any configuration that may be required.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span>## Configuration
-
-1. Copy ``.env.example`` to ``.env.local``
-```sh
-cp .env.example .env.local
-```
-2. Fill in your AWS credentials in ``AWS_API_KEY`` and ``AWS_API_SECRET``.
-3. ...
-</pre></div>
-</div>
-<div class="section" id="running">
-<h2>Running</h2>
-<p>Describe how to run the project, including any commands or scripts that may be necessary.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span>## Running
-
-```sh
-docker-compose up ...
-```
-</pre></div>
-</div>
-<div class="section" id="usage">
-<h2>Usage</h2>
-<p>Describe how to use the project. Provide examples and use cases to help users understand how to apply the information.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span>## Usage
-
-### Adding new API module
-
-1. Run ``make add_api_module``
-2. Register new endpoints in ``routes.py``
-3. ...
-
-See [examples/simple_module](examples/simple_api_module) for a simple API example.
-Follow the README inside the ``simple_api_module`` for activation instructions.
-
-### Deployment
-
-1. Run ``make deploy {env}``
-2. Run minimal tests ``make validate {env}``
-3. ...
-
-### Adding ML capabilities
-
-1. Run ``make add_ml_module``
-2. ...
-
-See [examples/simple_module](examples/simple_ml_module) for a simple ML example.
-Follow the README inside the ``simple_ml_module`` for activation instructions.
-
-Study [recipes](docs/recipes.md) for more.
-</pre></div>
-</div>
-<div class="section" id="testing">
-<h2>Testing</h2>
-<p>Short description of how to run the tests.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span>## Testing
-
-```sh
-pytest ...
-docker-compose -f test.yml up ...
-tox ...
-make test ...
-```
-</pre></div>
-</div>
-<div class="section" id="troubleshooting">
-<h2>Troubleshooting</h2>
-<p>What are the common errors so far?</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span>## Troubleshooting
-
-Q. Can&#39;t open directory &quot;/project/media/&quot; for writing.
-A. Ensure that your `project/media` path is writable.
-</pre></div>
-</div>
-<div class="section" id="contributor-guidelines">
-<h2>Contributor Guidelines</h2>
-<p>Provide guidelines for how to contribute to the project, including coding conventions and standards, version control practices, and testing and debugging procedures. This is often a separate document.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span># Contributor guidelines
-
-## Developer prerequisites
-
-### pre-commit
-
-Refer to pre-commit for installation instructions.
-
-TL;DR:
-
-```sh
-pip install pipx --user  # Install pipx
-pipx install pre-commit  # Install pre-commit
-pre-commit install  # Install pre-commit hooks
-```
-
-Installing pre-commit will ensure you adhere to the project code quality standards.
-
-### Code standards
-
-black, isort, ruff and doc8 will be automatically triggered by pre-commit.
-
-### Requirements
-
-Requirements are compiled using pip-tools.
-
-```sh
-make pip-compile
-```
-
-### Virtual environment
-
-You are advised to work in virtual environment.
-
-TL;DR:
-
-```sh
-python -m venv env
-pip install -e .
-pip install -r requirements/dev.txt
-```
-
-### Documentation
-
-Explain, how to write documentation.
-
-- The documentation uses [MkDocs](https://www.mkdocs.org/).
-- All the documentation should be written in Markdown format and reside (except for the ``README.md``) in the ``./docs/`` directory.
-
-### Testing
-
-See [testing](README.md#testing) for more.
-
-### Pull requests
-
-You can contribute to the project by making a pull request.
-
-For example:
-
-- To fix documentation typos.
-- To improve documentation (for instance, to add new recipe or fix an existing recipe that doesn’t seem to work).
-- To introduce a new feature (for instance, add support for a non-supported file type).
-
-**Good to know:**
-
-Test suite makes extensive use of parametrization. Make sure you have added your changes in the right place.
-
-**General list to go through:**
-
-- Does your change require documentation update?
-- Does your change require update to tests?
-- Does your change rely on third-party cloud based service? If so, please make sure it’s added to tests that should be retried a couple of times. Example: ``@pytest.mark.flaky(reruns=5)``.
-
-**When fixing bugs (in addition to the general list):**
-
-- Make sure to add regression tests.
-
-**When adding a new feature (in addition to the general list):**
-
-- Check the licenses of added dependencies carefully and make sure to list them in prerequisites.
-* Make sure to update the documentation (check whether the installation, features, recipes and quick start require changes).
-
-### Questions
-
-Explain, how (and where) questions could be asked.
-
-### Issues
-
-- Explain how to fill a regular bug.
-- Explain how to fill a security bug.
-</pre></div>
-</div>
-<div class="section" id="documentation">
-<h2>Documentation</h2>
-<p>Include links to any relevant documentation or resources, such as API references or user guides.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span>## Documentation
-
-Searchable documentation is hosted on [GitHub](http://github.io/your-company/your-project). Builds are triggered automatically.
-
-- For tips on writing documentation, see the [contributor_guidelines.md](docs/contributor_guidelines.md).
-- Check [recipes](docs/recipes.md) for simple and complex examples.
-</pre></div>
-</div>
-<div class="section" id="recipes">
-<h2>Recipes</h2>
-<p>A common ways of performing tasks that framework/package aims to cover. This is often a separate document.</p>
-<div class="highlight"><pre><span></span>## Recipes
-
-### How to add a new serverless API
-
-Briefly describe the use case. For full code see `sample_app_1 &lt;examples/sample_app_1/&gt;`__.
-
-- Run ``make add_api_module``
-- Do you need database models? If so, define them in ``models.py``
-- Register new endpoints in ``routes.py``
-- ...
-
-#### Database models
-
-**sample_app_1/models.py**
-
-```python
-from sqlmodel import Field, SQLModel
-
-class Profile(SQLModel, table=True):
-    id: int = Field(default=None, primary_key=True)
-    name: str
-    secret_name: str
-    age: int = None
-```
-
-#### API views
-
-```python
-import json
-
-def hello(event, context):
-    # ...
-    return {&quot;statusCode&quot;: 200, &quot;body&quot;: json.dumps({&quot;message&quot;: &quot;hello unknown!&quot;})}
-
-def lambda_handler(event, context):
-    return hello()
-```
-
-#### Routes
-
-**sample_app_1/routes.py**
-
-```python
-from aws_lambda_powertools import ...
-
-app = APIGatewayRestResolver()
-
-def lambda_handler(event: dict, context: LambdaContext) -&gt; dict:
-    return app.resolve(event, context)
-```
-
-#### Connecting the dots
-
-Detailed explanation on how to do connect the loose parts together.
-</pre></div>
-</div>
-<div class="section" id="recommendations">
-<h2>Recommendations</h2>
-<p>Based on best practices for effective technical developer documentation, consider the following:</p>
-<div class="section" id="understand-users-needs">
-<h3>Understand users' needs</h3>
-<p>Tailor documentation to users' level of expertise and provide context and use cases to help users understand how to apply information.</p>
-</div>
-<div class="section" id="break-content-into-chunks">
-<h3>Break content into chunks</h3>
-<p>Break content into small, manageable chunks that are easy to digest.</p>
-</div>
-<div class="section" id="use-multimedia-elements">
-<h3>Use multimedia elements</h3>
-<p>Use multimedia elements to supplement text-based documentation and provide visual aids.</p>
-</div>
-<div class="section" id="consistent-formatting-and-style">
-<h3>Consistent formatting and style</h3>
-<p>Use consistent formatting and style throughout the documentation to make it easy to navigate and understand.</p>
-</div>
-<div class="section" id="encourage-user-feedback-and-involvement">
-<h3>Encourage user feedback and involvement</h3>
-<p>Encourage user feedback and involvement in the documentation process to improve its accuracy and relevance.</p>
-</div>
-<div class="section" id="support">
-<h3>Support</h3>
-<p>Provide information about how to get help or support, including contact information and any relevant troubleshooting or FAQ resources.</p>
-</div>
-</div>
-<p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: right;">Originally published as <a href="https://gist.github.com/barseghyanartur/3ce291525e7ed2fc7b8477b33a68f995" target="_blank" rel="noopener">GitHub Gist #3ce291525e7ed2fc7b8477b33a68f995</a></p>                    </article>
+<p>It's got only two stars right now — probably because it's niche — but if you're building anything
+with license detection (think ScanCode integration, repo crawlers, academic tools), this quietly
+solves a headache. It gets updated via CLI data pulls from SPDX, OSI, Creative Commons...
+no manual hassle.</p>
+<p>Bottom line: if licenses are your mess, normalise them. This tool just works.</p>
+<p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: right;">Originally published as <a href="https://gist.github.com/barseghyanartur/93cafc05616758479eed6377f6593246" target="_blank" rel="noopener">GitHub Gist #93cafc05616758479eed6377f6593246</a></p>                    </article>
                 </aside><!-- /#featured -->
                     <section id="content" class="body">
                         <h1>Other articles</h1>
                         <hr />
                         <ol id="posts-list" class="hfeed">
-
-                <li><article class="hentry">
-                    <header>
-                        <h1><a href="/gist-blog/posts/2026/04/licence-normaliser-taming-licence-chaos-in-python/" rel="bookmark"
-                               title="Permalink to licence-normaliser: Taming licence chaos in Python">licence-normaliser: Taming licence chaos in Python</a></h1>
-                    </header>
-
-                    <div class="entry-content">
-                        <img src="https://raw.githubusercontent.com/barseghyanartur/licence-normaliser/main/docs/_static/licence_normaliser_logo.webp" alt="Preview" class="preview-image" style="max-width:100%; height:auto; border-radius:8px; margin-bottom:1.5rem; display:block;"><p class="first last">Tired of wrestling with messy license strings like &quot;MIT License&quot; vs. &quot;The MIT License&quot; or cryptic URLs? licence-normaliser is a lightweight Python tool that tames the chaos. It maps inconsistent metadata into a clean, machine-readable hierarchy (Family → License → Version), turning strings like CC BY-NC-ND 4.0 into a tidy cc-by-nc-nd-4.0 automatically. Whether you're scraping repos or managing compliance, it handles SPDX codes, prose, and even complex Creative Commons variants with ease—giving you a single source of truth for your legal metadata.</p>
-<footer class="post-info minimal">
-        <span class="post-date">2026-04-04</span>
-<span class="post-category"> | <a href="/gist-blog/category/tech.html">Tech</a></span><span class="post-tags"> | <a href="/gist-blog/tag/python.html">python</a>, <a href="/gist-blog/tag/licence.html">licence</a></span></footer>                        <a class="readmore" href="/gist-blog/posts/2026/04/licence-normaliser-taming-licence-chaos-in-python/">read more</a>
-                    </div><!-- /.entry-content -->
-                </article></li>
 
                 <li><article class="hentry">
                     <header>
@@ -565,6 +190,20 @@ Detailed explanation on how to do connect the loose parts together.
 <footer class="post-info minimal">
         <span class="post-date">2025-03-12</span>
 <span class="post-category"> | <a href="/gist-blog/category/tech.html">Tech</a></span><span class="post-tags"> | <a href="/gist-blog/tag/vivaldi.html">vivaldi</a>, <a href="/gist-blog/tag/browsers.html">browsers</a>, <a href="/gist-blog/tag/progressive-web-apps.html">progressive-web-apps</a></span></footer>                        <a class="readmore" href="/gist-blog/posts/2025/03/why-is-vivaldi-browser-a-great-companion/">read more</a>
+                    </div><!-- /.entry-content -->
+                </article></li>
+
+                <li><article class="hentry">
+                    <header>
+                        <h1><a href="/gist-blog/posts/2023/04/yet-another-glimpse-on-writing-software-documentation/" rel="bookmark"
+                               title="Permalink to Yet another glimpse on writing software documentation">Yet another glimpse on writing software documentation</a></h1>
+                    </header>
+
+                    <div class="entry-content">
+                        <p class="first last">Good software documentation should answer basic questions like how to install, run, and test a project to help future maintainers. This guide offers a clear template for creating READMEs, including sections for prerequisites, configuration, and step-by-step usage &quot;recipes.&quot; By breaking technical info into small, simple chunks, you make your code easier for others to use and contribute to.</p>
+<footer class="post-info minimal">
+        <span class="post-date">2023-04-03</span>
+<span class="post-category"> | <a href="/gist-blog/category/tech.html">Tech</a></span><span class="post-tags"> | <a href="/gist-blog/tag/python.html">python</a>, <a href="/gist-blog/tag/automation.html">automation</a></span></footer>                        <a class="readmore" href="/gist-blog/posts/2023/04/yet-another-glimpse-on-writing-software-documentation/">read more</a>
                     </div><!-- /.entry-content -->
                 </article></li>
 

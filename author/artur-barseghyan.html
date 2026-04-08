@@ -20,52 +20,52 @@
 
                 <aside id="featured" class="body">
                     <article>
-                        <h1 class="entry-title"><a href="/gist-blog/posts/2026/04/licence-normaliser-taming-licence-chaos-in-python/">licence-normaliser: Taming licence chaos in Python</a></h1>
+                        <h1 class="entry-title"><a href="/gist-blog/posts/2026/04/understanding-uv-sync-and-dependency-conflicts/">Understanding <cite>uv sync</cite> and dependency conflicts</a></h1>
 <footer class="post-info minimal">
-        <span class="post-date">2026-04-04</span>
-<span class="post-category"> | <a href="/gist-blog/category/tech.html">Tech</a></span><span class="post-tags"> | <a href="/gist-blog/tag/python.html">python</a>, <a href="/gist-blog/tag/licence.html">licence</a></span></footer><p>Hey, ever tried cleaning up messy license strings — like <tt class="docutils literal">CC <span class="pre">BY-NC-ND</span> 4.0</tt> or <tt class="docutils literal">MIT License</tt> — and getting them into something tidy and machine-readable?
-That's exactly what <strong>licence-normaliser</strong> does, and honestly, it's a lifesaver for anyone dealing with open-source compliance or metadata.</p>
-<img alt="licence-normaliser" class="align-center" src="https://raw.githubusercontent.com/barseghyanartur/licence-normaliser/main/docs/_static/licence_normaliser_logo.webp" style="width: 100%;" />
-<p>Check out the repo here: <a class="reference external" href="https://github.com/barseghyanartur/licence-normaliser">licence-normaliser</a>.
-It's a lightweight Python library that turns chaos into order using a neat three-level system:
-<strong>family</strong> → <strong>licence</strong> → <strong>version</strong>. Think <tt class="docutils literal">cc</tt> → <tt class="docutils literal"><span class="pre">cc-by-nc-nd</span></tt> → <tt class="docutils literal"><span class="pre">cc-by-nc-nd-4.0</span></tt>.</p>
-<p>Here's a quick demo — imagine you're scraping papers or repos and licenses come in every flavor:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">licence_normaliser</span> <span class="kn">import</span> <span class="n">normalise_licence</span>
-
-<span class="n">result</span> <span class="o">=</span> <span class="n">normalise_licence</span><span class="p">(</span><span class="s2">&quot;CC BY-NC-ND 4.0&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>           <span class="c1"># → cc-by-nc-nd-4.0</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">licence</span><span class="p">)</span>       <span class="c1"># → cc-by-nc-nd</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">licence</span><span class="o">.</span><span class="n">family</span><span class="p">)</span>  <span class="c1"># → cc</span>
+        <span class="post-date">2026-04-07</span>
+<span class="post-category"> | <a href="/gist-blog/category/tech.html">Tech</a></span><span class="post-tags"> | <a href="/gist-blog/tag/python.html">python</a>, <a href="/gist-blog/tag/uv.html">uv</a></span></footer><p>If you're switching to <tt class="docutils literal">uv sync</tt>, keep in mind that it behaves differently than the standard <tt class="docutils literal">uv pip</tt> workflow. Here is a quick breakdown of what to expect and how to fix common issues.</p>
+<div class="section" id="the-trap-uv-sync-resolves-everything">
+<h2>The Trap: uv sync Resolves Everything</h2>
+<p>Unlike <tt class="docutils literal">uv pip compile</tt>, which only looks at what you ask for, <strong>uv sync attempts to resolve every dependency in your project</strong>, including all optional &quot;extras.&quot;</p>
+<p>Even if you only request specific extras (e.g., <tt class="docutils literal">uv sync <span class="pre">--extra</span> api</tt>), <tt class="docutils literal">uv</tt> still checks if the rest of your extras (like <tt class="docutils literal">deploy</tt>) are compatible with your environment. If they conflict, the command will fail.</p>
+</div>
+<div class="section" id="the-solution-declaring-conflicts">
+<h2>The Solution: Declaring Conflicts</h2>
+<p>If you have optional dependencies that are fundamentally incompatible—meaning they aren't meant to be installed together—you can tell <tt class="docutils literal">uv</tt> to ignore those conflicts during the sync process.</p>
+<p>Add a <tt class="docutils literal">conflicts</tt> section to your <tt class="docutils literal">pyproject.toml</tt>:</p>
+<div class="highlight"><pre><span></span><span class="k">[tool.uv]</span>
+<span class="n">conflicts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">extra</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;ai&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">extra</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;deploy&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="p">]</span>
 </pre></div>
-<p>Super clean, right? It handles SPDX codes (<tt class="docutils literal"><span class="pre">Apache-2.0</span></tt>), full URLs, even sloppy prose like
-&quot;creative commons attribution non-commercial no derivatives&quot;. And for Creative Commons fans — yes,
-it knows all the variants, including the weird IGO ones.</p>
-<p>Look at these badges to see what it normalizes:</p>
-<img alt="Creative Commons license badges showing the normalized family and variant icons" class="align-center" src="https://github.com/barseghyanartur/gist-blog-images/blob/main/images/creative-commons-783531_1280.webp?raw=true" style="width: 100%;" />
-<p>Or the compatibility chart if you're remixing stuff:</p>
-<img alt="License compatibility chart with checkmarks and crosses for remixing different licenses" class="align-center" src="https://github.com/barseghyanartur/gist-blog-images/blob/main/images/CC_License_Compatibility_Chart.png?raw=true" style="width: 100%;" />
-<p>What makes it robust? Everything's file-driven — aliases, patterns, URLs live in JSON, so you add new
-synonyms without touching code. Want strictness? Pass <tt class="docutils literal">strict=True</tt> and it'll raise an error if it
-can't match. Debugging? Use <tt class="docutils literal"><span class="pre">--explain</span></tt> or <tt class="docutils literal">trace=True</tt> to see the whole resolution path.</p>
-<p>Install's dead simple:</p>
-<div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>licence-normaliser
-</pre></div>
-<p>(or <tt class="docutils literal">uv pip install</tt> if you're fancy).</p>
-<p>CLI's handy too:</p>
-<div class="highlight"><pre><span></span>licence-normaliser<span class="w"> </span>normalise<span class="w"> </span><span class="s2">&quot;MIT&quot;</span><span class="w">          </span><span class="c1"># → mit</span>
-licence-normaliser<span class="w"> </span>batch<span class="w"> </span><span class="s2">&quot;Apache-2.0&quot;</span><span class="w"> </span><span class="s2">&quot;CC BY 4.0&quot;</span>
-</pre></div>
-<p>It's got only two stars right now — probably because it's niche — but if you're building anything
-with license detection (think ScanCode integration, repo crawlers, academic tools), this quietly
-solves a headache. It gets updated via CLI data pulls from SPDX, OSI, Creative Commons...
-no manual hassle.</p>
-<p>Bottom line: if licenses are your mess, normalise them. This tool just works.</p>
-<p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: right;">Originally published as <a href="https://gist.github.com/barseghyanartur/93cafc05616758479eed6377f6593246" target="_blank" rel="noopener">GitHub Gist #93cafc05616758479eed6377f6593246</a></p>                    </article>
+</div>
+<div class="section" id="the-result">
+<h2>The Result</h2>
+<p>By explicitly declaring that <tt class="docutils literal">ai</tt> and <tt class="docutils literal">deploy</tt> are mutually exclusive, <tt class="docutils literal">uv sync <span class="pre">--extra</span> api <span class="pre">--extra</span> ai</tt> will now work perfectly. It effectively tells the resolver, &quot;I know these two don't get along; just focus on the ones I actually requested.&quot;</p>
+</div>
+<p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: right;">Originally published as <a href="https://gist.github.com/barseghyanartur/51837dab7bb02c9b5b1c9509693c7d92" target="_blank" rel="noopener">GitHub Gist #51837dab7bb02c9b5b1c9509693c7d92</a></p>                    </article>
                 </aside><!-- /#featured -->
                     <section id="content" class="body">
                         <h1>Other articles</h1>
                         <hr />
                         <ol id="posts-list" class="hfeed">
+
+                <li><article class="hentry">
+                    <header>
+                        <h1><a href="/gist-blog/posts/2026/04/licence-normaliser-taming-licence-chaos-in-python/" rel="bookmark"
+                               title="Permalink to licence-normaliser: Taming licence chaos in Python">licence-normaliser: Taming licence chaos in Python</a></h1>
+                    </header>
+
+                    <div class="entry-content">
+                        <img src="https://raw.githubusercontent.com/barseghyanartur/licence-normaliser/main/docs/_static/licence_normaliser_logo.webp" alt="Preview" class="preview-image" style="max-width:100%; height:auto; border-radius:8px; margin-bottom:1.5rem; display:block;"><p class="first last">Tired of wrestling with messy license strings like &quot;MIT License&quot; vs. &quot;The MIT License&quot; or cryptic URLs? licence-normaliser is a lightweight Python tool that tames the chaos. It maps inconsistent metadata into a clean, machine-readable hierarchy (Family → License → Version), turning strings like CC BY-NC-ND 4.0 into a tidy cc-by-nc-nd-4.0 automatically. Whether you're scraping repos or managing compliance, it handles SPDX codes, prose, and even complex Creative Commons variants with ease—giving you a single source of truth for your legal metadata.</p>
+<footer class="post-info minimal">
+        <span class="post-date">2026-04-04</span>
+<span class="post-category"> | <a href="/gist-blog/category/tech.html">Tech</a></span><span class="post-tags"> | <a href="/gist-blog/tag/python.html">python</a>, <a href="/gist-blog/tag/licence.html">licence</a></span></footer>                        <a class="readmore" href="/gist-blog/posts/2026/04/licence-normaliser-taming-licence-chaos-in-python/">read more</a>
+                    </div><!-- /.entry-content -->
+                </article></li>
 
                 <li><article class="hentry">
                     <header>

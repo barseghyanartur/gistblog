@@ -20,38 +20,257 @@
 
                 <aside id="featured" class="body">
                     <article>
-                        <h1 class="entry-title"><a href="/gist-blog/posts/2026/04/understanding-uv-sync-and-dependency-conflicts/">Understanding <cite>uv sync</cite> and dependency conflicts</a></h1>
+                        <h1 class="entry-title"><a href="/gist-blog/posts/2026/04/pytest-codeblock-a-pytest-plugin-for-testing-code-examples-in-markdown-and-restructuredtext-files/">pytest-codeblock - A pytest plugin for testing code examples in Markdown and reStructuredText files</a></h1>
 <footer class="post-info minimal">
-        <span class="post-date">2026-04-07</span>
-<span class="post-category"> | <a href="/gist-blog/category/tech.html">Tech</a></span><span class="post-tags"> | <a href="/gist-blog/tag/python.html">python</a>, <a href="/gist-blog/tag/uv.html">uv</a></span></footer><p>If you're switching to <tt class="docutils literal">uv sync</tt>, keep in mind that it behaves differently than the standard <tt class="docutils literal">uv pip</tt> workflow. Here is a quick breakdown of what to expect and how to fix common issues.</p>
-<div class="section" id="the-trap-uv-sync-resolves-everything">
-<h2>The Trap: uv sync Resolves Everything</h2>
-<p>Unlike <tt class="docutils literal">uv pip compile</tt>, which only looks at what you ask for, <strong>uv sync attempts to resolve every dependency in your project</strong>, including all optional &quot;extras.&quot;</p>
-<p>Even if you only request specific extras (e.g., <tt class="docutils literal">uv sync <span class="pre">--extra</span> api</tt>), <tt class="docutils literal">uv</tt> still checks if the rest of your extras (like <tt class="docutils literal">deploy</tt>) are compatible with your environment. If they conflict, the command will fail.</p>
-</div>
-<div class="section" id="the-solution-declaring-conflicts">
-<h2>The Solution: Declaring Conflicts</h2>
-<p>If you have optional dependencies that are fundamentally incompatible—meaning they aren't meant to be installed together—you can tell <tt class="docutils literal">uv</tt> to ignore those conflicts during the sync process.</p>
-<p>Add a <tt class="docutils literal">conflicts</tt> section to your <tt class="docutils literal">pyproject.toml</tt>:</p>
-<div class="highlight"><pre><span></span><span class="k">[tool.uv]</span>
-<span class="n">conflicts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<span class="w">  </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">extra</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;ai&quot;</span><span class="w"> </span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">extra</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;deploy&quot;</span><span class="w"> </span><span class="p">},</span>
-<span class="w">  </span><span class="p">],</span>
-<span class="p">]</span>
-</pre></div>
-</div>
-<div class="section" id="the-result">
-<h2>The Result</h2>
-<p>By explicitly declaring that <tt class="docutils literal">ai</tt> and <tt class="docutils literal">deploy</tt> are mutually exclusive, <tt class="docutils literal">uv sync <span class="pre">--extra</span> api <span class="pre">--extra</span> ai</tt> will now work perfectly. It effectively tells the resolver, &quot;I know these two don't get along; just focus on the ones I actually requested.&quot;</p>
-</div>
-<p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: right;">Originally published as <a href="https://gist.github.com/barseghyanartur/51837dab7bb02c9b5b1c9509693c7d92" target="_blank" rel="noopener">GitHub Gist #51837dab7bb02c9b5b1c9509693c7d92</a></p>                    </article>
+        <span class="post-date">2026-04-12</span>
+<span class="post-category"> | <a href="/gist-blog/category/tech.html">Tech</a></span><span class="post-tags"> | <a href="/gist-blog/tag/python.html">python</a>, <a href="/gist-blog/tag/pytest.html">pytest</a></span></footer><p><strong>I wrote a small pytest plugin that tests code blocks in your docs.</strong></p>
+<p><a class="reference external" href="https://github.com/barseghyanartur/pytest-codeblock">https://github.com/barseghyanartur/pytest-codeblock</a></p>
+<p><strong>What My Project Does</strong></p>
+<p><tt class="docutils literal"><span class="pre">pytest-codeblock</span></tt> is a minimal pytest plugin that finds Python code
+examples in your <tt class="docutils literal">.rst</tt> and <tt class="docutils literal">.md</tt> files and runs them as regular
+pytest tests. No dependencies beyond pytest itself (plus <tt class="docutils literal">tomli</tt> on
+Python 3.10).</p>
+<p>It handles:</p>
+<ul class="simple">
+<li><strong>reStructuredText and Markdown</strong> — <tt class="docutils literal">.. <span class="pre">code-block::</span> python</tt>,
+<tt class="docutils literal">.. code:: python</tt>, <tt class="docutils literal">.. literalinclude::</tt>, literal blocks, and
+fenced <tt class="docutils literal"><span class="pre">```python</span></tt> blocks</li>
+<li><strong>Grouping</strong> — split one logical example across several blocks using
+<tt class="docutils literal">.. continue:</tt> or <tt class="docutils literal"><span class="pre">&lt;!--</span> continue: <span class="pre">--&gt;</span></tt> and they run as a single
+test, or as cumulative incremental steps if each continuation has its
+own name</li>
+<li><strong>pytest markers and fixtures</strong> — <tt class="docutils literal">.. pytestmark: django_db</tt>,
+<tt class="docutils literal"><span class="pre">&lt;!--</span> pytestmark: skip <span class="pre">--&gt;</span></tt>, fixture injection via
+<tt class="docutils literal">.. pytestfixture: tmp_path</tt>; custom fixtures from <tt class="docutils literal">conftest.py</tt>
+work too</li>
+<li><strong>``pytestrun`` marker</strong> — run full pytest-style suites (test classes,
+fixtures, parametrize, setup/teardown) inside a single doc block</li>
+<li><strong>Async support</strong> — top-level <tt class="docutils literal">await</tt> is automatically wrapped, no
+config needed</li>
+<li><strong>Nameless code blocks</strong> — opt-in via <tt class="docutils literal">pyproject.toml</tt>; off by
+default, only <tt class="docutils literal">test_*</tt>-named blocks run unless you enable it</li>
+<li><strong>Custom languages and extensions</strong> — configurable if your docs use
+non-standard identifiers</li>
+</ul>
+<hr class="docutils" />
+<p><strong>Feature comparison</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="20%" />
+<col width="12%" />
+<col width="13%" />
+<col width="21%" />
+<col width="12%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Feature</th>
+<th class="head">pytest-codeblock</th>
+<th class="head">Sybil</th>
+<th class="head">phmdoctest</th>
+<th class="head">pytest-codeblocks</th>
+<th class="head">doctest</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>RST support</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr><td>Markdown support</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr><td>Both RST + MD</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr><td>Native pytest
+collector</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr><td>Fixture injection
+in docs</td>
+<td>✅</td>
+<td>⚠️
+conftest
+only</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr><td>pytest markers in
+docs</td>
+<td>✅</td>
+<td>⚠️
+conftest
+only</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr><td>Block grouping /
+continuation</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr><td>Incremental
+grouping</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr><td>Async support</td>
+<td>✅</td>
+<td>⚠️ manual</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr><td>Test classes in
+doc blocks</td>
+<td>✅
+(<tt class="docutils literal">pytestrun</tt>)</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr><td><tt class="docutils literal">literalinclude</tt>
+support</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr><td>Nameless block
+testing</td>
+<td>✅ opt-in</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr><td>Zero config to
+start</td>
+<td>✅</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr><td>No generated files
+on disk</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr><td>Zero extra
+dependencies</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>⚠️ = supported but requires extra wiring outside the doc file</p>
+<hr class="docutils" />
+<p>Zero config to start. Install it, run <tt class="docutils literal">pytest</tt>. Any block named
+<tt class="docutils literal">test_*</tt> becomes a test.</p>
+<pre class="code sh literal-block">
+pip<span class="w"> </span>install<span class="w"> </span>pytest-codeblock
+</pre>
+<p><strong>reStructuredText:</strong></p>
+<pre class="code rst literal-block">
+<span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> python<span class="w">
+</span>   <span class="nc">:name:</span> test_basic_example<span class="w">
+
+</span>   import math<span class="w">
+</span>   result = math.pow(3, 2)<span class="w">
+</span>   assert result == 9
+</pre>
+<p><strong>Markdown:</strong></p>
+<pre class="code markdown literal-block">
+<span class="sb">```python</span><span class="w"> </span>name=test_basic_example<span class="w">
+</span><span class="kn">import</span> <span class="nn">math</span><span class="w">
+</span><span class="n">result</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="w">
+</span><span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="mi">9</span><span class="w">
+</span><span class="sb">```</span>
+</pre>
+<p><strong>Target Audience</strong></p>
+<p>Library authors and anyone who has shipped broken doc examples and only
+found out from a user bug report. If you're already running pytest, the
+cost to add doc block testing is close to zero.</p>
+<p><strong>Comparison</strong></p>
+<ul class="simple">
+<li><strong>vs.&nbsp;doctest</strong>: <tt class="docutils literal">doctest</tt> is built for REPL-style <tt class="docutils literal">&gt;&gt;&gt;</tt> examples.
+It works fine for trivial cases but gets awkward fast — multiline
+logic, fixtures, and async are all painful. <tt class="docutils literal"><span class="pre">pytest-codeblock</span></tt> lets
+you write plain Python with <tt class="docutils literal">assert</tt> statements, so your examples
+look like real code rather than a terminal session.</li>
+<li><strong>vs.&nbsp;Sybil</strong>: Sybil is the most capable alternative and worth
+considering for complex setups. The tradeoff is configuration
+overhead: fixtures and regions need manual wiring in <tt class="docutils literal">conftest.py</tt>.
+<tt class="docutils literal"><span class="pre">pytest-codeblock</span></tt> keeps fixture requests in the doc file itself
+(<tt class="docutils literal">.. pytestfixture: tmp_path</tt>) and works with existing
+<tt class="docutils literal">conftest.py</tt> fixtures without extra setup. If Sybil's power is more
+than you need, <tt class="docutils literal"><span class="pre">pytest-codeblock</span></tt> is lighter.</li>
+<li><strong>vs.&nbsp;phmdoctest</strong>: <tt class="docutils literal">phmdoctest</tt> transpiles Markdown into <tt class="docutils literal">.py</tt>
+files on disk and runs those. <tt class="docutils literal"><span class="pre">pytest-codeblock</span></tt> is a native pytest
+collector — no generated files, nothing to add to <tt class="docutils literal">.gitignore</tt>, no
+intermediate artifacts.</li>
+<li><strong>vs.&nbsp;pytest-codeblocks (plural)</strong>: Similar name, different scope.
+<tt class="docutils literal"><span class="pre">pytest-codeblock</span></tt> adds fixture injection, grouping, async wrapping,
+and the <tt class="docutils literal">pytestrun</tt> marker for full test-class support inside doc
+blocks.</li>
+</ul>
+<p>The plugin is in beta. It's been used in a few projects for about a year
+and the core behavior is stable, but edge cases and feedback are welcome.</p>
+<p>Documentation: <a class="reference external" href="https://pytest-codeblock.readthedocs.io/en/latest/">https://pytest-codeblock.readthedocs.io/en/latest/</a></p>
+<p>Repository: <a class="reference external" href="https://github.com/barseghyanartur/pytest-codeblock">https://github.com/barseghyanartur/pytest-codeblock</a></p>
+<p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: right;">Originally published as <a href="https://gist.github.com/barseghyanartur/c48b645466bbd5d071e82588364f8123" target="_blank" rel="noopener">GitHub Gist #c48b645466bbd5d071e82588364f8123</a></p>                    </article>
                 </aside><!-- /#featured -->
                     <section id="content" class="body">
                         <h1>Other articles</h1>
                         <hr />
                         <ol id="posts-list" class="hfeed">
+
+                <li><article class="hentry">
+                    <header>
+                        <h1><a href="/gist-blog/posts/2026/04/understanding-uv-sync-and-dependency-conflicts/" rel="bookmark"
+                               title="Permalink to Understanding uv sync and dependency conflicts">Understanding <cite>uv sync</cite> and dependency conflicts</a></h1>
+                    </header>
+
+                    <div class="entry-content">
+                        <img src="https://github.com/barseghyanartur/gist-blog-images/blob/main/images/axolotl.webp?raw=true" alt="Preview" class="preview-image" style="max-width:100%; height:auto; border-radius:8px; margin-bottom:1.5rem; display:block;"><p class="first last">While <cite>uv pip compile</cite> only resolves what you specifically request, <cite>uv sync</cite> attempts to resolve every optional dependency in your project simultaneously. This can lead to unexpected failures if different &quot;extras,&quot; such as ai and deploy, have conflicting requirements. You can fix this by explicitly declaring these incompatible extras in your <cite>pyproject.toml</cite> file to guide the resolver correctly.</p>
+<footer class="post-info minimal">
+        <span class="post-date">2026-04-07</span>
+<span class="post-category"> | <a href="/gist-blog/category/tech.html">Tech</a></span><span class="post-tags"> | <a href="/gist-blog/tag/python.html">python</a>, <a href="/gist-blog/tag/uv.html">uv</a></span></footer>                        <a class="readmore" href="/gist-blog/posts/2026/04/understanding-uv-sync-and-dependency-conflicts/">read more</a>
+                    </div><!-- /.entry-content -->
+                </article></li>
 
                 <li><article class="hentry">
                     <header>

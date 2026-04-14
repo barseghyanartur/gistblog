@@ -25,6 +25,18 @@
     "content": ":target: https://postimg.cc/XZVZ1TM8 :alt: How to debug Python applications Introduction In software development, testing is an essential part of ensuring that code works as intended. One critical aspect of testing is debugging, which involves finding and fixing errors or bugs in a program. In this article, we’ll explore how to debug Python applications and highlight some of the most commonly used methods for debugging Python code. Debugging options When it comes to debugging Python, there are multiple options available, and you should consider which one suits your needs best. Two popular options are IDE debugging tools and package debugging tools. IDE Debugging Tools IDEs like PyCharm and VSCode offer debugging tools that allow you to set breakpoints in your code and run it in debug mode. This allows you to step through your code line by line, inspect variables, and evaluate expressions. Here are some resources for learning how to use the debugging tools in PyCharm and VSCode: `Debugg..."
   },
   {
+    "title": "PyData Amsterdam 2025 notes",
+    "url": "posts/2025/09/pydata-amsterdam-2025-notes/",
+    "date": "2025-09-26",
+    "category": "Tech",
+    "tags": [
+      "python",
+      "pydata-amsterdam"
+    ],
+    "summary": "PyData Amsterdam 2025 highlighted the latest advancements in data engineering and AI, focusing on efficiency, performance, and modern development tools. Key trends included automated prompt optimization, zero-copy data sharing, and the rise of next-generation notebook environments. The event also showcased the growing maturity of the LLM ecosystem through improved RAG architectures and lightweight models for faster development.",
+    "content": "Prompts Use DSpy https://dspy.ai/ for automatic prompt optimisation. Microsoft's attempt to fix the prompt management: https://github.com/microsoft/prompty. Supported by LangChain. Zero-copy Use DLPack https://dmlc.github.io/dlpack/latest/ for zero-data-copy of tensor data between between different libs (PyTorch, NumPy, etc.). Use Apache Arrow https://arrow.apache.org/ for zero-data-copy of tabular data between different libs (Pandas, Polars, DuckDB, etc.). End-to-end GPU processing If you're using NVIDIA GPUs, use cuDF-cu12 https://docs.rapids.ai/api/cudf/stable/ Vector DBs Qdrant https://github.com/qdrant/qdrant is generally loved by many as a vector DB. Face-recognition ArcFace https://github.com/deepinsight/insightface and SigLip2 https://huggingface.co/blog/siglip2 are your best friends here. Notebooks Marimo is emerging as a Jupyter notebook replacement. LLMs Some suggest to use universal LLM proxies for corporate use. LiteLLM https://docs.litellm.ai/ is one of such. Same folks s..."
+  },
+  {
     "title": "Hide ``*.py,cover`` files from IDE",
     "url": "posts/2026/04/hide-pycover-files-from-ide/",
     "date": "2026-04-02",
@@ -36,6 +48,18 @@
     ],
     "summary": "Clean up your workspace by hiding those pesky ``*.py,cover`` files from your IDE. Whether you're using VS Code or PyCharm, this quick setting change keeps your file tree focused on your actual source code by filtering out coverage reports. Just a few clicks in your editor's \"Excluded\" or \"Ignored\" file settings, and those clutter-causing files disappear from view while remaining safe on your disk.",
     "content": "VSCode Settings -> Text Editor -> Files -> Add Pattern: Add */.py,cover PyCharm Editor -> File Types -> Ignored Files and Folders : Add *.py,cover"
+  },
+  {
+    "title": "Understanding `uv sync` and dependency conflicts",
+    "url": "posts/2026/04/understanding-uv-sync-and-dependency-conflicts/",
+    "date": "2026-04-07",
+    "category": "Tech",
+    "tags": [
+      "python",
+      "uv"
+    ],
+    "summary": "While `uv pip compile` only resolves what you specifically request, `uv sync` attempts to resolve every optional dependency in your project simultaneously. This can lead to unexpected failures if different \"extras,\" such as ai and deploy, have conflicting requirements. You can fix this by explicitly declaring these incompatible extras in your `pyproject.toml` file to guide the resolver correctly.",
+    "content": "If you're switching to uv sync, keep in mind that it behaves differently than the standard uv pip workflow. Here is a quick breakdown of what to expect and how to fix common issues. The Trap: uv sync Resolves Everything Unlike uv pip compile, which only looks at what you ask for, uv sync attempts to resolve every dependency in your project, including all optional \"extras.\" Even if you only request specific extras (e.g., uv sync --extra api), uv still checks if the rest of your extras (like deploy) are compatible with your environment. If they conflict, the command will fail. The Solution: Declaring Conflicts If you have optional dependencies that are fundamentally incompatible—meaning they aren't meant to be installed together—you can tell uv to ignore those conflicts during the sync process. Add a conflicts section to your pyproject.toml: [tool.uv] conflicts = [ [ { extra = \"ai\" }, { extra = \"deploy\" }, ], ] The Result By explicitly declaring that ai and deploy are mutually exclusive,..."
   },
   {
     "title": "CudaText installation and config for SublimeText users",
@@ -87,6 +111,30 @@
     ],
     "summary": "Tired of wrestling with messy license strings like \"MIT License\" vs. \"The MIT License\" or cryptic URLs? licence-normaliser is a lightweight Python tool that tames the chaos. It maps inconsistent metadata into a clean, machine-readable hierarchy (Family → License → Version), turning strings like CC BY-NC-ND 4.0 into a tidy cc-by-nc-nd-4.0 automatically. Whether you're scraping repos or managing compliance, it handles SPDX codes, prose, and even complex Creative Commons variants with ease—giving you a single source of truth for your legal metadata.",
     "content": "Hey, ever tried cleaning up messy license strings — like CC BY-NC-ND 4.0 or MIT License — and getting them into something tidy and machine-readable? That's exactly what licence-normaliser does, and honestly, it's a lifesaver for anyone dealing with open-source compliance or metadata. :align: center :alt: licence-normaliser :width: 100% Check out the repo here: licence-normaliser <https://github.com/barseghyanartur/licence-normaliser>. It's a lightweight Python library that turns chaos into order using a neat three-level system: family → licence → version. Think cc → cc-by-nc-nd → cc-by-nc-nd-4.0. Here's a quick demo — imagine you're scraping papers or repos and licenses come in every flavor: from licence_normaliser import normalise_licence result = normalise_licence(\"CC BY-NC-ND 4.0\") print(result.key)           # → cc-by-nc-nd-4.0 print(result.licence)       # → cc-by-nc-nd print(result.licence.family)  # → cc Super clean, right? It handles SPDX codes (Apache-2.0), full URLs, even slo..."
+  },
+  {
+    "title": "How to uninstall Progressive Web App installed with Vivaldi",
+    "url": "posts/2024/10/how-to-uninstall-progressive-web-app-installed-with-vivaldi/",
+    "date": "2024-10-30",
+    "category": "Tech",
+    "tags": [
+      "vivaldi"
+    ],
+    "summary": "How to uninstall Progressive Web App installed with Vivaldi",
+    "content": "#. Open the progresssive-web-app/shortcut. #. Navigate to the top-right menu, expand the menu and click on \"Uninstall {app-name}\"."
+  },
+  {
+    "title": "Make scrollbars always visible in Vivaldi browser using Stylus",
+    "url": "posts/2026/04/make-scrollbars-always-visible-in-vivaldi-browser-using-stylus/",
+    "date": "2026-04-03",
+    "category": "Tech",
+    "tags": [
+      "vivaldi",
+      "browsers",
+      "tweaks"
+    ],
+    "summary": "Tired of scrollbars playing hide-and-seek? This quick guide shows you how to use the Stylus extension to force scrollbars to stay visible in Vivaldi. With a simple CSS snippet, you can reclaim your navigation bars and even give them a custom look so they never disappear on you again.",
+    "content": "Steps #. Install Stylus Extension: Go to the Chrome Web Store and search for Stylus. Install the Stylus extension. #. Create a New Style in Stylus: Click on the Stylus icon in your browser toolbar. Click on Manage > Write new style. Add the following CSS code to make scrollbars always visible: / Always show vertical scrollbar / html, body { overflow-y: scroll !important; } / Always show horizontal scrollbar / html, body { overflow-x: scroll !important; } / Force scrollbar visibility for all elements / *::-webkit-scrollbar { width: 16px;  / Set the width for vertical scrollbars / height: 16px; / Set the height for horizontal scrollbars / -webkit-appearance: none; } *::-webkit-scrollbar-thumb { background-color: rgba(0, 0, 0, 0.5); / Customize the color of the scrollbar thumb / border-radius: 8px; / Customize the radius / border: 3px solid rgba(0, 0, 0, 0); / Adjust border if needed / } *::-webkit-scrollbar-track { background-color: rgba(0, 0, 0, 0.1); / Customize the background of the s..."
   },
   {
     "title": "Useful plugins for VSCode",

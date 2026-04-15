@@ -1,4 +1,5 @@
 import os
+import sys
 import shutil
 
 import httpx
@@ -40,7 +41,7 @@ def fetch_data(client: httpx.Client | None = None):
         headers["Authorization"] = f"token {github_token}"
 
     if client is None:
-        with httpx.Client(headers=headers) as client:
+        with httpx.Client(headers=headers, timeout=30.0) as client:
             return _fetch_gists(client)
     else:
         return _fetch_gists(client)
@@ -49,12 +50,27 @@ def fetch_data(client: httpx.Client | None = None):
 def _fetch_gists(client: httpx.Client):
     page = 1
     synced_count = 0
+    error_count = 0
+
+    print(f"Starting sync for user: {USERNAME}...")
 
     while True:
         params = {"page": page, "per_page": 100}
 
-        response = client.get(GIST_API, params=params)
-        response.raise_for_status()
+        try:
+            response = client.get(GIST_API, params=params)
+            response.raise_for_status()
+        except httpx.HTTPStatusError as e:
+            print(
+                f"ERROR: Failed to fetch gists page {page}: {e.response.status_code} - {e.response.text}",
+                file=sys.stderr,
+            )
+            sys.exit(1)
+        except httpx.RequestError as e:
+            print(
+                f"ERROR: Network error fetching gists page {page}: {e}", file=sys.stderr
+            )
+            sys.exit(1)
 
         gists = response.json()
 
@@ -72,9 +88,24 @@ def _fetch_gists(client: httpx.Client):
                 file_meta = list(files.values())[0]
                 raw_url = file_meta["raw_url"]
 
-                content_res = client.get(raw_url)
-                content_res.raise_for_status()
-                content = content_res.text
+                try:
+                    content_res = client.get(raw_url)
+                    content_res.raise_for_status()
+                    content = content_res.text
+                except httpx.HTTPStatusError as e:
+                    print(
+                        f"ERROR: Failed to fetch gist content {gist['id']}: {e.response.status_code} - {e.response.text[:200]}",
+                        file=sys.stderr,
+                    )
+                    error_count += 1
+                    continue
+                except httpx.RequestError as e:
+                    print(
+                        f"ERROR: Network error fetching gist content {gist['id']}: {e}",
+                        file=sys.stderr,
+                    )
+                    error_count += 1
+                    continue
 
                 filename = f"{gist['id']}.rst"
                 filepath = os.path.join(CONTENT_DIR, filename)
@@ -86,7 +117,9 @@ def _fetch_gists(client: httpx.Client):
 
         page += 1
 
-    return synced_count
+    print(f"Finished. Total gists synced: {synced_count}")
+    if error_count > 0:
+        print(f"Warning: {error_count} gists failed to fetch", file=sys.stderr)
 
 
 if __name__ == "__main__":

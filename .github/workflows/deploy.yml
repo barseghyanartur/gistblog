@@ -24,7 +24,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install -e . --all-extras
+        run: pip install -e . 'gistblog[all]'
 
       - name: Fetch Gists + Generate Search Index
         run: |

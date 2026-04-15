@@ -22,6 +22,7 @@ gistblog/
 ├── dist/               # Package distributions (generated)
 ├── docs/               # Source documentation
 ├── output/             # Built static site (generated)
+├── src/gistblog/       # Source code
 ├── pyproject.toml      # Project configuration
 ├── requirements.txt    # Runtime dependencies
 ├── Makefile           # Build commands

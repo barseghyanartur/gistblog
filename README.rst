@@ -55,7 +55,7 @@ How to publish a post
 
 Search page lives at `/pages/search/`.
 
-**Important:** Change `USERNAME = "barseghyanartur"` in `fetch_gists.py` to **your own GitHub username** before the first run.
+**Important:** Change `USERNAME = "barseghyanartur"` in `src/gistblog/fetch_data.py` to **your own GitHub username** before the first run.
 
 Local development
 =================

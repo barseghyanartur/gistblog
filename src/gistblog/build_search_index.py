@@ -7,7 +7,7 @@ import sys
 CONTENT_DIR = "content"
 STATIC_DIR = "static"
 
-RST_BORDER = re.compile(r'^[=\-~^"\'`#+*]{2,}$')
+RST_BORDER = re.compile(r'^([=\-~^"\'`#+*])\1+$')
 
 
 def simple_slugify(text: str) -> str:
@@ -90,7 +90,9 @@ def clean_rst_body(lines: list[str]) -> str:
         s = re.sub(r"\*\*(.+?)\*\*", r"\1", s)  # **bold**
         s = re.sub(r"\*(.+?)\*", r"\1", s)  # *italic*
         s = re.sub(r"``(.+?)``", r"\1", s)  # ``code``
-        s = re.sub(r":\w+:`(.+?)`", r"\1", s)  # :role:`text`
+        s = re.sub(
+            r":\w[\w:]*:`(.+?)`", r"\1", s
+        )  # :role:`text` or :domain:role:`text`
         s = re.sub(r"`(.+?)`_?", r"\1", s)  # `ref`_
         s = re.sub(r"^\s*[-*+]\s+", "", s)  # bullet markers
         if s:

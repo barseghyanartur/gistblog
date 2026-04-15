@@ -129,7 +129,8 @@ def _fetch_gists(client: httpx.Client):
 
 def fetch_data_cli():
     try:
-        fetch_data()
+        count = fetch_data()
+        print(f"Synced {count} gists.")
     except SystemExit:
         raise
     except Exception as e:

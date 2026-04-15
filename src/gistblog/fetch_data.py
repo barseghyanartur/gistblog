@@ -125,4 +125,10 @@ def _fetch_gists(client: httpx.Client):
 
 
 if __name__ == "__main__":
-    fetch_data()
+    try:
+        fetch_data()
+    except SystemExit:
+        raise
+    except Exception as e:
+        print(f"ERROR: {e}", file=sys.stderr)
+        sys.exit(1)

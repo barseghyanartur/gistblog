@@ -8,6 +8,18 @@ the contents of each key file.
    :caption: Project directory layout
 
    gist-blog/
+   ├── .agents
+   │   └── skills
+   │       ├── coding-standards
+   │       │   └── SKILL.md
+   │       ├── dev-setup
+   │       │   └── SKILL.md
+   │       ├── dev-workflow
+   │       │   └── SKILL.md
+   │       ├── documentation-policy
+   │       │   └── SKILL.md
+   │       └── pr-review
+   │           └── SKILL.md
    ├── docs
    │   ├── conf.py
    │   ├── documentation.rst
@@ -19,6 +31,12 @@ the contents of each key file.
    │   └── requirements.txt
    ├── src
    │   └── gistblog
+   │       ├── tests
+   │       │   ├── data
+   │       │   │   └── response.json
+   │       │   ├── __init__.py
+   │       │   ├── conftest.py
+   │       │   └── test_fetch_data.py
    │       ├── __init__.py
    │       ├── build_search_index.py
    │       └── fetch_data.py
@@ -69,6 +87,7 @@ the contents of each key file.
    ├── AGENTS.md
    ├── LICENSE
    ├── Makefile
+   ├── OLD_AGENTS.md
    ├── pelicanconf.py
    ├── pyproject.toml
    ├── README.rst
@@ -88,6 +107,48 @@ AGENTS.md
 .. literalinclude:: ../AGENTS.md
    :language: markdown
    :caption: AGENTS.md
+
+.agents/skills/coding-standards/SKILL.md
+----------------------------------------
+
+.. literalinclude:: ../.agents/skills/coding-standards/SKILL.md
+   :language: markdown
+   :caption: .agents/skills/coding-standards/SKILL.md
+
+.agents/skills/dev-setup/SKILL.md
+---------------------------------
+
+.. literalinclude:: ../.agents/skills/dev-setup/SKILL.md
+   :language: markdown
+   :caption: .agents/skills/dev-setup/SKILL.md
+
+.agents/skills/dev-workflow/SKILL.md
+------------------------------------
+
+.. literalinclude:: ../.agents/skills/dev-workflow/SKILL.md
+   :language: markdown
+   :caption: .agents/skills/dev-workflow/SKILL.md
+
+.agents/skills/documentation-policy/SKILL.md
+--------------------------------------------
+
+.. literalinclude:: ../.agents/skills/documentation-policy/SKILL.md
+   :language: markdown
+   :caption: .agents/skills/documentation-policy/SKILL.md
+
+.agents/skills/pr-review/SKILL.md
+---------------------------------
+
+.. literalinclude:: ../.agents/skills/pr-review/SKILL.md
+   :language: markdown
+   :caption: .agents/skills/pr-review/SKILL.md
+
+OLD_AGENTS.md
+-------------
+
+.. literalinclude:: ../OLD_AGENTS.md
+   :language: markdown
+   :caption: OLD_AGENTS.md
 
 docs/conf.py
 ------------
@@ -158,6 +219,34 @@ src/gistblog/fetch_data.py
 .. literalinclude:: ../src/gistblog/fetch_data.py
    :language: python
    :caption: src/gistblog/fetch_data.py
+
+src/gistblog/tests/__init__.py
+------------------------------
+
+.. literalinclude:: ../src/gistblog/tests/__init__.py
+   :language: python
+   :caption: src/gistblog/tests/__init__.py
+
+src/gistblog/tests/conftest.py
+------------------------------
+
+.. literalinclude:: ../src/gistblog/tests/conftest.py
+   :language: python
+   :caption: src/gistblog/tests/conftest.py
+
+src/gistblog/tests/data/response.json
+-------------------------------------
+
+.. literalinclude:: ../src/gistblog/tests/data/response.json
+   :language: json
+   :caption: src/gistblog/tests/data/response.json
+
+src/gistblog/tests/test_fetch_data.py
+-------------------------------------
+
+.. literalinclude:: ../src/gistblog/tests/test_fetch_data.py
+   :language: python
+   :caption: src/gistblog/tests/test_fetch_data.py
 
 static/search_index.json
 ------------------------

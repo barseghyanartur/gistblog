@@ -6,3 +6,6 @@ static/search_index.json
 __pycache__/
 *.pyc
 *.pyo
+builddocs
+src/gistblog.egg-info
+builddocs.zip

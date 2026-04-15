@@ -1,39 +1,120 @@
- [tool.sphinx-source-tree]
-   ignore = [
-       "__pycache__",
-       "*.pyc",
-       "*.pyo",
-       "*.py,cover",
-       ".git",
-       ".hg",
-       ".svn",
-       ".tox",
-       ".nox",
-       ".venv",
-       "venv",
-       "env",
-       "*.egg-info",
-       "dist",
-       "build",
-       "node_modules",
-       ".mypy_cache",
-       ".pytest_cache",
-       ".coverage",
-       "htmlcov",
-       ".idea",
-       ".vscode",
-       ".DS_Store",
-       "Thumbs.db",
-       ".ruff_cache",
-       ".coverage.*",
-       ".secrets.baseline",
-       ".pre-commit-config.yaml",
-       ".pre-commit-hooks.yaml",
-       ".readthedocs.yaml",
-       "content",
-       "output",
-   ]
-   order = [
-       "README.rst",
-       "AGENTS.md",
-   ]
+[project]
+name = "gistblog"
+description = "gist-blog."
+readme = "README.rst"
+version = "0.1"
+requires-python = ">=3.10"
+dependencies = [
+    "pelican",
+    "requests",
+    "docutils",
+]
+authors = [
+    { name = "Artur Barseghyan", email = "artur.barseghyan@gmail.com" },
+]
+maintainers = [
+    { name = "Artur Barseghyan", email = "artur.barseghyan@gmail.com" },
+]
+license = "MIT"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.15",
+    "Programming Language :: Python",
+]
+keywords = [
+    "gist",
+    "blog",
+]
+
+[project.scripts]
+gistblog-fetch-data = "gistblog:fetch_data"
+gistblog-build-search-index = "gistblog:build_search_index"
+
+[project.urls]
+Homepage = "https://github.com/barseghyanartur/gistblog/"
+Repository = "https://github.com/barseghyanartur/gistblog/"
+Issues = "https://github.com/barseghyanartur/gistblog/issues"
+
+[project.optional-dependencies]
+all = ["gistblog[dev,test,docs,build]"]
+dev = [
+    "detect-secrets",
+    "doc8",
+    "ipython",
+    "mypy",
+    "ruff",
+    "uv",
+]
+test = [
+    "pytest",
+    "pytest-cov",
+    "pytest-codeblock",
+]
+docs = [
+    "sphinx",
+    "sphinx-autobuild",
+    "sphinx-rtd-theme>=1.3.0",
+    "sphinx-no-pragma",
+    "sphinx-markdown-builder",
+    "sphinx-llms-txt-link",
+    "sphinx-source-tree",
+]
+build = [
+    "build",
+    "twine",
+    "wheel",
+]
+
+[tool.sphinx-source-tree]
+ignore = [
+    "__pycache__",
+    "*.pyc",
+    "*.pyo",
+    "*.py,cover",
+    ".git",
+    ".hg",
+    ".svn",
+    ".tox",
+    ".nox",
+    ".venv",
+    "venv",
+    "env",
+    "*.egg-info",
+    "dist",
+    "builddocs",
+    "node_modules",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".coverage",
+    "htmlcov",
+    ".idea",
+    ".vscode",
+    ".DS_Store",
+    "Thumbs.db",
+    ".ruff_cache",
+    ".coverage.*",
+    ".secrets.baseline",
+    ".pre-commit-config.yaml",
+    ".pre-commit-hooks.yaml",
+    ".readthedocs.yaml",
+    "content",
+    "output",
+    "docs/_build",
+    "docs/_static",
+    "docs/_templates",
+]
+order = [
+    "README.rst",
+    "AGENTS.md",
+]
+
+[[tool.sphinx-source-tree.files]]
+output = "docs/llms.rst"
+title = "Project source-tree"

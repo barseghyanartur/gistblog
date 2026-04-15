@@ -1,5 +1,17 @@
 [
   {
+    "title": "A small selection of photographs I took before 2012",
+    "url": "posts/2026/04/a-small-selection-of-photographs-i-took-before-2012/",
+    "date": "2026-04-14",
+    "category": "Art",
+    "tags": [
+      "art",
+      "photography"
+    ],
+    "summary": "A small selection of photographs I took before 2012",
+    "content": ":alt: Model: Dagmar Lindeijer Model: Dagmar Lindeijer :alt: Model: Wendy Appelman Model: Wendy Appelman :alt: Model: Jildou Jongman Model: Jildou Jongman :alt: Model: Dagmar Lindeijer Model: Dagmar Lindeijer :alt: Model: Manon Blauw Model: Manon Blauw :alt: Model: Karima van der Voort Model: Karima van der Voort :alt: Model: Karima van der Voort Model: Karima van der Voort :alt: Model: Eva Model: Eva :alt: Model: Wendy Appelman Model: Wendy Appelman"
+  },
+  {
     "title": "Safezip - zero-dependency wrapper for secure ZIP extraction",
     "url": "posts/2026/02/safezip-zero-dependency-wrapper-for-secure-zip-extraction/",
     "date": "2026-02-25",
@@ -135,6 +147,30 @@
     ],
     "summary": "Tired of scrollbars playing hide-and-seek? This quick guide shows you how to use the Stylus extension to force scrollbars to stay visible in Vivaldi. With a simple CSS snippet, you can reclaim your navigation bars and even give them a custom look so they never disappear on you again.",
     "content": "Steps #. Install Stylus Extension: Go to the Chrome Web Store and search for Stylus. Install the Stylus extension. #. Create a New Style in Stylus: Click on the Stylus icon in your browser toolbar. Click on Manage > Write new style. Add the following CSS code to make scrollbars always visible: / Always show vertical scrollbar / html, body { overflow-y: scroll !important; } / Always show horizontal scrollbar / html, body { overflow-x: scroll !important; } / Force scrollbar visibility for all elements / *::-webkit-scrollbar { width: 16px;  / Set the width for vertical scrollbars / height: 16px; / Set the height for horizontal scrollbars / -webkit-appearance: none; } *::-webkit-scrollbar-thumb { background-color: rgba(0, 0, 0, 0.5); / Customize the color of the scrollbar thumb / border-radius: 8px; / Customize the radius / border: 3px solid rgba(0, 0, 0, 0); / Adjust border if needed / } *::-webkit-scrollbar-track { background-color: rgba(0, 0, 0, 0.1); / Customize the background of the s..."
+  },
+  {
+    "title": "My recent sketches",
+    "url": "posts/2026/04/my-recent-sketches/",
+    "date": "2026-04-12",
+    "category": "Art",
+    "tags": [
+      "art",
+      "sketch"
+    ],
+    "summary": "Some of my recent sketches...",
+    "content": ":alt: n.n. :alt: n.n. :alt: n.n. :alt: n.n."
+  },
+  {
+    "title": "pytest-codeblock - A pytest plugin for testing code examples in Markdown and reStructuredText files",
+    "url": "posts/2026/04/pytest-codeblock-a-pytest-plugin-for-testing-code-examples-in-markdown-and-restructuredtext-files/",
+    "date": "2026-04-12",
+    "category": "Tech",
+    "tags": [
+      "python",
+      "pytest"
+    ],
+    "summary": "Tired of broken code snippets in your documentation? Try `pytest-codeblock`, a zero-config plugin that supports both `Markdown` and `reStructuredText`. It brings the full power of pytest—including fixtures, markers, and native async support—directly into your docs without any boilerplate or manual wiring. Just name your block `test_name_of_your_block` and stop relying on users to find your documentation bugs.",
+    "content": "I wrote a small pytest plugin that tests code blocks in your docs. https://github.com/barseghyanartur/pytest-codeblock What My Project Does pytest-codeblock is a minimal pytest plugin that finds Python code examples in your .rst and .md files and runs them as regular pytest tests. No dependencies beyond pytest itself (plus tomli on Python 3.10). It handles: reStructuredText and Markdown — .. code-block:: python, .. code:: python, .. literalinclude::, literal blocks, and fenced \\`python blocks Grouping — split one logical example across several blocks using .. continue: or <!-- continue: --> and they run as a single test, or as cumulative incremental steps if each continuation has its own name pytest markers and fixtures — .. pytestmark: django_db, <!-- pytestmark: skip -->, fixture injection via .. pytestfixture: tmp_path; custom fixtures from conftest.py work too pytestrun marker — run full pytest-style suites (test classes, fixtures, parametrize, setup/teardown) inside a single doc b..."
   },
   {
     "title": "Useful plugins for VSCode",

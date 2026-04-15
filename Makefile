@@ -27,16 +27,10 @@ help:
 	@echo ""
 	@echo "After 'make dev' open → http://localhost:8000"
 
-create-venv:
-	uv venv
-
-install: create-venv
-	uv pip install -r requirements.txt
-
 fetch:
 	@echo "Fetching Gists and generating search index..."
-	uv run python fetch_gists.py
-	uv run python generate_search_index.py
+	uv run gistblog-fetch-data
+	uv run gistblog-build-search-index
 
 build: fetch
 	@echo "Building site with Pelican..."
@@ -63,3 +57,50 @@ dev: fetch
 	@echo ""
 	@echo "Tip: In another terminal run 'make fetch' to pull new Gists while dev server is running."
 	uv run env SITEURL='' $(PELICAN) -s $(CONFFILE) --autoreload --listen
+
+# ----------------------------------------------------------------------------
+# Installation
+# ----------------------------------------------------------------------------
+
+create-venv:
+	uv venv
+
+# Install the project
+install: create-venv
+	source $(VENV) && uv sync --all-extras
+	source $(VENV) && uv pip install -e .
+
+# ----------------------------------------------------------------------------
+# Documentation
+# ----------------------------------------------------------------------------
+
+# Build documentation using Sphinx and zip it
+build-docs:
+	source $(VENV) && sphinx-source-tree
+	source $(VENV) && sphinx-build -n -b text docs builddocs
+	source $(VENV) && sphinx-build -n -a -b html docs builddocs
+	cd builddocs && zip -r ../builddocs.zip . -x ".*" && cd ..
+
+rebuild-docs:
+	source $(VENV) && sphinx-apidoc . --full -o docs -H 'gistblog' -A 'Artur Barseghyan <artur.barseghyan@gmail.com>' -f -d 20
+	cp docs/conf.py.distrib docs/conf.py
+	cp docs/index.rst.distrib docs/index.rst
+
+build-docs-epub:
+	$(MAKE) -C docs/ epub
+
+build-docs-pdf:
+	$(MAKE) -C docs/ latexpdf
+
+auto-build-docs:
+	source $(VENV) && sphinx-autobuild docs docs/_build/html
+
+# Serve the built docs on port 5001
+serve-docs:
+	source $(VENV) && cd builddocs && python -m http.server 5001
+
+compile-requirements:
+	source $(VENV) && uv pip compile --all-extras -o docs/requirements.txt pyproject.toml
+
+compile-requirements-upgrade:
+	source $(VENV) && uv pip compile --all-extras -o docs/requirements.txt pyproject.toml --upgrade

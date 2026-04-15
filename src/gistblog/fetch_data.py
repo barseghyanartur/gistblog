@@ -121,6 +121,8 @@ def _fetch_gists(client: httpx.Client):
     if error_count > 0:
         print(f"Warning: {error_count} gists failed to fetch", file=sys.stderr)
 
+    return synced_count
+
 
 if __name__ == "__main__":
     fetch_data()

@@ -85,6 +85,10 @@ def test_fetch_gists_skips_non_blog():
 
 
 def test_fetch_gists_syncs_blog_gists(gist_api_response):
+    import os
+
+    os.makedirs("content", exist_ok=True)
+
     from gistblog.fetch_data import _fetch_gists
 
     client = MagicMock()

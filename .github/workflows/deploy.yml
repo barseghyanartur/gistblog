@@ -28,7 +28,7 @@ jobs:
 
       - name: Fetch Gists + Generate Search Index
         run: |
-          gistblog-fetch-gists
+          gistblog-fetch-data
           gistblog-build-search-index.py
 
       - name: Build with Pelican

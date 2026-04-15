@@ -1,6 +1,6 @@
-===================================
-gist-blog – Serverless headless CMS
-===================================
+==================================
+gistblog – Serverless headless CMS
+==================================
 
 **Zero Git friction.** Write in reStructuredText → Public Gist → auto-deployed Pelican blog with full-text search.
 

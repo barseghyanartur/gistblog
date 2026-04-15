@@ -58,7 +58,9 @@ Search page lives at `/pages/search/`.
 **Important:** Change `USERNAME = "barseghyanartur"` in `src/gistblog/fetch_data.py` to **your own GitHub username** before the first run.
 
 Local development
-=================
+==================
+All Python commands are run using `uv run` or Makefile shortcuts.
+
 1. Clone the repo
 -----------------
 

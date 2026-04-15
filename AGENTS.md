@@ -56,5 +56,23 @@ gistblog/
 ## Agent obligations
 
 - Run linting before committing (`ruff` is configured)
-- Run tests before committing
+- Run tests before committing (`uv run pytest src/gistblog/tests/`)
 - Verify documentation builds successfully
+
+## How to run Python commands
+
+All Python commands MUST be run using `uv run` or Makefile shortcuts:
+
+```bash
+# Using Makefile (preferred)
+make fetch       # Fetch Gists and generate search index
+make build       # Fetch + build static site
+make dev         # Development mode with live reload
+
+# Using uv directly
+uv run pytest src/gistblog/tests/
+uv run pelican content -s pelicanconf.py
+uv run gistblog-fetch-data
+```
+
+Never use `python` or `python3` directly - always use `uv run`.

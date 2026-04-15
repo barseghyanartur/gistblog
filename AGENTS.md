@@ -13,7 +13,7 @@ A static site generator powered by GitHub Gists. Pulls content from GitHub Gists
 
 ## Repository layout (authoritative)
 
-```
+```text
 gistblog/
 ├── .venv/              # Virtual environment (generated)
 ├── .ruff_cache/        # Ruff linter cache (generated)
@@ -25,9 +25,9 @@ gistblog/
 ├── src/gistblog/       # Source code
 ├── pyproject.toml      # Project configuration
 ├── requirements.txt    # Runtime dependencies
-├── Makefile           # Build commands
+├── Makefile            # Build commands
 ├── pelicanconf.py      # Pelican configuration
-└── .env              # Environment variables
+└── .env                # Environment variables
 ```
 
 - Generated directories: `.venv/`, `.ruff_cache/`, `builddocs/`, `dist/`, `output/`

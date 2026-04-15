@@ -120,3 +120,13 @@ release:
 
 test-release:
 	source $(VENV) && twine upload --repository testpypi dist/* --verbose
+
+# ----------------------------------------------------------------------------
+# Pre-commit
+# ----------------------------------------------------------------------------
+
+pre-commit-install:
+	pre-commit install
+
+pre-commit: pre-commit-install
+	pre-commit run --all-files

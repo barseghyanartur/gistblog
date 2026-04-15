@@ -6,7 +6,7 @@ version = "0.1"
 requires-python = ">=3.10"
 dependencies = [
     "pelican",
-    "requests",
+    "httpx",
     "docutils",
 ]
 authors = [
@@ -118,3 +118,6 @@ order = [
 [[tool.sphinx-source-tree.files]]
 output = "docs/llms.rst"
 title = "Project source-tree"
+
+[tool.pytest.ini_options]
+testpaths = ["src/gistblog/tests"]

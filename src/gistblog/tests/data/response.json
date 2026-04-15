@@ -1,0 +1,100 @@
+[
+  {
+    "url": "https://api.github.com/gists/0c7a06e9a87f01b0dc30d15a76a8f03e",
+    "forks_url": "https://api.github.com/gists/0c7a06e9a87f01b0dc30d15a76a8f03e/forks",
+    "commits_url": "https://api.github.com/gists/0c7a06e9a87f01b0dc30d15a76a8f03e/commits",
+    "id": "0c7a06e9a87f01b0dc30d15a76a8f03e",
+    "node_id": "G_kwDOAEsok9oAIDBjN2EwNmU5YTg3ZjAxYjBkYzMwZDE1YTc2YThmMDNl",
+    "git_pull_url": "https://gist.github.com/0c7a06e9a87f01b0dc30d15a76a8f03e.git",
+    "git_push_url": "https://gist.github.com/0c7a06e9a87f01b0dc30d15a76a8f03e.git",
+    "html_url": "https://gist.github.com/barseghyanartur/0c7a06e9a87f01b0dc30d15a76a8f03e",
+    "files": {
+      "small_selection_of_photographs_i_took_before_2012.rst": {
+        "filename": "small_selection_of_photographs_i_took_before_2012.rst",
+        "type": "text/plain",
+        "language": "reStructuredText",
+        "raw_url": "https://gist.githubusercontent.com/barseghyanartur/0c7a06e9a87f01b0dc30d15a76a8f03e/raw/071d9cffd35b77f8f21c93c3cf1e8a9cb8d9ac90/small_selection_of_photographs_i_took_before_2012.rst",
+        "size": 1850
+      }
+    },
+    "public": true,
+    "created_at": "2026-04-14T21:00:37Z",
+    "updated_at": "2026-04-14T21:09:53Z",
+    "description": "blog: A small selection of photographs I took before 2012",
+    "comments": 0,
+    "user": null,
+    "comments_enabled": true,
+    "comments_url": "https://api.github.com/gists/0c7a06e9a87f01b0dc30d15a76a8f03e/comments",
+    "owner": {
+      "login": "barseghyanartur",
+      "id": 4925587,
+      "node_id": "MDQ6VXNlcjQ5MjU1ODc=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4925587?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/barseghyanartur",
+      "html_url": "https://github.com/barseghyanartur",
+      "followers_url": "https://api.github.com/users/barseghyanartur/followers",
+      "following_url": "https://api.github.com/users/barseghyanartur/following{/other_user}",
+      "gists_url": "https://api.github.com/users/barseghyanartur/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/barseghyanartur/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/barseghyanartur/subscriptions",
+      "organizations_url": "https://api.github.com/users/barseghyanartur/orgs",
+      "repos_url": "https://api.github.com/users/barseghyanartur/repos",
+      "events_url": "https://api.github.com/users/barseghyanartur/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/barseghyanartur/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "truncated": false
+  },
+  {
+    "url": "https://api.github.com/gists/bc57801d522ed8bc7d29acc85286bbbb",
+    "forks_url": "https://api.github.com/gists/bc57801d522ed8bc7d29acc85286bbbb/forks",
+    "commits_url": "https://api.github.com/gists/bc57801d522ed8bc7d29acc85286bbbb/commits",
+    "id": "bc57801d522ed8bc7d29acc85286bbbb",
+    "node_id": "G_kwDOAEsok9oAIGJjNTc4MDFkNTIyZWQ4YmM3ZDI5YWNjODUyODZiYmJi",
+    "git_pull_url": "https://gist.github.com/bc57801d522ed8bc7d29acc85286bbbb.git",
+    "git_push_url": "https://gist.github.com/bc57801d522ed8bc7d29acc85286bbbb.git",
+    "html_url": "https://gist.github.com/barseghyanartur/bc57801d522ed8bc7d29acc85286bbbb",
+    "files": {
+      "my-recent-sketches.rst": {
+        "filename": "my-recent-sketches.rst",
+        "type": "text/plain",
+        "language": "reStructuredText",
+        "raw_url": "https://gist.githubusercontent.com/barseghyanartur/bc57801d522ed8bc7d29acc85286bbbb/raw/add745f7bad2d9c6e919d279038c6cc877c845dc/my-recent-sketches.rst",
+        "size": 1137
+      }
+    },
+    "public": true,
+    "created_at": "2026-04-12T14:25:14Z",
+    "updated_at": "2026-04-15T14:25:02Z",
+    "description": "blog: My recent sketches",
+    "comments": 0,
+    "user": null,
+    "comments_enabled": true,
+    "comments_url": "https://api.github.com/gists/bc57801d522ed8bc7d29acc85286bbbb/comments",
+    "owner": {
+      "login": "barseghyanartur",
+      "id": 4925587,
+      "node_id": "MDQ6VXNlcjQ5MjU1ODc=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4925587?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/barseghyanartur",
+      "html_url": "https://github.com/barseghyanartur",
+      "followers_url": "https://api.github.com/users/barseghyanartur/followers",
+      "following_url": "https://api.github.com/users/barseghyanartur/following{/other_user}",
+      "gists_url": "https://api.github.com/users/barseghyanartur/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/barseghyanartur/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/barseghyanartur/subscriptions",
+      "organizations_url": "https://api.github.com/users/barseghyanartur/orgs",
+      "repos_url": "https://api.github.com/users/barseghyanartur/repos",
+      "events_url": "https://api.github.com/users/barseghyanartur/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/barseghyanartur/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "truncated": false
+  }
+]

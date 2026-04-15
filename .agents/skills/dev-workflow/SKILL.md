@@ -16,9 +16,9 @@ A task is complete when:
 
 Before committing:
 
-1. **Lint**: Run `ruff check .`
+1. **Lint**: Run `make pre-commit`
 2. **Fix**: Address all linting violations
-3. **Test**: Run `pytest`
+3. **Test**: Run `uv run pytest`
 4. **Verify docs**: Run `make build-docs`
 
 ## Retry Logic

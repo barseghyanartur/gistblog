@@ -127,7 +127,7 @@ def _fetch_gists(client: httpx.Client):
     return synced_count
 
 
-if __name__ == "__main__":
+def fetch_data_cli():
     try:
         fetch_data()
     except SystemExit:
@@ -136,3 +136,7 @@ if __name__ == "__main__":
         print(f"ERROR: {e}", file=sys.stderr)
         sys.exit(1)
     sys.exit(0)
+
+
+if __name__ == "__main__":
+    fetch_data_cli()

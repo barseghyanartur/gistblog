@@ -2,6 +2,7 @@ import os
 import json
 import re
 from datetime import datetime
+import sys
 
 CONTENT_DIR = "content"
 STATIC_DIR = "static"
@@ -152,5 +153,14 @@ def build_search_index() -> None:
     print(f"Generated search index with {len(posts)} posts")
 
 
+def build_search_index_cli():
+    try:
+        build_search_index()
+    except Exception as e:
+        print(f"ERROR: {e}")
+        sys.exit(1)
+    sys.exit(0)
+
+
 if __name__ == "__main__":
-    build_search_index()
+    build_search_index_cli()

@@ -34,8 +34,8 @@ keywords = [
 ]
 
 [project.scripts]
-gistblog-fetch-data = "gistblog:fetch_data"
-gistblog-build-search-index = "gistblog:build_search_index"
+gistblog-fetch-data = "gistblog:fetch_data_cli"
+gistblog-build-search-index = "gistblog:build_search_index_cli"
 
 [project.urls]
 Homepage = "https://github.com/barseghyanartur/gistblog/"

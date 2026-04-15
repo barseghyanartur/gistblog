@@ -9,3 +9,4 @@ __pycache__/
 builddocs
 src/gistblog.egg-info
 builddocs.zip
+dist/

@@ -104,3 +104,19 @@ compile-requirements:
 
 compile-requirements-upgrade:
 	source $(VENV) && uv pip compile --all-extras -o docs/requirements.txt pyproject.toml --upgrade
+
+# ----------------------------------------------------------------------------
+# Release
+# ----------------------------------------------------------------------------
+
+package-build:
+	source $(VENV) && python -m build .
+
+check-package-build:
+	source $(VENV) && twine check dist/*
+
+release:
+	source $(VENV) && twine upload dist/* --verbose
+
+test-release:
+	source $(VENV) && twine upload --repository testpypi dist/* --verbose

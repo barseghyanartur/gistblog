@@ -4,6 +4,34 @@ gistblog – Serverless headless CMS
 
 **Zero Git friction.** Write in reStructuredText → Public Gist → auto-deployed Pelican blog with full-text search.
 
+.. image:: https://img.shields.io/pypi/v/gistblog.svg
+   :target: https://pypi.python.org/pypi/gistblog
+   :alt: PyPI Version
+
+.. image:: https://img.shields.io/pypi/pyversions/gistblog.svg
+   :target: https://pypi.python.org/pypi/gistblog/
+   :alt: Supported Python versions
+
+.. image:: https://github.com/barseghyanartur/gistblog/actions/workflows/test.yml/badge.svg?branch=main
+   :target: https://github.com/barseghyanartur/gistblog/actions
+   :alt: Build Status
+
+.. image:: https://readthedocs.org/projects/gistblog/badge/?version=latest
+    :target: http://gistblog.readthedocs.io
+    :alt: Documentation Status
+
+.. image:: https://img.shields.io/badge/docs-llms.txt-blue
+    :target: https://gistblog.readthedocs.io/en/latest/llms.txt
+    :alt: llms.txt - documentation for LLMs
+
+.. image:: https://img.shields.io/badge/license-MIT-blue.svg
+   :target: https://github.com/barseghyanartur/gistblog/#License
+   :alt: MIT
+
+.. image:: https://coveralls.io/repos/github/barseghyanartur/gistblog/badge.svg?branch=main&service=github
+    :target: https://coveralls.io/github/barseghyanartur/gistblog?branch=main
+    :alt: Coverage
+
 How to publish a post
 =====================
 1. Create a **public** Gist on GitHub.

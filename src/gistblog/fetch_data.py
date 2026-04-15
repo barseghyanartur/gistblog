@@ -11,10 +11,13 @@ PAGES_DIR = os.path.join(CONTENT_DIR, "pages")
 TEMP_PAGES = "temp_pages"
 
 
-def fetch_data(client: httpx.Client | None = None):
+def fetch_data(client: httpx.Client | None = None) -> int:
     """
     Fetches all public gists for a user, filters by description prefix,
     and saves the raw content as .rst files while preserving local static pages.
+
+    :param client: Optional httpx.Client for testing purposes.
+    :return: Number of gists synced.
     """
     pages_backup = None
 

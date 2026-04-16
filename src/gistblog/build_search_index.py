@@ -1,17 +1,26 @@
 import os
 import json
 import re
+import sys
 from datetime import datetime
 
 CONTENT_DIR = "content"
 STATIC_DIR = "static"
 
-RST_BORDER = re.compile(r'^[=\-~^"\'`#+*]{2,}$')
+# RST border: a line consisting of a single repeated punctuation character (2+ times).
+RST_BORDER = re.compile(r'^([=\-~^"\'`#+*])\1+$')
 
 
-def simple_slugify(text):
-    text = re.sub(r'[^\w\s-]', '', text).strip().lower()
-    return re.sub(r'[\s-]+', '-', text)
+def _pelican_slugify(text):
+    """Replicate Pelican's default slugify (SLUGIFY_SOURCE='title')."""
+    try:
+        from pelican.utils import slugify
+        from pelican.settings import DEFAULT_CONFIG
+        return slugify(text, regex_subs=DEFAULT_CONFIG.get("SLUG_REGEX_SUBSTITUTIONS", []))
+    except Exception:
+        # Fallback if pelican is unavailable
+        text = re.sub(r'[^\w\s-]', '', text).strip().lower()
+        return re.sub(r'[\s-]+', '-', text)
 
 
 def is_border(line):
@@ -86,7 +95,7 @@ def clean_rst_body(lines):
         s = re.sub(r'\*\*(.+?)\*\*', r'\1', s)   # **bold**
         s = re.sub(r'\*(.+?)\*',     r'\1', s)   # *italic*
         s = re.sub(r'``(.+?)``',     r'\1', s)   # ``code``
-        s = re.sub(r':\w+:`(.+?)`',  r'\1', s)   # :role:`text`
+        s = re.sub(r':\w[\w:]*:`(.+?)`', r'\1', s)   # :role:`text` and :domain:role:`text`
         s = re.sub(r'`(.+?)`_?',     r'\1', s)   # `ref`_
         s = re.sub(r'^\s*[-*+]\s+',  '',    s)   # bullet markers
         if s:
@@ -118,7 +127,10 @@ def build_search_index():
         tags = [t.strip() for t in tags_raw.split(',')] if tags_raw else []
         summary = metadata.get('summary', '').strip()
 
-        slug = simple_slugify(title)
+        # Use :slug: metadata if present (explicit override), otherwise derive from
+        # title using the same slugify Pelican uses — so URLs in the index match
+        # the URLs Pelican actually generates.
+        slug = metadata.get('slug', '').strip() or _pelican_slugify(title)
         url = f"posts/{date.strftime('%Y/%m')}/{slug}/"
 
         body_text = clean_rst_body(body_lines)
@@ -141,5 +153,14 @@ def build_search_index():
     print(f"Generated search index with {len(posts)} posts")
 
 
-if __name__ == '__main__':
-    build_search_index()
+def build_search_index_cli():
+    try:
+        build_search_index()
+    except Exception as e:
+        print(f"ERROR: {e}")
+        sys.exit(1)
+    sys.exit(0)
+
+
+if __name__ == "__main__":
+    build_search_index_cli()

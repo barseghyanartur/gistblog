@@ -1,5 +1,6 @@
 import os
 import shutil
+import sys
 
 import requests
 
@@ -102,5 +103,17 @@ def fetch_data():
     print(f"Finished. Total gists synced: {synced_count}")
 
 
+def fetch_data_cli():
+    try:
+        count = fetch_data()
+        print(f"Synced {count} gists.")
+    except SystemExit:
+        raise
+    except Exception as e:
+        print(f"ERROR: {e}", file=sys.stderr)
+        sys.exit(1)
+    sys.exit(0)
+
+
 if __name__ == "__main__":
-    fetch_data()
+    fetch_data_cli()

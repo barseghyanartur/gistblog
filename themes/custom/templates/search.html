@@ -1,147 +1,138 @@
 {% extends "base.html" %}
 
-{% block title %}Search — {{ SITENAME }}{% endblock %}
-
-{% block extra_head %}
-<style>
-  #search-box {
-    width: 100%;
-    padding: .6rem 1rem;
-    font-size: 1.1rem;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-bottom: 1.5rem;
-  }
-  #search-box:focus { border-color: #1b6fa8; outline: none; }
-  #search-results { list-style: none; padding: 0; margin: 0; }
-  #search-results li { border-bottom: 1px solid #eee; padding: 1rem 0; }
-  #search-results li:last-child { border-bottom: none; }
-  #search-results h3 { margin: 0 0 .25rem; font-size: 1.1rem; }
-  #search-results h3 a { color: #1b6fa8; text-decoration: none; }
-  #search-results h3 a:hover { text-decoration: underline; }
-  #search-results .meta { font-size: .8rem; color: #777; margin-bottom: .4rem; }
-  #search-results .snippet { font-size: .95rem; color: #333; }
-  mark { background: #fff176; padding: 0 2px; border-radius: 2px; }
-  #search-status { color: #555; margin-bottom: 1rem; font-style: italic; }
-</style>
-{% endblock %}
+{% block title %}Search – {{ SITENAME }}{% endblock %}
 
 {% block content %}
 <section id="content" class="body">
   <h1 class="entry-title">Search</h1>
-  <input id="search-box" type="search" placeholder="Search posts…" autofocus autocomplete="off" />
-  <p id="search-status"></p>
-  <ul id="search-results"></ul>
-</section>
-{% endblock %}
 
-{% block extra_scripts %}
+  <div id="search-form" style="margin-bottom: 1.5rem;">
+    <input
+      type="text"
+      id="search-input"
+      placeholder="Search posts…"
+      autofocus
+      style="width:100%; padding:0.6rem 0.8rem; font-size:1rem;
+             border:1px solid #ccc; border-radius:4px; box-sizing:border-box;"
+    />
+  </div>
+
+  <div id="search-results"></div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"
+        integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
 (function () {
+  // SITEURL is injected by Pelican via the template context.
+  // Using a relative path with SITEURL ensures this works both locally
+  // (SITEURL="") and on GitHub Pages (SITEURL="/gist-blog").
   var SITEURL = "{{ SITEURL }}";
   var indexUrl = SITEURL + "/static/search_index.json";
 
-  var searchBox    = document.getElementById("search-box");
-  var resultsList  = document.getElementById("search-results");
-  var statusEl     = document.getElementById("search-status");
-  var posts        = null;
+  var posts = [];
+  var idx = null;
 
-  function escapeRegex(s) {
-    return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  }
+  var input   = document.getElementById("search-input");
+  var results = document.getElementById("search-results");
 
-  function highlight(text, terms) {
-    var re = new RegExp("(" + terms.map(escapeRegex).join("|") + ")", "gi");
-    return text.replace(re, "<mark>$1</mark>");
-  }
-
-  function snippet(text, terms, maxLen) {
-    maxLen = maxLen || 200;
-    var re = new RegExp(escapeRegex(terms[0]), "i");
-    var idx = text.search(re);
-    var start = Math.max(0, idx - 80);
-    var chunk = text.slice(start, start + maxLen);
-    if (start > 0) chunk = "…" + chunk;
-    if (start + maxLen < text.length) chunk += "…";
-    return chunk;
-  }
-
-  function score(post, terms) {
-    var pts = 0;
-    terms.forEach(function (t) {
-      var re = new RegExp(escapeRegex(t), "gi");
-      var titleMatches   = (post.title   || "").match(re) || [];
-      var contentMatches = (post.content || "").match(re) || [];
-      var tagMatches     = (post.tags    || []).join(" ").match(re) || [];
-      pts += titleMatches.length * 10 + tagMatches.length * 5 + contentMatches.length;
-    });
-    return pts;
-  }
-
-  function renderResults(results, terms) {
-    resultsList.innerHTML = "";
-    if (results.length === 0) {
-      statusEl.textContent = "No results found.";
+  function render(hits) {
+    if (!hits.length) {
+      results.innerHTML = "<p>No results found.</p>";
       return;
     }
-    statusEl.textContent = results.length + " result" + (results.length !== 1 ? "s" : "") + " found.";
-    results.forEach(function (post) {
-      var li      = document.createElement("li");
-      var rawSnip = snippet(post.content || post.summary || "", terms);
-      var hlTitle = highlight(post.title || "Untitled", terms);
-      var hlSnip  = highlight(rawSnip, terms);
-      var tags    = (post.tags || []).filter(Boolean).map(function (t) {
-        return '<span style="background:#eef;padding:1px 6px;border-radius:3px;margin-right:4px;">' + t + '</span>';
+    var html = hits.map(function (h) {
+      var post = posts[h.ref];
+      var url  = SITEURL + "/" + post.url;
+      var tags = (post.tags || []).map(function (t) {
+        return '<span style="background:#eee;padding:2px 6px;border-radius:3px;'
+             + 'font-size:0.78rem;margin-right:4px;">' + t + '</span>';
       }).join("");
-      li.innerHTML = (
-        '<h3><a href="' + SITEURL + '/' + post.url + '">' + hlTitle + "</a></h3>" +
-        '<div class="meta">' + (post.date || "") + (post.category ? " &nbsp;·&nbsp; " + post.category : "") + (tags ? " &nbsp;·&nbsp; " + tags : "") + "</div>" +
-        '<div class="snippet">' + hlSnip + "</div>"
-      );
-      resultsList.appendChild(li);
-    });
+      return '<article style="margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid #eee;">'
+           + '<h2 style="margin-bottom:0.25rem;">'
+           + '<a href="' + url + '">' + post.title + '</a></h2>'
+           + '<p style="font-size:0.85rem;color:#888;margin:0 0 0.5rem;">'
+           + post.date + ' &nbsp;·&nbsp; ' + post.category + '</p>'
+           + (post.summary
+               ? '<p style="margin:0.5rem 0;">' + post.summary + '</p>'
+               : '')
+           + (tags ? '<p style="margin-top:0.4rem;">' + tags + '</p>' : '')
+           + '</article>';
+    }).join("");
+    results.innerHTML = html;
   }
 
-  function doSearch(query) {
-    if (!posts) return;
-    var q = query.trim().toLowerCase();
-    if (!q) {
-      resultsList.innerHTML = "";
-      statusEl.textContent = "";
+  function search(query) {
+    query = query.trim();
+    if (!idx || !query) {
+      results.innerHTML = "";
       return;
     }
-    var terms = q.split(/\s+/).filter(Boolean);
-    var hits = posts.filter(function (post) {
-      return terms.every(function (t) {
-        var haystack = [
-          (post.title    || ""),
-          (post.content  || ""),
-          (post.summary  || ""),
-          (post.category || ""),
-          (post.tags     || []).join(" ")
-        ].join(" ").toLowerCase();
-        return haystack.indexOf(t) !== -1;
-      });
-    });
-    hits.sort(function (a, b) { return score(b, terms) - score(a, terms); });
-    renderResults(hits, terms);
+    // Wildcard on every term so partial words match
+    var q = query.split(/\s+/).map(function (t) {
+      return t + "*";
+    }).join(" ");
+    var hits;
+    try {
+      hits = idx.search(q);
+    } catch (_) {
+      // Fall back to plain query if wildcard is invalid
+      try { hits = idx.search(query); } catch (_2) { hits = []; }
+    }
+    render(hits);
   }
 
-  // Load the index
+  // Fetch the index, build Lunr, run any pending query
   fetch(indexUrl)
-    .then(function (r) { return r.json(); })
-    .then(function (data) {
-      posts = data;
-      statusEl.textContent = "Ready. Type to search " + posts.length + " posts.";
-      // Run a search immediately if the box was pre-filled (e.g. back-navigation)
-      if (searchBox.value.trim()) doSearch(searchBox.value);
+    .then(function (r) {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
     })
-    .catch(function () {
-      statusEl.textContent = "Could not load search index.";
+    .then(function (data) {
+      // Store as an object keyed by position so lunr ref works
+      data.forEach(function (p, i) { posts[i] = p; });
+
+      idx = lunr(function () {
+        this.ref("id");
+        this.field("title",   { boost: 10 });
+        this.field("summary", { boost: 5  });
+        this.field("content", { boost: 1  });
+        this.field("tags",    { boost: 3  });
+        this.field("category");
+
+        data.forEach(function (p, i) {
+          this.add({
+            id:       i,
+            title:    p.title   || "",
+            summary:  p.summary || "",
+            content:  p.content || "",
+            tags:     (p.tags || []).join(" "),
+            category: p.category || "",
+          });
+        }, this);
+      });
+
+      // If the user already typed while loading, run the search now
+      if (input.value.trim()) {
+        search(input.value);
+      }
+    })
+    .catch(function (err) {
+      results.innerHTML = '<p style="color:red;">Could not load search index: ' + err + '</p>';
     });
 
-  searchBox.addEventListener("input", function () { doSearch(this.value); });
+  input.addEventListener("input", function () {
+    search(this.value);
+  });
+
+  // Also support ?q=... in the URL
+  var params = new URLSearchParams(window.location.search);
+  var q = params.get("q");
+  if (q) {
+    input.value = q;
+    // Search will fire once the index is loaded (handled above)
+  }
 })();
 </script>
 {% endblock %}

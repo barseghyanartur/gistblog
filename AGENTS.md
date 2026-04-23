@@ -74,7 +74,10 @@ make fetch            # pull latest Gists
 make dev              # live reload server at http://localhost:8000
 make serve            # static preview only
 make clean            # remove output/
+make pipeline         # fetch + build + serve
 ```
+
+There are also additional commands:
 
 All features (preview images, summaries, Gist links, search) work identically locally and in production.
 

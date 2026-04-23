@@ -25,6 +25,19 @@
     "content": ":target: https://github.com/barseghyanartur/safezip :alt: Safezip I wrote a small, zero-dependency wrapper for secure ZIP extraction. https://github.com/barseghyanartur/safezip What My Project Does safezip is a zero-dependency wrapper around Python’s zipfile module that makes secure ZIP extraction the default. It protects against: ZipSlip protection: Blocks relative paths, absolute paths, Windows UNC paths, Unicode lookalike attacks, and null bytes in filenames. ZIP bomb prevention: Enforces per-member and cumulative decompression ratio limits at stream time — not based on untrusted header values. ZIP64 consistency checks: Crafted archives with inconsistent ZIP64 extra fields are rejected before decompression begins. Symlink policy — configurable: REJECT (default), IGNORE, or RESOLVE_INTERNAL. Atomic writes: Extracts to a temp file first and only moves it to the destination if all checks pass. If something fails, you don’t end up with half-extracted junk on your disk. Environment varia..."
   },
   {
+    "title": "bat is cat with extras",
+    "url": "posts/2026/04/bat-is-cat-with-extras/",
+    "date": "2026-04-21",
+    "category": "Tech",
+    "tags": [
+      "shell",
+      "cat",
+      "bat"
+    ],
+    "summary": "Use ``bat`` for a more readable terminal experience with syntax highlighting and Git integration.",
+    "content": ":alt: bat is cat with extras bat <https://github.com/sharkdp/bat> is a cat clone with extras. It improves terminal output by adding line numbers, syntax highlighting for various languages, and Git-aware gutter markers to show changes. Usage example: bat path/to/file.json bat path/to/file.rst bat path/to/file.md bat path/to/file.py A useful tweak - set page really high (put somewhere in your .bashrc or .zshrc): export BAT_PAGER='less -R -z 5000'"
+  },
+  {
     "title": "How to debug Python applications",
     "url": "posts/2022/06/how-to-debug-python-applications/",
     "date": "2022-06-21",
@@ -158,7 +171,7 @@
       "sketch"
     ],
     "summary": "Some of my recent sketches...",
-    "content": ":alt: n.n. :alt: n.n. :alt: n.n. :alt: n.n."
+    "content": ":alt: n.n. :alt: n.n. :alt: n.n. :alt: n.n. :alt: n.n. :alt: n.n. :alt: n.n."
   },
   {
     "title": "pytest-codeblock - A pytest plugin for testing code examples in Markdown and reStructuredText files",

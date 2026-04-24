@@ -5,7 +5,7 @@ from datetime import datetime
 import sys
 
 CONTENT_DIR = "content"
-STATIC_DIR = "static"
+STATIC_DIR = "content/static"
 
 RST_BORDER = re.compile(r'^([=\-~^"\'`#+*])\1+$')
 

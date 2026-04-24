@@ -24,7 +24,7 @@ STATIC_PATHS = ["static"]
 
 MENUITEMS = (
     ("Home", f"{SITEURL}"),
-    ("Search", f"{SITEURL}/pages/search/"),
+    ("Search", f"{SITEURL}/search.html"),
 )
 
 DIRECT_TEMPLATES = ["index", "categories", "authors", "archives", "search"]

@@ -4,7 +4,7 @@ from docutils.core import publish_parts
 
 AUTHOR = "Artur Barseghyan"
 SITENAME = "Dev Notes"
-SITEURL = os.environ.get("SITEURL", "/gist-blog")
+SITEURL = os.environ.get("SITEURL", "/gistblog")
 
 PATH = "content"
 THEME = os.path.join(os.path.dirname(__file__), "themes", "custom")
@@ -24,7 +24,7 @@ STATIC_PATHS = ["static"]
 
 MENUITEMS = (
     ("Home", f"{SITEURL}"),
-    # ("Search", f"{SITEURL}/pages/search/"),
+    ("Search", f"{SITEURL}/search.html"),
 )
 
 DIRECT_TEMPLATES = ["index", "categories", "authors", "archives", "search"]

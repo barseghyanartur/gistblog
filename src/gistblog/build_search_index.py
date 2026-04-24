@@ -2,24 +2,25 @@ import os
 import json
 import re
 from datetime import datetime
+import sys
 
 CONTENT_DIR = "content"
-STATIC_DIR = "static"
+STATIC_DIR = "content/static"
 
-RST_BORDER = re.compile(r'^[=\-~^"\'`#+*]{2,}$')
-
-
-def simple_slugify(text):
-    text = re.sub(r'[^\w\s-]', '', text).strip().lower()
-    return re.sub(r'[\s-]+', '-', text)
+RST_BORDER = re.compile(r'^([=\-~^"\'`#+*])\1+$')
 
 
-def is_border(line):
+def simple_slugify(text: str) -> str:
+    text = re.sub(r"[^\w\s-]", "", text).strip().lower()
+    return re.sub(r"[\s-]+", "-", text)
+
+
+def is_border(line: str) -> bool:
     """True if the line is a pure RST section-title border (===, ---, etc.)."""
     return bool(RST_BORDER.match(line.strip())) and len(line.strip()) >= 2
 
 
-def parse_rst_file(filepath):
+def parse_rst_file(filepath: str) -> tuple[str, dict[str, str], list[str]]:
     """
     Return (title, metadata_dict, body_lines) from an RST file.
 
@@ -29,8 +30,11 @@ def parse_rst_file(filepath):
 
     After the title block, a contiguous run of :key: value lines is
     consumed as metadata; everything after that is the body.
+
+    :param filepath: Path to the RST file.
+    :return: Tuple of (title, metadata dict, body lines).
     """
-    with open(filepath, encoding='utf-8') as fh:
+    with open(filepath, encoding="utf-8") as fh:
         lines = fh.read().splitlines()
 
     # Strip leading blank lines
@@ -50,7 +54,7 @@ def parse_rst_file(filepath):
         i = 2
     else:
         # Fallback: first non-empty line is the title
-        title = lines[0].strip() if lines else 'Untitled'
+        title = lines[0].strip() if lines else "Untitled"
         i = 1
 
     # Skip any blank lines between title block and metadata
@@ -60,7 +64,7 @@ def parse_rst_file(filepath):
     # Consume metadata block (:key: value)
     metadata = {}
     while i < len(lines):
-        m = re.match(r'^:(\w[\w-]*):\s*(.*)', lines[i].strip())
+        m = re.match(r"^:(\w[\w-]*):\s*(.*)", lines[i].strip())
         if m:
             metadata[m.group(1)] = m.group(2).strip()
             i += 1
@@ -68,10 +72,10 @@ def parse_rst_file(filepath):
             break
 
     body_lines = lines[i:]
-    return title or 'Untitled', metadata, body_lines
+    return title or "Untitled", metadata, body_lines
 
 
-def clean_rst_body(lines):
+def clean_rst_body(lines: list[str]) -> str:
     """Return plain text from RST body lines, stripping markup and directives."""
     out = []
     for raw in lines:
@@ -80,66 +84,85 @@ def clean_rst_body(lines):
             continue
         if is_border(s):
             continue
-        if s.startswith('.. '):        # RST directive
+        if s.startswith(".. "):  # RST directive
             continue
         # Remove inline markup
-        s = re.sub(r'\*\*(.+?)\*\*', r'\1', s)   # **bold**
-        s = re.sub(r'\*(.+?)\*',     r'\1', s)   # *italic*
-        s = re.sub(r'``(.+?)``',     r'\1', s)   # ``code``
-        s = re.sub(r':\w+:`(.+?)`',  r'\1', s)   # :role:`text`
-        s = re.sub(r'`(.+?)`_?',     r'\1', s)   # `ref`_
-        s = re.sub(r'^\s*[-*+]\s+',  '',    s)   # bullet markers
+        s = re.sub(r"\*\*(.+?)\*\*", r"\1", s)  # **bold**
+        s = re.sub(r"\*(.+?)\*", r"\1", s)  # *italic*
+        s = re.sub(r"``(.+?)``", r"\1", s)  # ``code``
+        s = re.sub(
+            r":\w[\w:]*:`(.+?)`", r"\1", s
+        )  # :role:`text` or :domain:role:`text`
+        s = re.sub(r"`(.+?)`_?", r"\1", s)  # `ref`_
+        s = re.sub(r"^\s*[-*+]\s+", "", s)  # bullet markers
         if s:
             out.append(s)
-    return ' '.join(out)
+    return " ".join(out)
 
 
-def build_search_index():
+def build_search_index() -> None:
     """Generate a JSON index of all posts for the search feature."""
     if not os.path.exists(STATIC_DIR):
         os.makedirs(STATIC_DIR)
 
     posts = []
     for filename in sorted(os.listdir(CONTENT_DIR)):
-        if not filename.endswith('.rst') or filename.startswith('.'):
+        if not filename.endswith(".rst") or filename.startswith("."):
             continue
 
         filepath = os.path.join(CONTENT_DIR, filename)
         title, metadata, body_lines = parse_rst_file(filepath)
 
-        date_str = metadata.get('date', '')
+        date_str = metadata.get("date", "")
         try:
-            date = datetime.fromisoformat(date_str.replace(' ', 'T')) if date_str else datetime.now()
+            date = (
+                datetime.fromisoformat(date_str.replace(" ", "T"))
+                if date_str
+                else datetime.now()
+            )
         except Exception:
             date = datetime.now()
 
-        category = metadata.get('category', 'Uncategorized')
-        tags_raw = metadata.get('tags', '')
-        tags = [t.strip() for t in tags_raw.split(',')] if tags_raw else []
-        summary = metadata.get('summary', '').strip()
+        category = metadata.get("category", "Uncategorized")
+        tags_raw = metadata.get("tags", "")
+        tags = [t.strip() for t in tags_raw.split(",")] if tags_raw else []
+        summary = metadata.get("summary", "").strip()
 
         slug = simple_slugify(title)
         url = f"posts/{date.strftime('%Y/%m')}/{slug}/"
 
         body_text = clean_rst_body(body_lines)
         if len(body_text) > 1000:
-            body_text = body_text[:1000] + '...'
+            body_text = body_text[:1000] + "..."
 
-        posts.append({
-            'title': title,
-            'url': url,
-            'date': date.strftime('%Y-%m-%d'),
-            'category': category,
-            'tags': tags,
-            'summary': summary,
-            'content': body_text,
-        })
+        posts.append(
+            {
+                "title": title,
+                "url": url,
+                "date": date.strftime("%Y-%m-%d"),
+                "category": category,
+                "tags": tags,
+                "summary": summary,
+                "content": body_text,
+            }
+        )
 
-    with open(os.path.join(STATIC_DIR, 'search_index.json'), 'w', encoding='utf-8') as fh:
+    with open(
+        os.path.join(STATIC_DIR, "search_index.json"), "w", encoding="utf-8"
+    ) as fh:
         json.dump(posts, fh, ensure_ascii=False, indent=2)
 
     print(f"Generated search index with {len(posts)} posts")
 
 
-if __name__ == '__main__':
-    build_search_index()
+def build_search_index_cli():
+    try:
+        build_search_index()
+    except Exception as e:
+        print(f"ERROR: {e}")
+        sys.exit(1)
+    sys.exit(0)
+
+
+if __name__ == "__main__":
+    build_search_index_cli()

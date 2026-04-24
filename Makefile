@@ -32,7 +32,7 @@ fetch:
 	uv run gistblog-fetch-data
 	uv run gistblog-build-search-index
 
-build: fetch
+build:
 	@echo "Building site with Pelican..."
 	uv run env SITEURL='' $(PELICAN) -s $(CONFFILE)
 
@@ -40,17 +40,12 @@ clean:
 	rm -rf output/
 	@echo "✅ Cleaned. content/ (including static pages) was preserved."
 
-serve: build
+serve:
 	@echo "🚀 Serving built site at http://localhost:8000"
 	@echo "Press Ctrl+C to stop"
 	uv run env SITEURL='' python -m http.server 8000 --directory output
 
-only-serve:
-	@echo "🚀 Serving built site at http://localhost:8000"
-	@echo "Press Ctrl+C to stop"
-	uv run env SITEURL='' python -m http.server 8000 --directory output
-
-dev: fetch
+dev: fetch build
 	@echo "🚀 Starting DEV mode with live reload"
 	@echo "→ Changes to any .rst file in content/ will auto-rebuild"
 	@echo "→ Server running at http://localhost:8000"

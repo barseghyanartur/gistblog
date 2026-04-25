@@ -1,8 +1,16 @@
-import os
 import json
+import os
 import re
-from datetime import datetime
 import sys
+from datetime import datetime
+
+__author__ = "Artur Barseghyan <artur.barseghyan@gmail.com>"
+__copyright__ = "2026 Artur Barseghyan"
+__license__ = "MIT"
+__all__ = (
+    "build_search_index",
+    "build_search_index_cli",
+)
 
 CONTENT_DIR = "content"
 STATIC_DIR = "content/static"

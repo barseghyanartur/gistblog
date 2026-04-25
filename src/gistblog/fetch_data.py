@@ -4,6 +4,14 @@ import shutil
 
 import httpx
 
+__author__ = "Artur Barseghyan <artur.barseghyan@gmail.com>"
+__copyright__ = "2026 Artur Barseghyan"
+__license__ = "MIT"
+__all__ = (
+    "fetch_data",
+    "fetch_data_cli",
+)
+
 USERNAME = "barseghyanartur"
 GIST_API = f"https://api.github.com/users/{USERNAME}/gists"
 CONTENT_DIR = "content"

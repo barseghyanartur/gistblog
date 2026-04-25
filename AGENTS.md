@@ -68,6 +68,7 @@ All Python commands MUST be run using `uv run` or Makefile shortcuts:
 make fetch       # Fetch Gists and generate search index
 make build       # Fetch + build static site
 make dev         # Development mode with live reload
+make pipeline    # Fetch + build + serve
 
 # Using uv directly
 uv run pytest src/gistblog/tests/

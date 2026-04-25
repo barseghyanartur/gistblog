@@ -1,6 +1,5 @@
 import os
 from pelican import signals
-from docutils.core import publish_parts
 
 AUTHOR = "Artur Barseghyan"
 SITENAME = "Dev Notes"

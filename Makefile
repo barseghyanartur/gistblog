@@ -1,4 +1,4 @@
-VERSION := 0.1
+VERSION := 0.1.1
 SHELL := /bin/bash
 # Makefile for project
 VENV := .venv/bin/activate
@@ -127,3 +127,27 @@ pre-commit-install:
 
 pre-commit: pre-commit-install
 	pre-commit run --all-files
+
+# ----------------------------------------------------------------------------
+# Security
+# ----------------------------------------------------------------------------
+
+create-secrets:
+	source $(VENV) && detect-secrets scan > .secrets.baseline
+
+detect-secrets:
+	source $(VENV) && detect-secrets scan --baseline .secrets.baseline
+
+# ----------------------------------------------------------------------------
+# Housekeeping
+# ----------------------------------------------------------------------------
+
+update-version:
+	@echo "Updating version in pyproject.toml and __init__.py"
+	@if [ "$(UNAME_S)" = "Darwin" ]; then \
+		gsed -i 's/^version = "[0-9.]\+"/version = "$(VERSION)"/' pyproject.toml; \
+		gsed -i 's/__version__ = "[0-9.]\+"/__version__ = "$(VERSION)"/' src/gistblog/__init__.py; \
+	else \
+		sed -i 's/^version = "[0-9.]\+"/version = "$(VERSION)"/' pyproject.toml; \
+		sed -i 's/__version__ = "[0-9.]\+"/__version__ = "$(VERSION)"/' src/gistblog/__init__.py; \
+	fi

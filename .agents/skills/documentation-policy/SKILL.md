@@ -3,6 +3,8 @@ name: documentation-policy
 description: Authoritative documentation files for gistblog
 ---
 
+# Documentation Policy
+
 ## In-Scope Documentation
 
 The following files are authoritative and must stay aligned with code:
@@ -24,6 +26,7 @@ The following are generated and derived (not authoritative):
 Documentation alignment is enforced via the `update-documentation` skill.
 
 The `documentation-policy` skill defines the contract:
+
 - Which files are authoritative
 - Which files are excluded
 - When alignment must be verified

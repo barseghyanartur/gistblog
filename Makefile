@@ -128,9 +128,19 @@ pre-commit-install:
 pre-commit: pre-commit-install
 	pre-commit run --all-files
 
-# -----------------------------------------------------------------------
+# ----------------------------------------------------------------------------
+# Security
+# ----------------------------------------------------------------------------
+
+create-secrets:
+	source $(VENV) && detect-secrets scan > .secrets.baseline
+
+detect-secrets:
+	source $(VENV) && detect-secrets scan --baseline .secrets.baseline
+
+# ----------------------------------------------------------------------------
 # Housekeeping
-# -----------------------------------------------------------------------
+# ----------------------------------------------------------------------------
 
 update-version:
 	@echo "Updating version in pyproject.toml and __init__.py"

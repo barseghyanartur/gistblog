@@ -1,6 +1,6 @@
 # AGENTS.md - gist-blog
 
-**Repository**: https://github.com/barseghyanartur/gist-blog
+**Repository**: <https://github.com/barseghyanartur/gist-blog>
 **Maintainer**: Artur Barseghyan <artur.barseghyan@gmail.com>
 
 ---
@@ -9,7 +9,7 @@
 
 > Zero-friction serverless blogging where **public GitHub Gists** are the single source of truth and Pelican builds a clean, fast, fully static site with search.
 
-- Write posts as reStructuredText inside public Gists (description must start with `blog: `).
+- Write posts as reStructuredText inside public Gists (description must start with `blog:`).
 - Metadata lives in reST field lists (`:date:`, `:category:`, `:tags:`, `:summary:`, `:image:`).
 - Automatic periodic sync → Pelican build → GitHub Pages deployment.
 - Full-text search (Lunr.js) and beautiful post-list previews are built-in.
@@ -23,7 +23,7 @@
 
 ### Core pipeline
 
-1. **fetch_gists.py** — scans public Gists, keeps only those with `blog: ` prefix, preserves `/content/pages/` static pages, writes `.rst` files using Gist ID as filename.
+1. **fetch_gists.py** — scans public Gists, keeps only those with `blog:` prefix, preserves `/content/pages/` static pages, writes `.rst` files using Gist ID as filename.
 2. **generate_search_index.py** — scans all `.rst` files and creates a client-side Lunr.js index (`static/search_index.json`).
 3. **pelicanconf.py** — Pelican configuration + `article_generator_finalized` signal that:
    - Injects `:image:` preview at the top of list summaries
@@ -33,15 +33,15 @@
 
 ### Key files
 
-| File                        | Purpose |
-|-----------------------------|-------|
-| `fetch_gists.py`            | Gist → content/ sync (preserves pages/) |
-| `pelicanconf.py`            | Pelican config + metadata processing signal |
-| `generate_search_index.py`  | Builds Lunr.js search index |
-| `content/pages/search.rst`  | Static search page (preserved on every sync) |
-| `Makefile`                  | Local dev commands (`make dev`, `make fetch`, etc.) |
+| File | Purpose |
+| --- | --- |
+| `fetch_gists.py` | Gist → content/ sync (preserves pages/) |
+| `pelicanconf.py` | Pelican config + metadata processing signal |
+| `generate_search_index.py` | Builds Lunr.js search index |
+| `content/pages/search.rst` | Static search page (preserved on every sync) |
+| `Makefile` | Local dev commands (`make dev`, `make fetch`, etc.) |
 | `.github/workflows/deploy.yml` | CI/CD cron + deploy |
-| `requirements.txt`          | Python dependencies |
+| `requirements.txt` | Python dependencies |
 
 ---
 
@@ -107,6 +107,7 @@ All features (preview images, summaries, Gist links, search) work identically lo
 - Always preserve backward compatibility for existing Gists.
 
 Run locally:
+
 ```bash
 make fetch
 make dev
@@ -124,5 +125,5 @@ make dev
 
 ---
 
-**This file is the single source of truth for any AI agent (or human) working on this blog.**  
+**This file is the single source of truth for any AI agent (or human) working on this blog.**
 Never deviate from the mission. Keep it simple, static, and Gist-driven.

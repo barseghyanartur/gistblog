@@ -3,9 +3,12 @@ name: dev-workflow
 description: Definition of Done and commit workflow for gistblog
 ---
 
+# Dev Workflow
+
 ## Definition of Done
 
 A task is complete when:
+
 1. Code changes work as intended
 2. All linting passes
 3. All tests pass

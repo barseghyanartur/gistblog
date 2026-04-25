@@ -2,7 +2,8 @@
 gistblog – Serverless headless CMS
 ==================================
 
-**Zero Git friction.** Write in reStructuredText → Public Gist → auto-deployed Pelican blog with full-text search.
+**Zero Git friction.** Write in reStructuredText → Public Gist → auto-deployed
+Pelican blog with full-text search.
 
 .. image:: https://img.shields.io/pypi/v/gistblog.svg
    :target: https://pypi.python.org/pypi/gistblog
@@ -36,8 +37,10 @@ How to publish a post
 =====================
 1. Create a **public** Gist on GitHub.
 2. Description must start with: `blog: Your Post Title`
-3. File must be valid reST with field-list metadata (see example in the original prompt).
-4. Save. The site updates automatically every 4 hours (or manually trigger the GitHub Action).
+3. File must be valid reST with field-list metadata (see example in the
+   original prompt).
+4. Save. The site updates automatically every 4 hours (or manually trigger
+   the GitHub Action).
 
 .. code-block:: rst
 
@@ -55,7 +58,9 @@ How to publish a post
 
 Search page lives at `/pages/search/`.
 
-**Important:** Change `USERNAME = "barseghyanartur"` in `src/gistblog/fetch_data.py` to **your own GitHub username** before the first run.
+**Important:** Change `USERNAME = "barseghyanartur"`
+in `src/gistblog/fetch_data.py` to **your own GitHub username** before the
+first run.
 
 Local development
 ==================

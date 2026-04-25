@@ -3,6 +3,8 @@ name: coding-standards
 description: Style, typing, and naming conventions for gistblog
 ---
 
+# Coding Standards
+
 ## Style Rules
 
 - Use Ruff for linting and formatting (configured in pyproject.toml)

@@ -20,9 +20,9 @@ help:
 	@echo "Targets:"
 	@echo "  make install   → Install all Python dependencies"
 	@echo "  make fetch     → Pull latest blog Gists + regenerate search index"
-	@echo "  make build     → Fetch + build static site (output/)"
-	@echo "  make serve     → Build + serve statically on http://localhost:8000"
-	@echo "  make dev       → Fetch + LIVE RELOAD + auto-serve (best for local editing)"
+	@echo "  make build     → Build static site (output/)"
+	@echo "  make serve     → Serve statically on http://localhost:8000"
+	@echo "  make dev       → LIVE RELOAD + auto-serve (best for local editing)"
 	@echo "  make clean     → Remove generated output/"
 	@echo ""
 	@echo "After 'make dev' open → http://localhost:8000"
@@ -44,6 +44,8 @@ serve:
 	@echo "🚀 Serving built site at http://localhost:8000"
 	@echo "Press Ctrl+C to stop"
 	uv run env SITEURL='' python -m http.server 8000 --directory output
+
+pipeline: fetch build serve
 
 dev: fetch build
 	@echo "🚀 Starting DEV mode with live reload"

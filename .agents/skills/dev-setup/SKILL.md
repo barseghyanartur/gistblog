@@ -3,6 +3,8 @@ name: dev-setup
 description: Environment setup and dependency installation for gistblog
 ---
 
+# Dev Setup
+
 ## Environment Setup
 
 ### Virtual Environment

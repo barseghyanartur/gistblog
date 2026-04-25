@@ -3,6 +3,8 @@ name: pr-review
 description: Pull request review checklist for gistblog
 ---
 
+# PR Revuew
+
 ## Review Checklist
 
 1. **Lint check**: Verify `make pre-commit` passes with no warnings
@@ -22,6 +24,7 @@ description: Pull request review checklist for gistblog
 ## Reporting
 
 If any checklist item fails, report:
+
 - Which item failed
 - Specific violation or error
 - Suggested fix

@@ -36,7 +36,7 @@ build:
 	@echo "Building site with Pelican..."
 	uv run env SITEURL='' $(PELICAN) -s $(CONFFILE)
 
-clean:
+clean-output:
 	rm -rf output/
 	@echo "✅ Cleaned. content/ (including static pages) was preserved."
 
@@ -141,6 +141,16 @@ detect-secrets:
 # ----------------------------------------------------------------------------
 # Housekeeping
 # ----------------------------------------------------------------------------
+clean-dev:
+	find . -name "*.orig" -exec rm -rf {} +
+	find . -name "__pycache__" -exec rm -rf {} +
+	rm -rf dist/ src/safezip.egg-info/ .cache/ .mypy_cache/ .ruff_cache/
+
+clean-test:
+	find . -name "*.pyc" -exec rm -rf {} +
+	rm -rf .coverage .pytest_cache/ htmlcov/
+
+clean: clean-dev clean-test clean-output
 
 update-version:
 	@echo "Updating version in pyproject.toml and __init__.py"

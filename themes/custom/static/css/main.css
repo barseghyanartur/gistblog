@@ -464,19 +464,19 @@ footer.post-info.minimal {
 
 /*
 	Search Dropdown
-*****************/
+****************/
 #nav-search {
     position: relative;
 }
 
-#nav-search-link {
+#nav-search > a {
     display: inline-block;
     height: 30px;
     padding: 5px 1.5em;
 }
 
-#nav-search-link.active,
-#nav-search-link:hover {
+#nav-search > a.active,
+#nav-search > a:hover {
     background: #C74451;
     color: #fff;
     text-shadow: none !important;
@@ -485,8 +485,8 @@ footer.post-info.minimal {
 .search-dropdown {
     display: none;
     position: absolute;
-    top: 100%;
-    left: 0;
+    top: 120px;
+    left: auto;
     width: 340px;
     background: #fff;
     border-radius: 0 0 8px 8px;

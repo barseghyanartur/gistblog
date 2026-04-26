@@ -59,7 +59,7 @@
                                         <div class="search-dropdown-hint">Type to search...</div>
                                 </div>
                                 <div class="search-dropdown-footer">
-                                        <a href="{{ SITEURL }}/search.html">Full search page</a>
+                                        <a href="{{ SITEURL }}/search.html" id="search-full-link">Full search page</a>
                                 </div>
                         </div>
                 </header><!-- /#banner -->
@@ -155,8 +155,18 @@
                         }
 
                         function performSearch(query) {
-                                if (!lunrIndex || !query || query.trim() === "") {
+                                var fullLink = document.getElementById("search-full-link");
+
+                                if (!query || query.trim() === "") {
                                         resultsContainer.innerHTML = '<div class="search-dropdown-hint">Type to search...</div>';
+                                        fullLink.href = baseUrl + "search.html";
+                                        return;
+                                }
+
+                                fullLink.href = baseUrl + "search.html?q=" + encodeURIComponent(query);
+
+                                if (!lunrIndex) {
+                                        resultsContainer.innerHTML = '<div class="search-dropdown-hint">Loading...</div>';
                                         return;
                                 }
 
@@ -191,7 +201,7 @@
 
                                 if (results.length > maxResults) {
                                         html += '<div class="search-dropdown-more">' +
-                                                '+' + (results.length - maxResults) + ' more. <a href="' + baseUrl + 'search.html?q=' + encodeURIComponent(query) + '">Full results</a>' +
+                                                '+' + (results.length - maxResults) + ' more results' +
                                         '</div>';
                                 }
 

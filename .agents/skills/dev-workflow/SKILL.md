@@ -23,6 +23,7 @@ Before committing:
 2. **Fix**: Address all linting violations
 3. **Test**: Run `uv run pytest`
 4. **Verify docs**: Run `make build-docs`
+5. **Manual testing**: Run `make run`, check <http://localhost:8000/>
 
 ## Retry Logic
 

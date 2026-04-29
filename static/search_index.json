@@ -35,7 +35,7 @@
       "bat"
     ],
     "summary": "Use ``bat`` for a more readable terminal experience with syntax highlighting and Git integration.",
-    "content": ":alt: bat is cat with extras bat <https://github.com/sharkdp/bat> is a cat clone with extras. It improves terminal output by adding line numbers, syntax highlighting for various languages, and Git-aware gutter markers to show changes. Usage example: bat path/to/file.json bat path/to/file.rst bat path/to/file.md bat path/to/file.py A useful tweak - set page really high (put somewhere in your .bashrc or .zshrc): export BAT_PAGER='less -R -z 5000'"
+    "content": "bat <https://github.com/sharkdp/bat> is a cat clone with extras. It improves terminal output by adding line numbers, syntax highlighting for various languages, and Git-aware gutter markers to show changes. Usage example: bat path/to/file.json bat path/to/file.rst bat path/to/file.md bat path/to/file.py A useful tweak - set page really high (put somewhere in your .bashrc or .zshrc): export BAT_PAGER='less -R -z 5000'"
   },
   {
     "title": "How to debug Python applications",

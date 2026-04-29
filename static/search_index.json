@@ -75,6 +75,20 @@
     "content": "VSCode Settings -> Text Editor -> Files -> Add Pattern: Add */.py,cover PyCharm Editor -> File Types -> Ignored Files and Folders : Add *.py,cover"
   },
   {
+    "title": "VS Code for Pycharm users",
+    "url": "posts/2026/01/vs-code-for-pycharm-users/",
+    "date": "2026-01-12",
+    "category": "Tech",
+    "tags": [
+      "python",
+      "vs-code",
+      "vs-code-plugins",
+      "pycharm"
+    ],
+    "summary": "Switching to VS Code can be a headache if you're used to the JetBrains look. This guide helps you clone that experience in two simple steps.",
+    "content": "1. Install PyCharm theme Choose from PyCharm Dark+ Theme or Darcula PyCharm Theme. 2. Adjust user settings Command Palette (Cmd+Shift+P) -> type: settings json Paste the following: { \"telemetry.telemetryLevel\": \"off\", \"python.createEnvironment.trigger\": \"off\", \"workbench.startupEditor\": \"none\", \"makefile.configureOnOpen\": true, \"editor.rulers\": [80, 120], \"files.exclude\": { \"**/__pycache__\": true, \"**/.idea\": true, \"**/.mypy_cache\": true, \"**/.pytest_cache\": true, \"**/.ruff_cache\": true, \"**/.venv\": true, \"**/.vscode\": true, \"*/.py,cover\": true, \"**/htmlcov\": true, \"*/.egg-info\": true }, \"workbench.colorTheme\": \"PyCharm Dark+ Theme\", \"github.copilot.nextEditSuggestions.enabled\": true, \"git.enableSmartCommit\": true, \"workbench.tree.indent\": 20, \"workbench.tree.renderIndentGuides\": \"always\", \"editor.fontSize\": 14, \"containers.containerClient\": \"com.microsoft.visualstudio.containers.docker\", \"containers.orchestratorClient\": \"com.microsoft.visualstudio.orchestrators.dockercompose\", \"makefi..."
+  },
+  {
     "title": "Understanding `uv sync` and dependency conflicts",
     "url": "posts/2026/04/understanding-uv-sync-and-dependency-conflicts/",
     "date": "2026-04-07",

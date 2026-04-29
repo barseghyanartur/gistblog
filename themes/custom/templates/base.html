@@ -107,6 +107,6 @@
                 {% include 'disqus_script.html' %}
                 {% block extra_scripts %}{% endblock %}
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
-                <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/search.js"></script>
+                <script data-siteurl="{{ SITEURL }}" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/search.js"></script>
         </body>
 </html>

@@ -9,7 +9,8 @@
         var indexLoaded = false;
         var dropdownOpen = false;
 
-        var SITEURL = "{{ SITEURL }}";
+        var scriptTag = document.querySelector('script[data-siteurl]');
+        var SITEURL = scriptTag ? scriptTag.dataset.siteurl : "";
         var baseUrl = SITEURL ? (SITEURL.endsWith("/") ? SITEURL : SITEURL + "/") : "/";
         var searchIndexUrl = baseUrl + "static/search_index.json";
 

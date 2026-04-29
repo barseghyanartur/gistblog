@@ -556,7 +556,7 @@ footer.post-info.minimal {
 }
 
 .search-dropdown-result:hover .search-dropdown-result-title {
-    color: #C74350;
+    text-decoration: underline;
 }
 
 .search-dropdown-result-meta {
@@ -573,8 +573,8 @@ footer.post-info.minimal {
 }
 
 .search-dropdown-more a {
-    color: #C74350;
-    text-decoration: none;
+    color: inherit;
+    text-decoration: underline;
 }
 
 .search-dropdown-more a:hover {
@@ -590,8 +590,8 @@ footer.post-info.minimal {
 
 .search-dropdown-footer a {
     font-size: 0.85rem;
-    color: #C74350;
-    text-decoration: none;
+    color: inherit;
+    text-decoration: underline;
 }
 
 .search-dropdown-footer a:hover {

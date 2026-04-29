@@ -69,6 +69,7 @@ make fetch       # Fetch Gists and generate search index
 make build       # Fetch + build static site
 make dev         # Development mode with live reload
 make pipeline    # Fetch + build + serve
+make run.        # Build + serve
 
 # Using uv directly
 uv run pytest src/gistblog/tests/

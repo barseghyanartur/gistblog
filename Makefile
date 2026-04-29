@@ -47,6 +47,8 @@ serve:
 
 pipeline: fetch build serve
 
+run: build serve
+
 dev: fetch build
 	@echo "🚀 Starting DEV mode with live reload"
 	@echo "→ Changes to any .rst file in content/ will auto-rebuild"

@@ -34,7 +34,11 @@
                         <h1><a href="{{ SITEURL }}/">{{ SITENAME }}{% if SITESUBTITLE %} <strong>{{ SITESUBTITLE }}</strong>{% endif %}</a></h1>
                         <nav><ul>
                                 {% for title, link in MENUITEMS %}
-                                        <li><a href="{{ link }}">{{ title }}</a></li>
+                                        {% if title == "Search" %}
+                                                <li id="nav-search"><a href="{{ link }}" id="nav-search-link">{{ title }}</a></li>
+                                        {% else %}
+                                                <li><a href="{{ link }}">{{ title }}</a></li>
+                                        {% endif %}
                                 {% endfor %}
                                 {% if DISPLAY_PAGES_ON_MENU -%}
                                         {% for pg in pages %}
@@ -47,6 +51,17 @@
                                         {% endfor %}
                                 {% endif %}
                         </ul></nav>
+                        <div id="search-dropdown" class="search-dropdown">
+                                <div class="search-dropdown-input-wrap">
+                                        <input type="search" id="search-dropdown-input" placeholder="Search posts..." autocomplete="off">
+                                </div>
+                                <div id="search-dropdown-results">
+                                        <div class="search-dropdown-hint">Type to search...</div>
+                                </div>
+                                <div class="search-dropdown-footer">
+                                        <a href="{{ SITEURL }}/search.html" id="search-full-link">Full search page</a>
+                                </div>
+                        </div>
                 </header><!-- /#banner -->
                 {% block content %}
                 {% endblock %}
@@ -91,5 +106,7 @@
                 {% include 'analytics.html' %}
                 {% include 'disqus_script.html' %}
                 {% block extra_scripts %}{% endblock %}
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
+                <script data-siteurl="{{ SITEURL }}" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/search.js"></script>
         </body>
 </html>

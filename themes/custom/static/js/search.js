@@ -4,6 +4,10 @@
         var searchInput = document.getElementById("search-dropdown-input");
         var resultsContainer = document.getElementById("search-dropdown-results");
 
+        if (!navSearchLink || !searchDropdown || !searchInput || !resultsContainer) {
+                return;
+        }
+
         var lunrIndex = null;
         var documentsData = [];
         var indexLoaded = false;
@@ -69,8 +73,9 @@
                         return;
                 }
 
-                var html = "";
                 var slice = results.slice(0, maxResults);
+                var fragment = document.createDocumentFragment();
+
                 for (var i = 0; i < slice.length; i++) {
                         var result = slice[i];
                         var doc = null;
@@ -84,19 +89,32 @@
 
                         var fullUrl = baseUrl + (doc.url.startsWith("/") ? doc.url.slice(1) : doc.url);
 
-                        html += '<a href="' + fullUrl + '" class="search-dropdown-result">' +
-                                '<span class="search-dropdown-result-title">' + doc.title + '</span>' +
-                                '<span class="search-dropdown-result-meta">' + doc.date + ' &bull; ' + doc.category + '</span>' +
-                        '</a>';
+                        var anchor = document.createElement("a");
+                        anchor.setAttribute("href", fullUrl);
+                        anchor.className = "search-dropdown-result";
+
+                        var titleSpan = document.createElement("span");
+                        titleSpan.className = "search-dropdown-result-title";
+                        titleSpan.textContent = doc.title;
+
+                        var metaSpan = document.createElement("span");
+                        metaSpan.className = "search-dropdown-result-meta";
+                        metaSpan.textContent = doc.date + " \u2022 " + doc.category;
+
+                        anchor.appendChild(titleSpan);
+                        anchor.appendChild(metaSpan);
+                        fragment.appendChild(anchor);
                 }
 
                 if (results.length > maxResults) {
-                        html += '<div class="search-dropdown-more">' +
-                                '+' + (results.length - maxResults) + ' more results' +
-                        '</div>';
+                        var moreDiv = document.createElement("div");
+                        moreDiv.className = "search-dropdown-more";
+                        moreDiv.textContent = "+" + (results.length - maxResults) + " more results";
+                        fragment.appendChild(moreDiv);
                 }
 
-                resultsContainer.innerHTML = html;
+                resultsContainer.innerHTML = "";
+                resultsContainer.appendChild(fragment);
         }
 
         function openDropdown() {

@@ -68,7 +68,7 @@
     "category": "Tech",
     "tags": [
       "python",
-      "vs-code",
+      "vscode",
       "pycharm"
     ],
     "summary": "Clean up your workspace by hiding those pesky ``*.py,cover`` files from your IDE. Whether you're using VS Code or PyCharm, this quick setting change keeps your file tree focused on your actual source code by filtering out coverage reports. Just a few clicks in your editor's \"Excluded\" or \"Ignored\" file settings, and those clutter-causing files disappear from view while remaining safe on your disk.",
@@ -81,8 +81,8 @@
     "category": "Tech",
     "tags": [
       "python",
-      "vs-code",
-      "vs-code-plugins",
+      "vscode",
+      "vscode-plugins",
       "pycharm"
     ],
     "summary": "Switching to VS Code can be a headache if you're used to the JetBrains look. This guide helps you clone that experience in two simple steps.",
@@ -206,8 +206,8 @@
     "category": "Tech",
     "tags": [
       "python",
-      "vs-code",
-      "vs-code-plugins"
+      "vscode",
+      "vscode-plugins"
     ],
     "summary": "Supercharge your VS Code setup with this curated list of essential plugins! Whether you're a Python pro needing Pylance and Makefile support, or a documentation stickler looking for Markdown and reStructuredText tools, these extensions bridge the gap between a basic editor and a powerhouse IDE. Plus, grab the PyCharm Theme to get that classic JetBrains look without sacrificing VS Code's lightweight speed.",
     "content": "#. Sort lines: Sort lines of text for VS Code #. PyCharm Theme: PyCharm Theme for VS Code #. MarkdownLint: Markdown/CommonMark linting and style checking for VS Code #. Makefile Tools: Enhancing Makefile development in VS Code #. Pylance: A performant, feature-rich language server for Python in VS Code #. Even better TOML: A TOML language support for VS Code #. reStructuredText Syntax highlighting: Syntax highlighting and non-intrusive section navigation for reStructuredText."

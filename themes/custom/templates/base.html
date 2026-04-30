@@ -35,7 +35,19 @@
                         <nav><ul>
                                 {% for title, link in MENUITEMS %}
                                         {% if title == "Search" %}
-                                                <li id="nav-search"><a href="{{ link }}" id="nav-search-link">{{ title }}</a></li>
+                                                <li id="nav-search"><a href="{{ link }}" id="nav-search-link">{{ title }}</a>
+                                                <div id="search-dropdown" class="search-dropdown">
+                                                        <div class="search-dropdown-input-wrap">
+                                                                <input type="search" id="search-dropdown-input" placeholder="Search posts..." autocomplete="off">
+                                                        </div>
+                                                        <div id="search-dropdown-results">
+                                                                <div class="search-dropdown-hint">Type to search...</div>
+                                                        </div>
+                                                        <div class="search-dropdown-footer">
+                                                                <a href="{{ SITEURL }}/search.html" id="search-full-link">Full search page</a>
+                                                        </div>
+                                                </div>
+                                                </li>
                                         {% else %}
                                                 <li><a href="{{ link }}">{{ title }}</a></li>
                                         {% endif %}
@@ -51,17 +63,6 @@
                                         {% endfor %}
                                 {% endif %}
                         </ul></nav>
-                        <div id="search-dropdown" class="search-dropdown">
-                                <div class="search-dropdown-input-wrap">
-                                        <input type="search" id="search-dropdown-input" placeholder="Search posts..." autocomplete="off">
-                                </div>
-                                <div id="search-dropdown-results">
-                                        <div class="search-dropdown-hint">Type to search...</div>
-                                </div>
-                                <div class="search-dropdown-footer">
-                                        <a href="{{ SITEURL }}/search.html" id="search-full-link">Full search page</a>
-                                </div>
-                        </div>
                 </header><!-- /#banner -->
                 {% block content %}
                 {% endblock %}

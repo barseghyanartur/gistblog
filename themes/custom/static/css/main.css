@@ -201,7 +201,7 @@ div.figure p.caption, figure p.caption { /* margin provided by figure */
 #banner nav {
     background: #000305;
     font-size: 1.143em;
-    overflow: auto;
+    overflow: visible;
     line-height: 30px;
     margin: 0 auto 2em auto;
     padding: 0;
@@ -214,6 +214,13 @@ div.figure p.caption, figure p.caption { /* margin provided by figure */
 }
 
 #banner nav ul {list-style: none; margin: 0 auto; max-width: 800px;}
+
+#banner nav ul::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
 #banner nav li {float: left; display: inline; margin: 0;}
 
 #banner nav a:link, #banner nav a:visited {
@@ -485,7 +492,7 @@ footer.post-info.minimal {
 .search-dropdown {
     display: none;
     position: absolute;
-    top: 120px;
+    top: 100%;
     left: auto;
     width: 340px;
     background: #fff;

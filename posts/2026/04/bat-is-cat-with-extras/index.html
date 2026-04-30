@@ -25,11 +25,22 @@
                 <header id="banner" class="body">
                         <h1><a href="/gistblog/">Dev Notes</a></h1>
                         <nav><ul>
-                                        <li><a href="/gistblog">Home</a></li>
-                                        <li><a href="/gistblog/search.html">Search</a></li>
+                                                <li><a href="/gistblog">Home</a></li>
+                                                <li id="nav-search"><a href="/gistblog/search.html" id="nav-search-link">Search</a></li>
                                                 <li><a href="/gistblog/category/art.html">Art</a></li>
                                                 <li class="active"><a href="/gistblog/category/tech.html">Tech</a></li>
                         </ul></nav>
+                        <div id="search-dropdown" class="search-dropdown">
+                                <div class="search-dropdown-input-wrap">
+                                        <input type="search" id="search-dropdown-input" placeholder="Search posts..." autocomplete="off">
+                                </div>
+                                <div id="search-dropdown-results">
+                                        <div class="search-dropdown-hint">Type to search...</div>
+                                </div>
+                                <div class="search-dropdown-footer">
+                                        <a href="/gistblog/search.html" id="search-full-link">Full search page</a>
+                                </div>
+                        </div>
                 </header><!-- /#banner -->
   <section id="content" class="body">
     <article>
@@ -45,8 +56,8 @@
                 Published: Tue 21 April 2026
         </abbr>
                 <br />
-                <abbr class="modified" title="2026-04-29T23:53:32.190330+00:00">
-                        Updated: Wed 29 April 2026
+                <abbr class="modified" title="2026-04-30T00:29:10.576471+00:00">
+                        Updated: Thu 30 April 2026
                 </abbr>
 
                 <address class="vcard author">
@@ -87,5 +98,7 @@ bat<span class="w"> </span>path/to/file.py
                         <p>The theme is by <a rel="nofollow" href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
                 </footer><!-- /#contentinfo -->
 
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
+                <script data-siteurl="/gistblog" src="/gistblog/theme/js/search.js"></script>
         </body>
 </html>

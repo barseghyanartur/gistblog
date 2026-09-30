@@ -52,6 +52,20 @@
     "content": ":alt: Model: Dagmar Lindeijer Model: Dagmar Lindeijer :alt: Model: Wendy Appelman Model: Wendy Appelman :alt: Model: Jildou Jongman Model: Jildou Jongman :alt: Model: Dagmar Lindeijer Model: Dagmar Lindeijer :alt: Model: Manon Blauw Model: Manon Blauw :alt: Model: Karima van der Voort Model: Karima van der Voort :alt: Model: Karima van der Voort Model: Karima van der Voort :alt: Model: Eva Model: Eva :alt: Model: Wendy Appelman Model: Wendy Appelman"
   },
   {
+    "title": "Bring your OpenCode sessions into Claude Code",
+    "url": "posts/2026/09/bring-your-opencode-sessions-into-claude-code/",
+    "date": "2026-09-30",
+    "category": "Tech",
+    "tags": [
+      "claude-code",
+      "opencode",
+      "ai",
+      "developer-tools"
+    ],
+    "summary": "Import your OpenCode sessions into Claude Code and continue working without copying context by hand.",
+    "content": "Switching between OpenCode and Claude Code often means losing your conversation history. claude-opencode-sessions <https://github.com/barseghyanartur/claude-opencode-sessions> solves this. It imports OpenCode sessions for the current repository into Claude Code. Install it from within Claude Code:: /plugin marketplace add barseghyanartur/claude-opencode-sessions /plugin install opencode-sessions@barseghyanartur Run:: /opencode-sessions:import Then open:: /resume Your imported sessions appear with an [opencode] prefix. Pick one and continue where you stopped. The import uses no model calls and spends no tokens. It also skips sessions that have not changed."
+  },
+  {
     "title": "Safezip - zero-dependency wrapper for secure ZIP extraction",
     "url": "posts/2026/02/safezip-zero-dependency-wrapper-for-secure-zip-extraction/",
     "date": "2026-02-25",

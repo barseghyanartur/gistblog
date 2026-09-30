@@ -4,7 +4,7 @@
                         <meta charset="utf-8" />
                         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                         <meta name="generator" content="Pelican" />
-                        <title>Dev Notes - Categories</title>
+                        <title>Dev Notes - opencode</title>
                         <link rel="stylesheet" href="/gistblog/theme/css/main.css" />
                                 <link href="/gistblog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Dev Notes Atom Feed" />
         </head>
@@ -31,14 +31,31 @@
                         </div>
                 </header><!-- /#banner -->
 
-    <section id="content" class="body">
-        <h1>Categories for Dev Notes</h1>
-        <ul>
-                <li><a href="/gistblog/category/art.html">Art</a> (2)</li>
-                <li><a href="/gistblog/category/tech.html">Tech</a> (24)</li>
-        </ul>
-    </section>
-
+                <aside id="featured" class="body">
+                    <article>
+                        <h1 class="entry-title"><a href="/gistblog/posts/2026/09/bring-your-opencode-sessions-into-claude-code/">Bring your OpenCode sessions into Claude Code</a></h1>
+<footer class="post-info minimal">
+        <span class="post-date">2026-09-30</span>
+<span class="post-category"> | <a href="/gistblog/category/tech.html">Tech</a></span><span class="post-tags"> | <a href="/gistblog/tag/claude-code.html">claude-code</a>, <a href="/gistblog/tag/opencode.html">opencode</a>, <a href="/gistblog/tag/ai.html">ai</a>, <a href="/gistblog/tag/developer-tools.html">developer-tools</a></span></footer><p>Switching between OpenCode and Claude Code often means losing your conversation history.</p>
+<p><a class="reference external" href="https://github.com/barseghyanartur/claude-opencode-sessions">claude-opencode-sessions</a>
+solves this. It imports OpenCode sessions for the current repository into Claude Code.</p>
+<p>Install it from within Claude Code:</p>
+<pre class="literal-block">
+/plugin marketplace add barseghyanartur/claude-opencode-sessions
+/plugin install opencode-sessions&#64;barseghyanartur
+</pre>
+<p>Run:</p>
+<pre class="literal-block">
+/opencode-sessions:import
+</pre>
+<p>Then open:</p>
+<pre class="literal-block">
+/resume
+</pre>
+<p>Your imported sessions appear with an <tt class="docutils literal">[opencode]</tt> prefix. Pick one and continue where you stopped.</p>
+<p>The import uses no model calls and spends no tokens. It also skips sessions that have not changed.</p>
+<p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: right;">Originally published as <a href="https://gist.github.com/barseghyanartur/126ee43aaec37f6f15b9b809344adf0e" target="_blank" rel="noopener">GitHub Gist #126ee43aaec37f6f15b9b809344adf0e</a></p>                    </article>
+                </aside><!-- /#featured -->
                 <section id="extras" class="body">
                                 <div class="social">
                                         <h2>social</h2>

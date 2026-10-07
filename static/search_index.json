@@ -93,6 +93,20 @@
     "content": "It was a great day! Good talks, great people, and a lot of insightful conversations in between. Looking forward to catching the talks I missed once they land on the official YouTube channel <https://www.youtube.com/@pyGrunn-and-aiGrunn/videos>_. View the video of my presentation here <https://www.youtube.com/watch?v=2mrREGH2_f8>_. <iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/2mrREGH2_f8?si=mn8Cj5BEGM-fqhnF\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe> Links to the slides This year I gave a talk about Agentic Engineering. Slides in HTML format: https://barseghyanartur.github.io/agentic-engineering-talk/ Slides in PDF-like HTML format: https://barseghyanartur.github.io/agentic-engineering-talk/?print-pdf :alt: PyGrunn 2026"
   },
   {
+    "title": "PhotoCraft feels like good old Photoshop",
+    "url": "posts/2026/10/photocraft-feels-like-good-old-photoshop/",
+    "date": "2026-10-07",
+    "category": "Tech",
+    "tags": [
+      "photocraft",
+      "photoshop",
+      "image-editing",
+      "open-source"
+    ],
+    "summary": "PhotoCraft feels like good old Photoshop, but completely free. Everything I've tested so far has worked well.",
+    "content": "I think this is just incredible. PhotoCraft <https://github.com/storytold/photocraft> feels like genuine Photoshop, but completely free. So far, everything I've tested has worked well, with no bugs that I've noticed. Filters, Lens Correction, Layers, Curves, Hue/Saturation, Levels, Photo Filter, Filter Gallery. It feels like the good old days, when Photoshop just worked. No AI, no monthly subscription. You owned the software, owned your content, and didn't have to share anything with anyone. It's currently in early alpha, so do expect bugs. But again, overall, it's pretty incredible."
+  },
+  {
     "title": "bat is cat with extras",
     "url": "posts/2026/04/bat-is-cat-with-extras/",
     "date": "2026-04-21",

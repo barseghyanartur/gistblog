@@ -4,10 +4,10 @@
                         <meta charset="utf-8" />
                         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                         <meta name="generator" content="Pelican" />
-                        <title>PyGrunn 2026 talk: Agentic Engineering</title>
+                        <title>dot-agents: code review, optimisation, and fix proofs</title>
                         <link rel="stylesheet" href="/gistblog/theme/css/main.css" />
                                 <link href="/gistblog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Dev Notes Atom Feed" />
-    <meta name="description" content="My talk at PyGrunn 2026 about Agentic Engineering." />
+    <meta name="description" content="dot-agents 0.3 adds three new skills: code review, code optimisation, and one that writes a test proving a bug and its fix." />
         </head>
 
         <body id="index" class="home">
@@ -35,17 +35,17 @@
     <article>
       <header>
         <h1 class="entry-title">
-          <a href="/gistblog/posts/2026/05/pygrunn-2026-talk-agentic-engineering/" rel="bookmark"
-             title="Permalink to PyGrunn 2026 talk: Agentic Engineering">PyGrunn 2026 talk: Agentic Engineering</a></h1>
+          <a href="/gistblog/posts/2026/10/dot-agents-code-review-optimisation-and-fix-proofs/" rel="bookmark"
+             title="Permalink to dot-agents: code review, optimisation, and fix proofs">dot-agents: code review, optimisation, and fix proofs</a></h1>
       </header>
 
       <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2026-05-08T01:01:00+00:00">
-                Published: Fri 08 May 2026
+        <abbr class="published" title="2026-10-09T00:44:00+00:00">
+                Published: Fri 09 October 2026
         </abbr>
                 <br />
-                <abbr class="modified" title="2026-10-08T22:50:33.642273+00:00">
+                <abbr class="modified" title="2026-10-08T22:50:32.819872+00:00">
                         Updated: Thu 08 October 2026
                 </abbr>
 
@@ -53,33 +53,61 @@
                         By                                 <a class="url fn" href="/gistblog/author/artur-barseghyan.html">Artur Barseghyan</a>
                 </address>
         <p>In <a href="/gistblog/category/tech.html">Tech</a>.</p>
-<p>tags: <a href="/gistblog/tag/python.html">python</a> <a href="/gistblog/tag/agentic-engineering.html">agentic-engineering</a> <a href="/gistblog/tag/pygrunn.html">pygrunn</a> <a href="/gistblog/tag/pygrunn-2026.html">pygrunn-2026</a> </p>        
-</footer><!-- /.post-info -->        <div class="section" id="it-was-a-great-day">
-<h2>It was a great day!</h2>
-<p>Good talks, great people, and a lot of insightful conversations in between. Looking forward to catching the talks I missed once they land on the <a class="reference external" href="https://www.youtube.com/&#64;pyGrunn-and-aiGrunn/videos">official YouTube channel</a>.</p>
-<p>View the video of my presentation <a class="reference external" href="https://www.youtube.com/watch?v=2mrREGH2_f8">here</a>.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/2mrREGH2_f8?si=mn8Cj5BEGM-fqhnF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-<div class="section" id="links-to-the-slides">
-<h2>Links to the slides</h2>
-<p>This year I gave a talk about Agentic Engineering.</p>
+<p>tags: <a href="/gistblog/tag/python.html">python</a> <a href="/gistblog/tag/ai.html">ai</a> <a href="/gistblog/tag/agents.html">agents</a> <a href="/gistblog/tag/code-review.html">code-review</a> <a href="/gistblog/tag/open-source.html">open-source</a> </p>        
+</footer><!-- /.post-info -->        <p>Since I <a class="reference external" href="https://barseghyanartur.github.io/gistblog/posts/2026/05/dot-agents-skills-for-ai-agents/">first wrote about dot-agents</a>,
+it has grown from six skills to nine. The new ones are all about reviewing
+code.</p>
+<div class="section" id="new-skills">
+<h2>New skills</h2>
 <ul class="simple">
-<li>Slides in HTML format: <a class="reference external" href="https://barseghyanartur.github.io/agentic-engineering-talk/">https://barseghyanartur.github.io/agentic-engineering-talk/</a></li>
-<li>Slides in PDF-like HTML format: <a class="reference external" href="https://barseghyanartur.github.io/agentic-engineering-talk/?print-pdf">https://barseghyanartur.github.io/agentic-engineering-talk/?print-pdf</a></li>
+<li><tt class="docutils literal"><span class="pre">dot-agents-code-review</span></tt> reviews a pull request, branch, commit, or
+local changes for real bugs and security risks. Every finding needs
+evidence: where it breaks, how it gets triggered, and the smallest safe
+fix. If there's no evidence, it doesn't get reported.</li>
+<li><tt class="docutils literal"><span class="pre">dot-agents-code-optimisation</span></tt> does the same for performance, dead code,
+and duplication. It doesn't nitpick style.</li>
+<li><tt class="docutils literal"><span class="pre">dot-agents-reproduce-and-verify-fix</span></tt> turns a review finding into proof.
+It writes one small test with two cases. The first shows the bug failing
+in the real code. The second applies the proposed fix temporarily and runs
+the same checks again. You get the test, a short explanation, and a review
+comment ready to paste. It never changes your application code.</li>
 </ul>
-<div class="figure">
-<img alt="PyGrunn 2026" src="https://pygrunn.org/wp-content/uploads/2026/03/pygrunn-26-header.png" />
 </div>
+<div class="section" id="clearer-review-output">
+<h2>Clearer review output</h2>
+<p>Findings now use priorities from <tt class="docutils literal">P0</tt> (immediate) to <tt class="docutils literal">P4</tt> (lowest),
+based on the <a class="reference external" href="https://developers.google.com/issue-tracker/concepts/issues#issue_priority">Google Issue Tracker</a>
+scale. Each finding is numbered, says why it got its priority, and explains
+the fix properly. &quot;Handle the error&quot; isn't enough; it has to say which file
+to change, what to change, and why that works.</p>
+<p>If the pull request links to a Jira ticket or another spec, the review checks
+each acceptance criterion and marks it as met, not met, or unverified.</p>
 </div>
-<p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: right;">Originally published as <a href="https://gist.github.com/barseghyanartur/17f574a665810fe438f06a445149bb11" target="_blank" rel="noopener">GitHub Gist #17f574a665810fe438f06a445149bb11</a></p>
+<div class="section" id="plain-english-everywhere">
+<h2>Plain English everywhere</h2>
+<p>Every skill now asks the agent to explain things simply: main point first,
+short sentences, no inflated words. It also has to say what it checked and
+what it couldn't, instead of presenting guesses as facts.</p>
+</div>
+<div class="section" id="breaking-change">
+<h2>Breaking change</h2>
+<p>All skills now start with <tt class="docutils literal"><span class="pre">dot-agents-</span></tt>, so <tt class="docutils literal"><span class="pre">/migrate-to-uv</span></tt> is now
+<tt class="docutils literal"><span class="pre">/dot-agents-migrate-to-uv</span></tt>. This avoids clashes with skills from other
+sources.</p>
+<p>The repository is at
+<a class="reference external" href="https://github.com/barseghyanartur/dot-agents">github.com/barseghyanartur/dot-agents</a>.
+MIT licensed.</p>
+</div>
+<p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: right;">Originally published as <a href="https://gist.github.com/barseghyanartur/8124c4dd107475bef47fc74261e7a90f" target="_blank" rel="noopener">GitHub Gist #8124c4dd107475bef47fc74261e7a90f</a></p>
       </div><!-- /.entry-content -->
         <div class="comments">
           <h2>Comments</h2>
           <div id="cusdis_thread"
             data-host="https://cusdis.com"
             data-app-id="a4b8dce4-dafd-4806-8dd6-5183f084f8dc"
-            data-page-id="pygrunn-2026-talk-agentic-engineering"
-            data-page-url="/gistblog/posts/2026/05/pygrunn-2026-talk-agentic-engineering/"
-            data-page-title="PyGrunn 2026 talk: Agentic Engineering"
+            data-page-id="dot-agents-code-review-optimisation-and-fix-proofs"
+            data-page-url="/gistblog/posts/2026/10/dot-agents-code-review-optimisation-and-fix-proofs/"
+            data-page-title="dot-agents: code review, optimisation, and fix proofs"
           ></div>
           <script src="/gistblog/theme/js/cusdis-style.js"></script>
           <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>

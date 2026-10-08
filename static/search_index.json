@@ -223,6 +223,21 @@
     "content": "TL;DR Vivaldi browser has 1 killing feature, that no other browser has implemented. It can turn any website into a progressive web app. Ever wanted to have Google Translate or GMail as a web app? No problem! From this point, you could jump directly to How to section. Background I have many browsers installed on the systems I use. I use most of them simultaneously. Firefox for strictly work related private web sites (such as company portal, knowledge base) only. With a minimal set of trusted plugins. Brave as a primary browser for personal use and main browser for everything else, which isn't company private. Brave's out of the box security is great. Edge as a secondary browser next to Brave. I use it primarily for Microsoft CoPilot and ChatGPT. Google Chrome for installing progressive web apps (such as WhatsApp, Google Meet or RegEx101). Opera for anonymous browsing. I never log into sites using Opera. Chromium for automated frontend testing. Occasionally. Vivaldi joined the group rece..."
   },
   {
+    "title": "dot-agents: code review, optimisation, and fix proofs",
+    "url": "posts/2026/10/dot-agents-code-review-optimisation-and-fix-proofs/",
+    "date": "2026-10-08",
+    "category": "Tech",
+    "tags": [
+      "python",
+      "ai",
+      "agents",
+      "code-review",
+      "open-source"
+    ],
+    "summary": "dot-agents 0.3 adds three new skills: code review, code optimisation, and one that writes a test proving a bug and its fix.",
+    "content": "Since I `first wrote about dot-agents <https://barseghyanartur.github.io/gistblog/posts/2026/05/dot-agents-skills-for-ai-agents/>`_, it has grown from six skills to nine. The new ones are all about reviewing code. New skills dot-agents-code-review reviews a pull request, branch, commit, or local changes for real bugs and security risks. Every finding needs evidence: where it breaks, how it gets triggered, and the smallest safe fix. If there's no evidence, it doesn't get reported. dot-agents-code-optimisation does the same for performance, dead code, and duplication. It doesn't nitpick style. dot-agents-reproduce-and-verify-fix turns a review finding into proof. It writes one small test with two cases. The first shows the bug failing in the real code. The second applies the proposed fix temporarily and runs the same checks again. You get the test, a short explanation, and a review comment ready to paste. It never changes your application code. Clearer review output Findings now use prio..."
+  },
+  {
     "title": "open-webui setup on macOS",
     "url": "posts/2026/04/open-webui-setup-on-macos/",
     "date": "2026-04-03",

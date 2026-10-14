@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+                        <meta charset="utf-8" />
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                        <meta name="generator" content="Pelican" />
+                        <title>Dev Notes - semantic-layers</title>
+                        <link rel="stylesheet" href="/gistblog/theme/css/main.css" />
+                                <link href="/gistblog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Dev Notes Atom Feed" />
+        </head>
+
+        <body id="index" class="home">
+                <header id="banner" class="body">
+                        <h1><a href="/gistblog/">Dev Notes</a></h1>
+                        <nav><ul>
+                                                <li><a href="/gistblog">Home</a></li>
+                                                <li id="nav-search"><a href="/gistblog/search.html" id="nav-search-link">Search</a></li>
+                                                <li><a href="/gistblog/category/art.html">Art</a></li>
+                                                <li><a href="/gistblog/category/tech.html">Tech</a></li>
+                        </ul></nav>
+                        <div id="search-dropdown" class="search-dropdown">
+                                <div class="search-dropdown-input-wrap">
+                                        <input type="search" id="search-dropdown-input" placeholder="Search posts..." autocomplete="off">
+                                </div>
+                                <div id="search-dropdown-results">
+                                        <div class="search-dropdown-hint">Type to search...</div>
+                                </div>
+                                <div class="search-dropdown-footer">
+                                        <a href="/gistblog/search.html" id="search-full-link">Full search page</a>
+                                </div>
+                        </div>
+                </header><!-- /#banner -->
+
+                <aside id="featured" class="body">
+                    <article>
+                        <h1 class="entry-title"><a href="/gistblog/posts/2026/10/pydata-amsterdam-2026-the-bits-i-brought-back/">PyData Amsterdam 2026: the bits I brought back</a></h1>
+<footer class="post-info minimal">
+        <span class="post-date">2026-10-14</span>
+<span class="post-category"> | <a href="/gistblog/category/tech.html">Tech</a></span><span class="post-tags"> | <a href="/gistblog/tag/python.html">python</a>, <a href="/gistblog/tag/ai.html">ai</a>, <a href="/gistblog/tag/llm.html">llm</a>, <a href="/gistblog/tag/evaluation.html">evaluation</a>, <a href="/gistblog/tag/duckdb.html">duckdb</a>, <a href="/gistblog/tag/semantic-layers.html">semantic-layers</a>, <a href="/gistblog/tag/agents.html">agents</a>, <a href="/gistblog/tag/pydata.html">pydata</a></span></footer><img alt="Attendees at PyData Amsterdam in a large industrial conference hall" src="https://raw.githubusercontent.com/barseghyanartur/gist-blog-images/refs/heads/main/images/pydata_amsterdam_2026.webp" style="width: 100%;" />
+<p>I attended <a class="reference external" href="https://amsterdam.pydata.org/">PyData Amsterdam 2026</a> on
+September 10 and 11 at NDSM Loods. There were many talks about LLMs, often
+showing different ways to solve the same problems.</p>
+<p>Five themes stood out to me: context limits, evaluation, DuckDB, semantic
+layers, and agents. The common lesson was simple: let the LLM choose what to
+do, but let deterministic code do the work whenever possible.</p>
+<div class="section" id="everyone-fights-the-context-window">
+<h2>Everyone fights the context window</h2>
+<p>LLMs can only hold so much text at once. Several talks dealt with this limit,
+but used different workarounds:</p>
+<ul class="simple">
+<li>retrieve only the relevant text with RAG;</li>
+<li>summarize the source material first;</li>
+<li>split the work across several agents;</li>
+<li>process separate chunks and combine their answers.</li>
+</ul>
+<p>A Databricks talk covered tasks with more than 10 million tokens. The proposed
+approach combined three techniques:</p>
+<ul class="simple">
+<li><strong>Map-reduce:</strong> run the LLM on each chunk, then combine the partial answers.</li>
+<li><strong>Hierarchical summarization:</strong> create summaries, then summaries of those
+summaries.</li>
+<li><strong>Multi-agent routing:</strong> send each sub-question to a specialist agent.</li>
+</ul>
+<p>The reported quality increased from roughly 70% with plain RAG to roughly 90%
+with the combined approach. These percentages come from my conference notes;
+I do not have the exact metric used in the talk.</p>
+<p>Source: Azamat Omuraliev, <a class="reference external" href="https://pretalx.com/pydata-amsterdam2026/talk/DQXPVN/">talk page</a>.</p>
+</div>
+<div class="section" id="the-2-problem">
+<h2>The 2% problem</h2>
+<p>Mars presented the other side of multi-step agent systems: small errors
+compound.</p>
+<p>If one step is 96.5% reliable, the chance of completing 20 dependent steps
+without an error is about 50%:</p>
+<div class="highlight"><pre><span></span>0.965 ^ 20 = 0.49
+</pre></div>
+<p>A system can therefore look very accurate at the step level and still be
+unreliable as a whole. Even 98% accuracy per step is not enough for long,
+strict workflows.</p>
+<p>Mars addressed this with heavy human verification. Their stack included a
+knowledge graph, a data lake, agents, process-mining tools, and Gemini. The
+important part was not the exact stack. It was the refusal to treat every AI
+answer as trustworthy.</p>
+<p>Source: Patrick van Balkom, <a class="reference external" href="https://pretalx.com/pydata-amsterdam2026/talk/CFNEQT/">AI You Can Bet Your Business On</a>.</p>
+</div>
+<div class="section" id="right-words-wrong-meaning">
+<h2>Right words, wrong meaning</h2>
+<p>Mars also found that documentation could use the right words while still
+capturing the wrong meaning. In one example, two experts disagreed about the
+logic behind &quot;carton thickness&quot;.</p>
+<p>Instead of allowing the AI to choose one interpretation silently, the team
+made both versions explicit. They also recorded experts explaining their work
+out loud, converted the recordings to text, and used the result as input for
+the knowledge graph.</p>
+<p>The useful workflow was:</p>
+<div class="highlight"><pre><span></span>Record an expert -&gt; speech-to-text -&gt; reviewed ground truth
+</pre></div>
+<p>The deeper lesson is that retrieval cannot fix incorrect source material. If
+the source is ambiguous, the ambiguity must be resolved or represented.</p>
+</div>
+<div class="section" id="the-llm-should-not-compute-the-route">
+<h2>The LLM should not compute the route</h2>
+<p>TomTom showed a clean separation of responsibilities:</p>
+<div class="highlight"><pre><span></span>Driver request -&gt; LLM chooses a tool -&gt; TomTom API computes the route
+</pre></div>
+<p>The LLM understands the request and selects the right operation. It does not
+calculate the route itself. If a request contains two possible places called
+&quot;King Street&quot;, the assistant asks a question instead of guessing.</p>
+<p>The team uses <tt class="docutils literal"><span class="pre">pytest-bdd</span></tt> together with an LLM judge and reports coverage
+of roughly 98% of the assistant's behaviour. They can also send the same
+request to two model providers and use the first answer that returns. A small
+model produces an immediate acknowledgement while the main request runs.</p>
+<p>This is more expensive per request, but good evaluation makes it possible to
+change providers or move to a cheaper model when the measured quality remains
+acceptable.</p>
+<p>Source: Tara Farzami, <a class="reference external" href="https://pretalx.com/pydata-amsterdam2026/talk/ZXZCFJ/">When should an AI Agent say &quot;I Don't Know&quot;?</a>.</p>
+</div>
+<div class="section" id="an-evaluation-score-is-evidence-not-a-fact">
+<h2>An evaluation score is evidence, not a fact</h2>
+<p>Jodie Burchell from JetBrains applied ideas from psychometrics to LLM
+evaluation. Psychometrics measures traits that cannot be observed directly,
+such as intelligence or anxiety. A test score is evidence about such a trait,
+not the trait itself.</p>
+<p>The same caution applies to LLM evaluations. If a score rises from 72% to
+81% after a prompt or chunking change, the system may have improved. But the
+score alone does not prove it.</p>
+<p>She proposed four useful gate checks.</p>
+<div class="section" id="what-exactly-did-i-prove">
+<h3>1. What exactly did I prove?</h3>
+<p>Evaluation results are usually narrower than the claims made about them.
+&quot;The model handles customer support better&quot; is too broad if the test only
+checks information extraction.</p>
+<p>A claim such as the following is less exciting, but supportable:</p>
+<blockquote>
+The model extracts dates and account IDs from this set of messy emails
+correctly 85% of the time.</blockquote>
+<p>Name the task, the data, and the success condition.</p>
+</div>
+<div class="section" id="what-else-changed-the-score">
+<h3>2. What else changed the score?</h3>
+<p>LLM evaluations can be sensitive to token order, whitespace, prompt wording,
+system instructions, and judge bias. An LLM judge may also prefer long,
+friendly answers even when they are not more correct.</p>
+<p>Try harmless prompt variations. Replace double quotes with single quotes. Add
+whitespace. Reword the request without changing its meaning. If the score
+moves by 10%, the test may be measuring formatting rather than capability.</p>
+</div>
+<div class="section" id="what-else-should-also-improve">
+<h3>3. What else should also improve?</h3>
+<p>Do not trust one score or one LLM judge. Check a second, unrelated signal:</p>
+<ul class="simple">
+<li>users accept more answers;</li>
+<li>fewer users complain;</li>
+<li>generated code passes more real tests;</li>
+<li>the returned data matches a known correct result.</li>
+</ul>
+<p>When two unrelated measurements improve, the change is more likely to be
+real.</p>
+</div>
+<div class="section" id="what-did-my-test-not-check">
+<h3>4. What did my test not check?</h3>
+<p>A test only supports conclusions about the examples and conditions it covers.
+A chatbot scoring 90% on 100 tidy English questions tells us nothing about
+adversarial users, Dutch questions, angry customers, or latency under load.</p>
+<p>State these gaps next to the score. Passing the test does not mean the system
+works for every real user.</p>
+</div>
+</div>
+<div class="section" id="duckdb-remains-a-conference-favourite">
+<h2>DuckDB remains a conference favourite</h2>
+<p>DuckDB appeared throughout the conference. In August 2026, AWS acquired
+DuckLabs, the company behind DuckDB. The core DuckDB engine remains available
+under the MIT licence and is governed through the DuckDB Foundation.</p>
+<p>Another visible trend is distributing datasets as <tt class="docutils literal">.duckdb</tt> files instead
+of CSV or JSON. A DuckDB file can contain several related tables, preserve
+data types, and be queried directly.</p>
+<p>Further reading: <a class="reference external" href="https://aws.amazon.com/blogs/big-data/aws-and-ducklabs-building-the-future-of-analytics-together/">AWS and DuckLabs</a>
+and <a class="reference external" href="https://www.theregister.com/databases/2026/08/26/aws_buys_ducklabs_the_people_behind_the_popular_in-process_olap_database/5292590">The Register's report</a>.</p>
+</div>
+<div class="section" id="adbc-database-access-in-arrow-format">
+<h2>ADBC: database access in Arrow format</h2>
+<p>ADBC stands for Arrow Database Connectivity. It provides a common API for
+moving Arrow data between databases and analytical tools, with little or no
+conversion.</p>
+<div class="highlight"><pre><span></span>BigQuery / SQL Server / ... -&gt; ADBC driver -&gt; DuckDB / pandas
+</pre></div>
+<p>It is a modern alternative to database access through ODBC or JDBC. The
+<tt class="docutils literal">dbc</tt> command-line tool manages drivers. The dbt benchmark described below
+uses <tt class="docutils literal">adbc_driver_flightsql</tt> to receive Arrow data and then work with it in
+pandas.</p>
+<p>Source: Matt Topol from Columnar, <a class="reference external" href="https://pretalx.com/pydata-amsterdam2026/talk/TRBXRH/">talk page</a>.</p>
+</div>
+<div class="section" id="semantic-layers-were-the-gem-of-the-conference">
+<h2>Semantic layers were the gem of the conference</h2>
+<p>A semantic layer is not a framework or file format. It is a concept: define
+business meaning once, in code, and let every consumer use the same
+definition.</p>
+<p>It can describe:</p>
+<ul class="simple">
+<li>what a claim is;</li>
+<li>what &quot;total loss&quot; means;</li>
+<li>how tables connect;</li>
+<li>which dimensions can be used for grouping or filtering;</li>
+<li>which measures and metrics are available.</li>
+</ul>
+<p>BI tools, notebooks, applications, and LLMs then ask for metrics by name.
+They do not rebuild the business logic independently.</p>
+<p>The pattern is the same as in the TomTom example:</p>
+<blockquote>
+The LLM chooses <strong>what</strong> to ask for. Code decides <strong>how</strong> to compute it.</blockquote>
+</div>
+<div class="section" id="grounding-ai-agents-in-dbt-manifests">
+<h2>Grounding AI agents in dbt manifests</h2>
+<p>Ricardo Angel Granados López showed a documentation pipeline grounded in dbt
+manifests:</p>
+<div class="highlight"><pre><span></span>Extract -&gt; draft with citations -&gt; validate mechanically -&gt; human sign-off
+</pre></div>
+<p>The dbt manifest is the source of truth. An agent must cite its claims. Claims
+that cannot be checked against the manifest are flagged instead of trusted.</p>
+<p>Source: <a class="reference external" href="https://github.com/RicardoAGL/onto-datamodel">onto-datamodel companion repository</a>.</p>
+</div>
+<div class="section" id="testing-a-semantic-layer-against-plain-sql">
+<h2>Testing a semantic layer against plain SQL</h2>
+<p>The dbt benchmark uses a fictional ACME Insurance dataset containing policies,
+claims, premiums, agents, and related data. Its questions and gold answers
+come from a 2023 data.world paper.</p>
+<p>The benchmark supports three strategies:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal">sql</tt></dt>
+<dd>The LLM receives raw table definitions. It writes the joins, calculations,
+and complete SQL query itself.</dd>
+<dt><tt class="docutils literal">semantic_layer</tt></dt>
+<dd>The LLM receives a menu of metric and dimension names. It writes a query
+that selects those names.</dd>
+<dt><tt class="docutils literal">mcp</tt></dt>
+<dd>The LLM uses tools to fetch the menu, then makes the same kind of selection
+through tool calls.</dd>
+</dl>
+<p>The published result dataset I reviewed contained <tt class="docutils literal">sql</tt> and
+<tt class="docutils literal">semantic_layer</tt> rows, but no MCP rows.</p>
+<p>Sources: <a class="reference external" href="https://github.com/dbt-labs/dbt-llm-sl-bench">dbt-labs/dbt-llm-sl-bench</a> and the <a class="reference external" href="https://dbt-labs.github.io/dbt-llm-sl-bench/">benchmark dashboard</a>.</p>
+</div>
+<div class="section" id="four-semantic-layer-building-blocks">
+<h2>Four semantic-layer building blocks</h2>
+<p>The semantic layer in the benchmark has four main parts:</p>
+<ul class="simple">
+<li><strong>Entities</strong> define keys and how tables connect. Together, they form the
+join graph.</li>
+<li><strong>Dimensions</strong> define what can be used to group or filter results.</li>
+<li><strong>Measures</strong> define basic aggregations such as sums, counts, and averages.</li>
+<li><strong>Metrics</strong> define named business numbers, including filters and formulas.</li>
+</ul>
+<p>For example, total loss can be defined once:</p>
+<div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">total_loss_amount</span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">derived</span>
+<span class="w">  </span><span class="nt">type_params</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">loss_payment_amount + loss_reserve_amount</span>
+</pre></div>
+<p>If <tt class="docutils literal">claim</tt> has a foreign catastrophe key and <tt class="docutils literal">catastrophe</tt> defines the
+matching primary key, MetricFlow knows how to join them. Neither the user nor
+the LLM has to write the join manually.</p>
+</div>
+<div class="section" id="the-llm-only-picks-names">
+<h2>The LLM only picks names</h2>
+<p>Before asking the model a question, the benchmark lists the available metrics
+and dimensions and places that menu in the prompt. The prompt also includes a
+small syntax example and guardrails.</p>
+<p>The model can select names or return <tt class="docutils literal">CANNOT_ANSWER</tt>. A query can look like
+this:</p>
+<div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="n">semantic_layer</span><span class="p">.</span><span class="n">query</span><span class="p">(</span>
+<span class="w">  </span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;total_loss_amount&#39;</span><span class="p">],</span>
+<span class="w">  </span><span class="n">group_by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;claim__catastrophe_identifier&#39;</span><span class="p">])</span><span class="w"> </span><span class="err">}}</span>
+</pre></div>
+<p>The dbt Semantic Layer Gateway turns this into warehouse SQL, executes it,
+and returns Arrow data.</p>
+</div>
+<div class="section" id="scoring-without-an-llm-judge">
+<h2>Scoring without an LLM judge</h2>
+<p>The benchmark does not ask another model whether an answer looks correct. It
+runs the gold query and the generated query, then compares their returned
+data.</p>
+<div class="highlight"><pre><span></span>Gold SQL result =? Generated query result
+</pre></div>
+<p>Each model runs every question five times. This is a strong example of using
+a second, independent measurement: correctness is checked mechanically against
+the expected data.</p>
+</div>
+<div class="section" id="the-result-52-versus-93">
+<h2>The result: 52% versus 93%</h2>
+<p>Across the original insurance tables, the reported correct-answer rate was:</p>
+<ul class="simple">
+<li><strong>52% without a semantic layer</strong>;</li>
+<li><strong>93% with a semantic layer</strong>.</li>
+</ul>
+<p>The questions and AI models were the same. The difference was responsibility.
+Without the semantic layer, the model wrote SQL, joins, and calculations. With
+it, the model selected named business concepts and deterministic code produced
+the SQL.</p>
+<p>The benchmark used eight insurance questions, five runs per question, and
+several models. When dbt added three helper tables, plain SQL improved to 82%
+while the semantic-layer approach remained around 92%. Cleaner data helped,
+but encoding the business meaning still produced the strongest overall
+result. One small model, GPT-5.6 Luna, performed worse with the semantic layer,
+so the benefit was not universal in every individual run.</p>
+<p>The results can be inspected on the <a class="reference external" href="https://dbt-labs.github.io/dbt-llm-sl-bench/">dbt LLM semantic-layer benchmark</a>.</p>
+</div>
+<div class="section" id="what-i-brought-back">
+<h2>What I brought back</h2>
+<p>The talks covered different systems, but their lessons fit together:</p>
+<ul class="simple">
+<li>Do not expect a larger context window to solve every large-document task.</li>
+<li>Measure reliability at the full workflow level, not just per agent step.</li>
+<li>Make ambiguity explicit. Retrieval is not enough when the source itself is
+unclear.</li>
+<li>Let LLMs interpret requests and choose tools. Let tested code perform exact
+calculations and operations.</li>
+<li>Treat evaluation scores as noisy evidence. State exactly what was tested and
+what was not.</li>
+<li>Prefer mechanical checks over an LLM judge when a real result can be
+executed and compared.</li>
+<li>Put business definitions in a semantic layer instead of asking every model,
+query, or dashboard to reconstruct them.</li>
+</ul>
+<p>The semantic-layer benchmark made the last point especially clear. The largest
+improvement did not come from asking the model to reason harder. It came from
+giving the model a smaller, safer job.</p>
+</div>
+<p style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.9rem; color: #555; text-align: right;">Originally published as <a href="https://gist.github.com/barseghyanartur/6b8395ae748e90a5fec407600cc63567" target="_blank" rel="noopener">GitHub Gist #6b8395ae748e90a5fec407600cc63567</a></p>                    </article>
+                </aside><!-- /#featured -->
+                <section id="extras" class="body">
+                                <div class="social">
+                                        <h2>social</h2>
+                                        <ul>
+                                                        <li><a href="/gistblog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                                        </ul>
+                                </div><!-- /.social -->
+                </section><!-- /#extras -->
+
+                <footer id="contentinfo" class="body">
+                        <address id="about" class="vcard body">
+                                Proudly powered by <a rel="nofollow" href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a rel="nofollow" href="https://www.python.org/">Python</a>.
+                        </address><!-- /#about -->
+
+                        <p>The theme is by <a rel="nofollow" href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+                </footer><!-- /#contentinfo -->
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
+                <script data-siteurl="/gistblog" src="/gistblog/theme/js/search.js"></script>
+                <!-- Cloudflare Web Analytics -->
+                 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "94bb2938c9ab42eba6b587c892a78d27"}'></script>
+                 <!-- End Cloudflare Web Analytics -->
+        </body>
+</html>

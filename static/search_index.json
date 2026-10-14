@@ -210,6 +210,24 @@
     "content": "https://github.com/Alexey-T/CudaText macOS releases Go for aarch64 releases https://github.com/Alexey-T/CudaText/discussions/5590#discussioncomment-15352982 Tweaks Post-installation xattr -cr /Applications/CudaText.app .zshrc # ---------------------------------------------------------------------------- # CudaText # ---------------------------------------------------------------------------- alias cudatext=\"/Applications/CudaText.app/Contents/MacOS/cudatext\" Plugins list https://github.com/halfbrained/cudatext_plugins_list CudaExt CudaLint Differ Favorites Find in Files 4 Highlight Occurrences Encode Spell Checker Case Converter CSV Helper Python IntelliSense SQL Tools Text Statistics Markdown Preview reStructuredText Preview user.json { \"ui_theme\": \"ebony\", \"ui_theme_syntax\": \"ebony\", \"ui_toolbar_show\": false, \"ruler_show\": true, \"minimap_show\": true, \"margin_string\": \"80 120\", \"minimap_sel_always\": true, \"minimap_sel_border\": false, \"tab_size\": 4, \"tab_spaces\": true, \"caret_blink_en\"..."
   },
   {
+    "title": "PyData Amsterdam 2026: the bits I brought back",
+    "url": "posts/2026/10/pydata-amsterdam-2026-the-bits-i-brought-back/",
+    "date": "2026-10-14",
+    "category": "Tech",
+    "tags": [
+      "python",
+      "ai",
+      "llm",
+      "evaluation",
+      "duckdb",
+      "semantic-layers",
+      "agents",
+      "pydata"
+    ],
+    "summary": "My main takeaways from PyData Amsterdam 2026: context limits, compounding agent errors, better LLM evaluation, DuckDB and ADBC, and why semantic layers make AI-generated data answers more reliable.",
+    "content": ":alt: Attendees at PyData Amsterdam in a large industrial conference hall :width: 100% I attended PyData Amsterdam 2026 <https://amsterdam.pydata.org/> on September 10 and 11 at NDSM Loods. There were many talks about LLMs, often showing different ways to solve the same problems. Five themes stood out to me: context limits, evaluation, DuckDB, semantic layers, and agents. The common lesson was simple: let the LLM choose what to do, but let deterministic code do the work whenever possible. Everyone fights the context window LLMs can only hold so much text at once. Several talks dealt with this limit, but used different workarounds: retrieve only the relevant text with RAG; summarize the source material first; split the work across several agents; process separate chunks and combine their answers. A Databricks talk covered tasks with more than 10 million tokens. The proposed approach combined three techniques: Map-reduce: run the LLM on each chunk, then combine the partial answers. Hiera..."
+  },
+  {
     "title": "Why is Vivaldi browser a great companion?",
     "url": "posts/2025/03/why-is-vivaldi-browser-a-great-companion/",
     "date": "2025-03-12",

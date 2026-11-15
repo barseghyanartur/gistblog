@@ -382,7 +382,7 @@
       "aigrunn"
     ],
     "summary": "My talk about LLM security for beginners — the OWASP Top 10 for LLM apps and for agents, with live demos.",
-    "content": "Links to my slides This year I gave a talk about LLM security for beginners — the OWASP Top 10 for LLM applications and the OWASP Agentic Skills risks, with live demos: real vulnerable code and its fix for each LLM risk, and real agent attacks (credential exfiltration, a code backdoor, a sandbox escape) that the nono <https://docs.nono.sh>_ sandbox then blocks. Slides in HTML format: https://barseghyanartur.github.io/llm-security-talk/ Slides in PDF-like HTML format: https://barseghyanartur.github.io/llm-security-talk/?print-pdf"
+    "content": "Links to my slides This year I gave a talk about LLM security for beginners — the OWASP Top 10 for LLM applications and the OWASP Agentic Skills risks, with live demos: real vulnerable code and its fix for each LLM risk, and real agent attacks (credential exfiltration, a code backdoor, a sandbox escape) that the nono <https://docs.nono.sh>_ sandbox then blocks. Slides in HTML format: https://barseghyanartur.github.io/llm-security-talk/ Slides in PDF-like HTML format: https://barseghyanartur.github.io/llm-security-talk/presentation.html?print-pdf"
   },
   {
     "title": "Log4Brains images support",
